@@ -27,17 +27,20 @@ export const HeaderLogoText = styled.span`
   }
 `;
 export const HeaderLinkWraper = styled.div`
-  position: relative;
-  display: flex;
-  flex-grow: 1;
-  padding-left: 255px;
-  /* flex-direction: column; */
-  /* justify-content: center;
+  display: none;
+  @media only screen and (min-width: 1440px) {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    padding-left: 255px;
+    /* flex-direction: column; */
+    /* justify-content: center;
   align-items: center; */
-  gap: 4px;
-  transition: transform 0.3s ease;
-  &:hover {
-    transform: scale(1.1);
+    gap: 4px;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `;
 
@@ -84,5 +87,24 @@ export const HeaderLink = styled(NavLink)`
   &.active {
     color: #fff;
     background-color: #59b17a;
+  }
+`;
+export const BurgerButton = styled.button`
+  display: block;
+  @media only screen and (min-width: 1440px) {
+    display: none;
+  }
+`;
+export const HeaderLogAut = styled.button`
+  display: none;
+  @media only screen and (min-width: 1440px) {
+    display: block;
+    border: 1px solid rgba(89, 177, 122, 0.5);
+    border-radius: 60px;
+    padding: 15px 32px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: #59b17a;
   }
 `;
