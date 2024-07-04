@@ -14,30 +14,37 @@ import {
 } from "./MobileBurger.Styled";
 
 const MobileBurger = ({ closeBurger, isOpen }) => {
+  function close(e) {
+    if (e.target === e.currentTarget) {
+      closeBurger();
+    }
+  }
+
   return (
     <>
-      <Backdrop onClick={closeBurger} />
-      <BurgerContainer $isOpen={isOpen}>
-        <BurgerButtonExit onClick={closeBurger}>
-          <ExitSVG />
-        </BurgerButtonExit>
-        <BurgerMenu>
-          <BurgerLinkWraper>
-            <LinkContainer>
-              <BurgerLink to={"/"}>Home</BurgerLink>
-            </LinkContainer>
-            <LinkContainer>
-              <BurgerLink to={"/shop"}>Medicine store</BurgerLink>
-            </LinkContainer>
-            <LinkContainer>
-              <BurgerLink to={"/medicine"}>Medicine</BurgerLink>
-            </LinkContainer>
-          </BurgerLinkWraper>
-          <BurgerButtonLogAut>Log out</BurgerButtonLogAut>
-        </BurgerMenu>
-        {/* </div> */}
-        {/* </> */}
-      </BurgerContainer>
+      <Backdrop onClick={close}>
+        <BurgerContainer $isOpen={isOpen}>
+          <BurgerButtonExit onClick={closeBurger}>
+            <ExitSVG />
+          </BurgerButtonExit>
+          <BurgerMenu>
+            <BurgerLinkWraper>
+              <LinkContainer>
+                <BurgerLink to={"/"}>Shop</BurgerLink>
+              </LinkContainer>
+              <LinkContainer>
+                <BurgerLink to={"/medicine"}>Medicine</BurgerLink>
+              </LinkContainer>
+              <LinkContainer>
+                <BurgerLink to={"/statistics"}>Statistics</BurgerLink>
+              </LinkContainer>
+            </BurgerLinkWraper>
+            <BurgerButtonLogAut>Log out</BurgerButtonLogAut>
+          </BurgerMenu>
+          {/* </div> */}
+          {/* </> */}
+        </BurgerContainer>
+      </Backdrop>
     </>
   );
 };

@@ -1,17 +1,16 @@
-import * as React from "react";
-const LogoMobale = (props) => (
+const LogoMobile = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width={32}
-    height={32}
+    width={window.innerWidth < 768 ? "32" : "44"}
+    height={window.innerWidth < 768 ? "32" : "44"}
     fill="none"
     {...props}
   >
     <mask
       id="b"
-      width={32}
-      height={32}
+      width={window.innerWidth < 768 ? "32" : "44"}
+      height={window.innerWidth < 768 ? "32" : "44"}
       x={0}
       y={0}
       maskUnits="userSpaceOnUse"
@@ -19,11 +18,20 @@ const LogoMobale = (props) => (
         maskType: "alpha",
       }}
     >
-      <path fill="url(#a)" d="M0 0h32v32H0z" />
+      <path
+        fill="url(#a)"
+        d={window.innerWidth < 768 ? "M0 0h32v32H0z" : "M0 0h44v44H0z"}
+      />
     </mask>
     <g mask="url(#b)">
-      <path fill="url(#c)" d="M0 0h32v32H0z" />
-      <path fill="#59B17A" d="M0 0h32v32H0z" />
+      <path
+        fill="url(#c)"
+        d={window.innerWidth < 768 ? "M0 0h32v32H0z" : "M0 0h44v44H0z"}
+      />
+      <path
+        fill="#59B17A"
+        d={window.innerWidth < 768 ? "M0 0h32v32H0z" : "M0 0h44v44H0z"}
+      />
     </g>
     <defs>
       <pattern
@@ -51,4 +59,4 @@ const LogoMobale = (props) => (
     </defs>
   </svg>
 );
-export default LogoMobale;
+export default LogoMobile;

@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import LogoMobale from "../../images/svg/logo/LogoMobale";
+// import { Link } from "react-router-dom";
+import LogoMobile from "../../images/svg/logo/LogoMobile";
 import "./Header.Styled.css";
 import MobileBurger from "../Modal/MobileBurger/MobileBurger";
 import BurgerMobileSVG from "../../images/svg/burger/BurgerMobileSVG";
+import {
+  HeaderLink,
+  HeaderLinkWraper,
+  HeaderLogo,
+  HeaderLogoText,
+  HeaderWrap,
+  LinkContainer,
+} from "./Header.Styled";
 
 const Header = () => {
   const [MobileBurgerMenu, setMobileBurgerMenu] = useState(false);
@@ -38,21 +46,23 @@ const Header = () => {
         <MobileBurger closeBurger={closeBurger} isOpen={MobileBurgerMenu} />
       )}
 
-      <div className="header">
-        <Link
-          className="header__logo visible-increase"
-          to="/"
-          aria-label="Home"
-        >
-          <LogoMobale />
-          <span className="header__logo-text">E-Pharmacy</span>
-        </Link>
+      <HeaderWrap>
+        <HeaderLogo to="/" aria-label="Home">
+          <LogoMobile />
+          <HeaderLogoText>E-Pharmacy</HeaderLogoText>
+        </HeaderLogo>
         {isLargeScreen && (
-          <div className="visible-increase">
-            <Link className="header__Link visible-increase">Shop</Link>
-            <Link className="header__Link visible-increase">Medicine</Link>
-            <Link className="header__Link visible-increase">Statistics</Link>
-          </div>
+          <HeaderLinkWraper>
+            <LinkContainer>
+              <HeaderLink to="/">Shop</HeaderLink>
+            </LinkContainer>
+            <LinkContainer>
+              <HeaderLink to="/medicine">Medicine</HeaderLink>
+            </LinkContainer>
+            <LinkContainer>
+              <HeaderLink to="/statistics">Statistics</HeaderLink>
+            </LinkContainer>
+          </HeaderLinkWraper>
         )}
 
         {user && (
@@ -71,7 +81,7 @@ const Header = () => {
             )}
           </>
         )}
-      </div>
+      </HeaderWrap>
     </>
   );
 };
