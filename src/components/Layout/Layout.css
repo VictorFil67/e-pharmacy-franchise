@@ -1,8 +1,9 @@
 .container {
   width: 100%;
+  flex-grow: 1;
+  max-width: 375px;
   padding: 25px 20px 0px 20px;
   margin: 0 auto;
-  flex-grow: 1;
   @media only screen and (min-width: 768px) {
     max-width: 768px;
     padding: 28px 32px 0px 32px;

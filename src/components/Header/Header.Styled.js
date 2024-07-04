@@ -4,8 +4,11 @@ import styled from "styled-components";
 export const HeaderWrap = styled.div`
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   padding-bottom: 64px;
+  @media only screen and (min-width: 1440px) {
+    justify-content: flex-start;
+  }
 `;
 export const HeaderLogo = styled(Link)`
   display: flex;
