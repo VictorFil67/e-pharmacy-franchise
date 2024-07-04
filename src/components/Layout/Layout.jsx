@@ -1,26 +1,28 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
-import "./Layout.css";
-import Footer from "../Footer/Footer";
+// import "./Layout.css";
+// import Footer from "../FooterContent/FooterContent";
+import FooterContent from "../FooterContent/FooterContent";
+import { Container, Footer, FooterContainer } from "./Layout.styled";
 
 const Layout = () => {
   const user = true;
   return (
     <>
-      <div className="container">
+      <Container>
         <header>
           <Header />
         </header>
         <main>
           <Outlet />
         </main>
-      </div>
+      </Container>
       {user && (
-        <footer className="footer">
-          <div className="container">
-            <Footer />
-          </div>
-        </footer>
+        <Footer>
+          <FooterContainer>
+            <FooterContent />
+          </FooterContainer>
+        </Footer>
       )}
     </>
   );
