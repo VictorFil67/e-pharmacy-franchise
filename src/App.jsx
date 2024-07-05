@@ -27,9 +27,6 @@ function App() {
               path="/reading"
               element={<PrivateRoute>{/* <ReadingPage /> */}</PrivateRoute>}
             />
-          </Route>
-
-          <>
             <Route
               path="/register"
               element={
@@ -38,7 +35,6 @@ function App() {
                 </PublicRoute>
               }
             />
-
             <Route
               path="/login"
               element={
@@ -47,8 +43,8 @@ function App() {
                 </PublicRoute>
               }
             />
-          </>
-          <Route path="*" element={<Navigate to="/recommended" />} />
+            <Route path="*" element={<Navigate to="/recommended" />} />
+          </Route>
         </Routes>
       </Suspense>
     </>

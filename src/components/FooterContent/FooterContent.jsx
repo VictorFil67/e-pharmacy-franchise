@@ -1,8 +1,8 @@
-import InstagramSvg from "../../images/footer/InstagramSvg";
-import YoutubeSvg from "../../images/footer/YoutubeSvg";
-import FacebookSvg from "../../images/footer/FacebookSvg";
+import InstagramSvg from "../../images/footerImg/InstagramSvg";
+import YoutubeSvg from "../../images/footerImg/YoutubeSvg";
+import FacebookSvg from "../../images/footerImg/FacebookSvg";
 // import FacebookSvg from "../../images/footer/FacebookSvg";
-import FooterLogo from "../../images/svg/logo/FooterLogo";
+import FooterLogo from "../../images/footerImg/FooterLogo";
 
 import {
   ClarificationLink,

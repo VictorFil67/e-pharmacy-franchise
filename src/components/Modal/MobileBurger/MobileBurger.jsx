@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 // import Backdrop from "../../Backdrop/Backdrop";
 import "./MobileBurger.Styled.css";
-import ExitSVG from "../../../images/svg/Exit/ExitSVG";
+import ExitSVG from "../../../images/hederImg/ExitSVG";
 import {
   Backdrop,
   BurgerButtonExit,

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import LogoMobile from "../../images/svg/logo/LogoMobile";
+import LogoMobile from "../../images/hederImg/LogoMobile";
 import "./Header.Styled.css";
 import MobileBurger from "../Modal/MobileBurger/MobileBurger";
-import BurgerMobileSVG from "../../images/svg/burger/BurgerMobileSVG";
+import BurgerMobileSVG from "../../images/hederImg/BurgerMobileSVG";
 import {
   BurgerButton,
   HeaderLink,
@@ -38,19 +38,26 @@ const Header = () => {
           <LogoMobile />
           <HeaderLogoText>E-Pharmacy</HeaderLogoText>
         </HeaderLogo>
-        <HeaderLinkWraper>
-          <LinkContainer>
-            <HeaderLink to="/">Shop</HeaderLink>
-          </LinkContainer>
-          <LinkContainer>
-            <HeaderLink to="/medicine">Medicine</HeaderLink>
-          </LinkContainer>
-          <LinkContainer>
-            <HeaderLink to="/statistics">Statistics</HeaderLink>
-          </LinkContainer>
-        </HeaderLinkWraper>
         {user && (
           <>
+            <HeaderLinkWraper>
+              <LinkContainer>
+                <HeaderLink to="/" aria-label="Shop">
+                  Shop
+                </HeaderLink>
+              </LinkContainer>
+              <LinkContainer>
+                <HeaderLink to="/medicine" aria-label="Medicine">
+                  Medicine
+                </HeaderLink>
+              </LinkContainer>
+              <LinkContainer>
+                <HeaderLink to="/statistics" aria-label="Statistics">
+                  Statistics
+                </HeaderLink>
+              </LinkContainer>
+            </HeaderLinkWraper>
+
             <BurgerButton onClick={openBurger}>
               <BurgerMobileSVG />
             </BurgerButton>

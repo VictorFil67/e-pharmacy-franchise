@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 const PublicRoute = ({ children }) => {
   // const user = useSelector(selectUser);
   // const path = useSelector(selectPath);
-  const user = true;
+  const user = false;
   const path = "/";
   if (!user) {
     return children;
