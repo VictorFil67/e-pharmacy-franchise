@@ -87,6 +87,7 @@ const LoginPage = () => {
         errors={errors}
         buttonName={"Log in"}
         account={"Don't have an account?"}
+        rout={"/register"}
       />
     </div>
   );

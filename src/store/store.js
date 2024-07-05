@@ -18,13 +18,13 @@ const persistConfig = {
   key: "auth",
   version: 1,
   storage,
-  whitelist: ["token", "refreshToken", "expireTime"],
+  whitelist: ["path", "token", "refreshToken", "expireTime"],
 };
 const persistConfigBooks = {
   key: "books",
   version: 1,
   storage,
-  whitelist: ["path", "option", "userBooks", "bookInfo"],
+  whitelist: ["option", "userBooks", "bookInfo"],
 };
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const persistedReducerBooks = persistReducer(persistConfigBooks, booksReducer);

@@ -1,17 +1,17 @@
-// import { useSelector } from "react-redux";
-// import { selectUser } from "../store/auth/selectors";
+import { useSelector } from "react-redux";
+import { selectPath, selectUser } from "../store/auth/selectors";
 import { Navigate } from "react-router-dom";
 // import { selectPath } from "../store/books/selectors";
 
 const PublicRoute = ({ children }) => {
-  // const user = useSelector(selectUser);
-  // const path = useSelector(selectPath);
-  const user = false;
-  const path = "/";
+  const user = useSelector(selectUser);
+  const path = useSelector(selectPath);
+  // const user = false;
+  // const path = "/";
   if (!user) {
     return children;
   }
-  return <Navigate to={path ?? "/recommended"} />;
+  return <Navigate to={path ?? "/"} />;
 };
 
 export default PublicRoute;

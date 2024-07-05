@@ -8,6 +8,7 @@ export const AuthComponent = ({
   handleSubmit,
   onSubmit,
   errors,
+  rout,
 }) => {
   return (
     <div>
@@ -30,7 +31,7 @@ export const AuthComponent = ({
           {buttonName}
         </button>
       </form>
-      <Link to="login">{account}</Link>
+      <Link to={rout}>{account}</Link>
     </div>
   );
 };

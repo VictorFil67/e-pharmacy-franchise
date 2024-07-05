@@ -13,8 +13,11 @@ import {
   HeaderWrap,
   LinkContainer,
 } from "./Header.Styled";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../store/auth/selectors";
 
 const Header = () => {
+  const user = useSelector(selectUser);
   const [MobileBurgerMenu, setMobileBurgerMenu] = useState(false);
 
   const openBurger = () => {
@@ -25,7 +28,7 @@ const Header = () => {
     setMobileBurgerMenu(false);
   };
 
-  const user = true;
+  // const user = true;
 
   return (
     <>

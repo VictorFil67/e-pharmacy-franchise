@@ -30,14 +30,14 @@ const booksSlice = createSlice({
     isLoading: false,
     error: null,
     prevPath: null,
-    path: null,
+    // path: null,
     option: "All books",
   },
   reducers: {
-    setPath(state, { payload }) {
-      state.prevPath === state.path;
-      state.path = payload;
-    },
+    // setPath(state, { payload }) {
+    //   state.prevPath === state.path;
+    //   state.path = payload;
+    // },
     getfilteredUserBooks(state, { payload }) {
       if (state.userBooks.length !== 0) {
         if (payload === "all-books") {
@@ -177,7 +177,7 @@ const booksSlice = createSlice({
 
 export const booksReducer = booksSlice.reducer;
 export const {
-  setPath,
+  // setPath,
   getfilteredUserBooks,
   setOption,
   setLimit,

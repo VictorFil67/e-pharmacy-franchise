@@ -87,6 +87,7 @@ const RegisterPage = () => {
         errors={errors}
         buttonName={"Register"}
         account={"Already have an account?"}
+        rout={"/login"}
       />
     </div>
   );
