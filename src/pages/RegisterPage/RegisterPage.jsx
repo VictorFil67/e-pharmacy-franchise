@@ -1,8 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { Authorization } from "../../components/AuthComponent/AuthComponent";
+import { AuthComponent } from "../../components/AuthComponent/AuthComponent";
 import { toast } from "react-toastify";
+import { signUpThunk } from "../../store/auth/operations";
+import { useDispatch } from "react-redux";
 
 const schema = yup.object({
   name: yup.string().required("The name is required"),
@@ -22,6 +24,8 @@ const schema = yup.object({
 });
 
 const RegisterPage = () => {
+  const dispatch = useDispatch();
+
   const inputs = [
     {
       placeholder: "User Name",
@@ -53,29 +57,29 @@ const RegisterPage = () => {
     mode: "onChange",
     resolver: yupResolver(schema),
   });
-  const notify = () => toast("Wow so easy!");
 
   function onSubmit({ name, email, phone, password }) {
-    // dispatch(signUpThunk({ email, password, name }))
-    //   .unwrap()
-    //   .then(() => {
-    //     toast.success("Sign up done!");
-    //     dispatch(signInThunk({ email, password }))
-    //       .unwrap()
-    //       .then(() => {
-    //         toast.success(`Welcome`);
-    //         navigate("/recommended");
-    //       })
-    //       .catch((err) => toast.error(err));
-    //   })
-    //   .catch(() => toast.error("Ooops... Something went wrong!"));
-    notify();
-    console.log(name, email, phone, password);
+    dispatch(signUpThunk({ name, email, phone, password }))
+      .unwrap()
+      .then(() => {
+        toast.success("Sign up done!");
+        // dispatch(signInThunk({ email, password }))
+        //   .unwrap()
+        //   .then(() => {
+        //     toast.success(`Welcome`);
+        //     navigate("/recommended");
+        //   })
+        //   .catch((err) => toast.error(err));
+      })
+      // .catch(() => toast.error("Ooops... Something went wrong!"));
+      .catch((err) => toast.error(err));
+    // notify();
+    // console.log(name, email, phone, password);
   }
 
   return (
     <div>
-      <Authorization
+      <AuthComponent
         inputs={inputs}
         register={register}
         handleSubmit={handleSubmit}

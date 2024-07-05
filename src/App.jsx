@@ -7,11 +7,14 @@ import PrivateRoute from "./routes/PrivateRoute";
 import Layout from "./components/Layout/Layout";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import { useSelector } from "react-redux";
 
 function App() {
+  const loading = useSelector((state) => state.loading.loading);
+
   return (
     <>
-      {/* {loading && <Loader/>} */}
+      {loading && <Loader />}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
