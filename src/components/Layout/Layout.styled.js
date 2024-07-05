@@ -29,12 +29,15 @@ export const FooterContainer = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 20px;
   @media only screen and (min-width: 768px) {
     max-width: 768px;
     padding: 32px;
+    gap: 32px;
   }
   @media only screen and (min-width: 1440px) {
     max-width: 1440px;
     padding: 40px 128px;
+    gap: 40px;
   }
 `;

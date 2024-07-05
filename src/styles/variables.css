@@ -1,8 +1,7 @@
 :root {
-  --black: #141414;
-  --dark-grey: #1f1f1f;
-  --input-title: #686868;
-  --light-green: rgba(84, 190, 150, 0.2);
-  --white: #f9f9f9;
-  --input-bg: #262626;
+  --green: #59b17a;
+  --grey: rgba(89, 177, 122, 0.1);
+  --pale-grey: #f7f8fa;
+  --white: #fff;
+  --black: #1d1e21;
 }
