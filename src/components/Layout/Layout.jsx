@@ -5,18 +5,22 @@ import Header from "../Header/Header";
 import FooterContent from "../FooterContent/FooterContent";
 import { Container, Footer, FooterContainer } from "./Layout.styled";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../store/auth/selectors";
+import { selectToken, selectUser } from "../../store/auth/selectors";
 import { useEffect } from "react";
 
 const Layout = () => {
   const user = useSelector(selectUser);
+  const token = useSelector(selectToken);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
+    if (token) {
       return;
+    } else if (user) {
+      navigate("/login");
+    } else {
+      navigate("/register");
     }
-    navigate("/register");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -30,7 +34,7 @@ const Layout = () => {
           <Outlet />
         </main>
       </Container>
-      {user && (
+      {user && token && (
         <Footer>
           <FooterContainer>
             <FooterContent />

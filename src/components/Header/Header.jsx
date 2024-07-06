@@ -14,13 +14,14 @@ import {
   LinkContainer,
 } from "./Header.Styled";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../store/auth/selectors";
+import { selectToken, selectUser } from "../../store/auth/selectors";
 import { logoutThunk } from "../../store/auth/operations";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const user = useSelector(selectUser);
+  const token = useSelector(selectToken);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [MobileBurgerMenu, setMobileBurgerMenu] = useState(false);
@@ -61,7 +62,7 @@ const Header = () => {
           <LogoMobile />
           <HeaderLogoText>E-Pharmacy</HeaderLogoText>
         </HeaderLogo>
-        {user && (
+        {user && token && (
           <>
             <HeaderLinkWraper>
               <LinkContainer>
