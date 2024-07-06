@@ -32,10 +32,12 @@ function App() {
               path="/recommended"
               element={<PrivateRoute>{/* <RecommendedPage /> */}</PrivateRoute>}
             />
-            <Route
+            {/* <Route
               path="/library"
-              element={<PrivateRoute>{/* <MyLibraryPage /> */}</PrivateRoute>}
-            />
+              element={<PrivateRoute> */}
+            {/* <MyLibraryPage /> */}
+            {/* </PrivateRoute>}
+            /> */}
             <Route
               path="/reading"
               element={<PrivateRoute>{/* <ReadingPage /> */}</PrivateRoute>}

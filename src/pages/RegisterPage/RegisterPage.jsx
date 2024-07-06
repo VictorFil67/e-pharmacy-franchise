@@ -5,6 +5,7 @@ import { AuthComponent } from "../../components/AuthComponent/AuthComponent";
 import { toast } from "react-toastify";
 import { signUpThunk } from "../../store/auth/operations";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object({
   name: yup.string().required("The name is required"),
@@ -25,6 +26,7 @@ const schema = yup.object({
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const inputs = [
     {
@@ -63,6 +65,7 @@ const RegisterPage = () => {
       .unwrap()
       .then(() => {
         toast.success("Sign up done!");
+        navigate("/login");
         // dispatch(signInThunk({ email, password }))
         //   .unwrap()
         //   .then(() => {

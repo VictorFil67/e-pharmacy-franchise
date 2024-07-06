@@ -12,8 +12,12 @@ import {
   BurgerMenu,
   LinkContainer,
 } from "./MobileBurger.Styled";
+// import { useDispatch } from "react-redux";
+// import { logoutThunk } from "../../../store/auth/operations";
 
-const MobileBurger = ({ closeBurger, isOpen }) => {
+const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
+  // const dispatch = useDispatch();
+
   function close(e) {
     if (e.target === e.currentTarget) {
       closeBurger();
@@ -39,7 +43,9 @@ const MobileBurger = ({ closeBurger, isOpen }) => {
                 <BurgerLink to={"/statistics"}>Statistics</BurgerLink>
               </LinkContainer>
             </BurgerLinkWraper>
-            <BurgerButtonLogAut>Log out</BurgerButtonLogAut>
+            <BurgerButtonLogAut onClick={handleLogout}>
+              Log out
+            </BurgerButtonLogAut>
           </BurgerMenu>
           {/* </div> */}
           {/* </> */}

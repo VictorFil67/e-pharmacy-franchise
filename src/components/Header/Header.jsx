@@ -13,12 +13,28 @@ import {
   HeaderWrap,
   LinkContainer,
 } from "./Header.Styled";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../store/auth/selectors";
+import { logoutThunk } from "../../store/auth/operations";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [MobileBurgerMenu, setMobileBurgerMenu] = useState(false);
+
+  const handleLogout = () => {
+    dispatch(logoutThunk())
+      .then(() => {
+        toast.success("You  logged out successfully!");
+        navigate("/login");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
 
   const openBurger = () => {
     setMobileBurgerMenu(true);
@@ -33,7 +49,11 @@ const Header = () => {
   return (
     <>
       {MobileBurgerMenu && (
-        <MobileBurger closeBurger={closeBurger} isOpen={MobileBurgerMenu} />
+        <MobileBurger
+          closeBurger={closeBurger}
+          isOpen={MobileBurgerMenu}
+          handleLogout={handleLogout}
+        />
       )}
 
       <HeaderWrap>
@@ -64,7 +84,7 @@ const Header = () => {
             <BurgerButton onClick={openBurger}>
               <BurgerMobileSVG />
             </BurgerButton>
-            <HeaderLogAut>Log Aut</HeaderLogAut>
+            <HeaderLogAut onClick={handleLogout}>Log Aut</HeaderLogAut>
           </>
         )}
       </HeaderWrap>
