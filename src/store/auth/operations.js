@@ -41,7 +41,7 @@ export const currentThunk = createAsyncThunk(
       } else {
         return thunkAPI.rejectWithValue("Token is not exist");
       }
-      const { data } = await api("users/current");
+      const { data } = await api("user/user-info");
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

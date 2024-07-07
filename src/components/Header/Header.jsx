@@ -28,6 +28,7 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(logoutThunk())
+      .unwrap()
       .then(() => {
         toast.success("You  logged out successfully!");
         navigate("/login");
@@ -85,7 +86,7 @@ const Header = () => {
             <BurgerButton onClick={openBurger}>
               <BurgerMobileSVG />
             </BurgerButton>
-            <HeaderLogAut onClick={handleLogout}>Log Aut</HeaderLogAut>
+            <HeaderLogAut onClick={handleLogout}>Log out</HeaderLogAut>
           </>
         )}
       </HeaderWrap>

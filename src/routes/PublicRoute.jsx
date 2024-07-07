@@ -5,21 +5,23 @@ import { Navigate } from "react-router-dom";
 
 const PublicRoute = ({ children }) => {
   const user = useSelector(selectUser);
-  // const path = useSelector(selectPath);
+  const path = useSelector(selectPath);
   const token = useSelector(selectToken);
   console.log(token);
   // const user = false;
   // const path = "/";
   if (!user) {
     return children;
-  } else if (!token) {
-    console.log(token);
-    <Navigate to={"/login"} />;
-    return children;
-  } else {
-    return <Navigate to={"/"} />;
   }
-  // return <Navigate to={path ?? "/"} />;
+  // else if (!token) {
+  //   console.log(token);
+  //   <Navigate to={"/login"} />;
+  //   return children;
+  // }
+  else {
+    // return <Navigate to={"/"} />;
+  }
+  return <Navigate to={path ?? "/"} />;
 };
 
 export default PublicRoute;

@@ -9,11 +9,16 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { useDispatch, useSelector } from "react-redux";
 import { setPath } from "./store/auth/authSlice";
+import { selectExpireTime, selectUser } from "./store/auth/selectors";
+import { currentThunk, refreshTokensThunk } from "./store/auth/operations";
+import { toast } from "react-toastify";
 
 function App() {
   const loading = useSelector((state) => state.loading.loading);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const expireTime = useSelector(selectExpireTime);
 
   useEffect(() => {
     if (pathname === "/register" || pathname === "/login") {
@@ -22,6 +27,23 @@ function App() {
     dispatch(setPath(pathname));
   });
 
+  useEffect(() => {
+    if (!user) {
+      // if (expireTime >= Date.now()) {
+      dispatch(currentThunk()).catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+      // } else {
+      //   dispatch(refreshTokensThunk())
+      //     .unwrap()
+      //     .then(() => {
+      //       dispatch(currentThunk()).catch((error) => toast.error(error));
+      //     })
+      //     .catch((error) => toast.error(error));
+      // }
+    }
+  }, [dispatch, user]);
+
   return (
     <>
       {loading && <Loader />}
@@ -29,8 +51,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
-              path="/recommended"
-              element={<PrivateRoute>{/* <RecommendedPage /> */}</PrivateRoute>}
+              path="/shop"
+              element={
+                <PrivateRoute>
+                  <h2>11111</h2>
+                </PrivateRoute>
+              }
             />
             {/* <Route
               path="/library"
@@ -58,7 +84,7 @@ function App() {
                 </PublicRoute>
               }
             />
-            <Route path="*" element={<Navigate to="/recommended" />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
       </Suspense>

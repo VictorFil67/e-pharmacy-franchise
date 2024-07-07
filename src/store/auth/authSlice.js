@@ -27,8 +27,9 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
 
-      .addCase(signUpThunk.fulfilled, (state, { payload }) => {
-        state.user = payload;
+      .addCase(signUpThunk.fulfilled, (state) => {
+        // state.user = payload;
+        state.error = null;
         // state.token = payload.token;
         // state.refreshToken = payload.refreshToken;
       })
@@ -46,6 +47,7 @@ const authSlice = createSlice({
       })
       .addCase(currentThunk.fulfilled, (state, { payload }) => {
         state.user = payload;
+        state.error = null;
       })
       .addCase(currentThunk.rejected, (state, { payload }) => {
         state.error = payload;
