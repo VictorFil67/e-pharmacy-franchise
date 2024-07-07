@@ -1,5 +1,3 @@
-// import { Link } from "react-router-dom";
-// import Backdrop from "../../Backdrop/Backdrop";
 import "./MobileBurger.Styled.css";
 import ExitSVG from "../../../images/hederImg/ExitSVG";
 import {
@@ -12,21 +10,19 @@ import {
   BurgerMenu,
   LinkContainer,
 } from "./MobileBurger.Styled";
-// import { useDispatch } from "react-redux";
-// import { logoutThunk } from "../../../store/auth/operations";
 
 const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
-  // const dispatch = useDispatch();
-
   function close(e) {
     if (e.target === e.currentTarget) {
       closeBurger();
     }
   }
+
   function onLogout() {
     closeBurger();
     handleLogout();
   }
+
   return (
     <>
       <Backdrop onClick={close}>

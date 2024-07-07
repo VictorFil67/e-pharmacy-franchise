@@ -29,20 +29,20 @@ function App() {
 
   useEffect(() => {
     if (!user) {
-      // if (expireTime >= Date.now()) {
-      dispatch(currentThunk()).catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-      // } else {
-      //   dispatch(refreshTokensThunk())
-      //     .unwrap()
-      //     .then(() => {
-      //       dispatch(currentThunk()).catch((error) => toast.error(error));
-      //     })
-      //     .catch((error) => toast.error(error));
-      // }
+      if (expireTime >= Date.now()) {
+        dispatch(currentThunk()).catch((error) => {
+          console.error("Error fetching user data:", error);
+        });
+      } else {
+        dispatch(refreshTokensThunk())
+          .unwrap()
+          .then(() => {
+            dispatch(currentThunk()).catch((error) => toast.error(error));
+          })
+          .catch((error) => toast.error(error));
+      }
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, expireTime]);
 
   return (
     <>

@@ -78,7 +78,7 @@ export const refreshTokensThunk = createAsyncThunk(
         return thunkAPI.rejectWithValue("Refresh token does not exist");
       }
 
-      const { data } = await api("users/current/refresh");
+      const { data } = await api("user/refreshCurrent");
       setToken(data.token);
       return data;
     } catch (error) {

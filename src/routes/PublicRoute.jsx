@@ -8,8 +8,7 @@ const PublicRoute = ({ children }) => {
   const path = useSelector(selectPath);
   const token = useSelector(selectToken);
   console.log(token);
-  // const user = false;
-  // const path = "/";
+
   if (!user) {
     return children;
   }
