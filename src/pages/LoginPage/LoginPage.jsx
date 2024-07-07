@@ -88,6 +88,7 @@ const LoginPage = () => {
         buttonName={"Log in"}
         account={"Don't have an account?"}
         rout={"/register"}
+        marg={true}
       />
     </div>
   );

@@ -81,7 +81,7 @@ const RegisterPage = () => {
   }
 
   return (
-    <div>
+    <>
       <AuthComponent
         inputs={inputs}
         register={register}
@@ -92,7 +92,7 @@ const RegisterPage = () => {
         account={"Already have an account?"}
         rout={"/login"}
       />
-    </div>
+    </>
   );
 };
 

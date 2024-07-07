@@ -1,16 +1,28 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import SvgElements from "../../images/authImg/SvgElements";
 
 export const AuthWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
 `;
+
+export const Picture = styled.img`
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: -12px;
+  right: 20px;
+`;
+
 export const Promo = styled.h1`
   font-weight: 600;
   font-size: 28px;
   line-height: 1.28571;
   color: var(--black);
+  margin-top: 22px;
   @media only screen and (min-width: 768px) {
     /* font-size: 16px;
       line-height: 1.25; */
@@ -66,6 +78,14 @@ export const ErrorSpan = styled.span`
   font-weight: 500;
   line-height: 1.2;
 `;
+
+export const AuthButtonWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: ${(props) => props.$marg && "108px"};
+`;
+
 export const AuthButton = styled.button`
   border-radius: 60px;
   padding: 12px 15px;
@@ -74,10 +94,11 @@ export const AuthButton = styled.button`
   transition: all 0.3s;
   min-width: 100%;
   font-weight: 500;
-  /* font-size: 14px; */
+  font-size: 14px;
   line-height: 1.28571;
   /* letter-spacing: 0.02em; */
   color: var(--white);
+
   &:hover,
   &:active {
     background-color: var(--active);
@@ -93,8 +114,8 @@ export const LinkStyled = styled(Link)`
   /* font-weight: 400; */
   font-size: 12px;
   line-height: 1.5;
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
+  text-decoration: none;
+  /* text-decoration-skip-ink: none; */
   text-align: center;
   color: var(--placeholder);
   &:hover {
@@ -103,5 +124,13 @@ export const LinkStyled = styled(Link)`
   @media only screen and (min-width: 768px) {
     /* font-size: 14px;
     line-height: 1.28571; */
+  }
+`;
+export const Elements = styled(SvgElements)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @media only screen and (min-width: 768px) {
+    display: none;
   }
 `;
