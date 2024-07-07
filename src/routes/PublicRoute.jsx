@@ -18,9 +18,9 @@ const PublicRoute = ({ children }) => {
   //   <Navigate to={"/login"} />;
   //   return children;
   // }
-  else {
-    // return <Navigate to={"/"} />;
-  }
+  // else {
+  // return <Navigate to={"/"} />;
+  // }
   return <Navigate to={path ?? "/"} />;
 };
 

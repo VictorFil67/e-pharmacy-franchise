@@ -46,8 +46,6 @@ const Header = () => {
     setMobileBurgerMenu(false);
   };
 
-  // const user = true;
-
   return (
     <>
       {MobileBurgerMenu && (

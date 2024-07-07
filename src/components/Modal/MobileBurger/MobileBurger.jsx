@@ -23,7 +23,10 @@ const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
       closeBurger();
     }
   }
-
+  function onLogout() {
+    closeBurger();
+    handleLogout();
+  }
   return (
     <>
       <Backdrop onClick={close}>
@@ -43,9 +46,7 @@ const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
                 <BurgerLink to={"/statistics"}>Statistics</BurgerLink>
               </LinkContainer>
             </BurgerLinkWraper>
-            <BurgerButtonLogAut onClick={handleLogout}>
-              Log out
-            </BurgerButtonLogAut>
+            <BurgerButtonLogAut onClick={onLogout}>Log out</BurgerButtonLogAut>
           </BurgerMenu>
           {/* </div> */}
           {/* </> */}
