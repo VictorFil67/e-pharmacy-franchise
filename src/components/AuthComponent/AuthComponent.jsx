@@ -1,4 +1,15 @@
-import { Link } from "react-router-dom";
+import {
+  AuthButton,
+  AuthWrap,
+  ErrorSpan,
+  Form,
+  Input,
+  InputBlockWrap,
+  InputWrap,
+  LinkStyled,
+  Promo,
+  Span,
+} from "./AuthComponent.Styled";
 
 export const AuthComponent = ({
   inputs,
@@ -11,27 +22,29 @@ export const AuthComponent = ({
   rout,
 }) => {
   return (
-    <div>
-      <h1>
+    <AuthWrap>
+      <Promo>
         Your medication, delivered Say goodbye to all{" "}
-        <span>your healthcare</span> worries with us
-      </h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {inputs.map((el, idx) => (
-          <label key={idx}>
-            <input
-              placeholder={el.placeholder}
-              type={el.type}
-              {...register(el.name)}
-            ></input>
-            <span>{errors[register(el.name).name]?.message}</span>
-          </label>
-        ))}
-        <button name="submit" type="submit" aria-label={buttonName}>
+        <Span>your healthcare</Span> worries with us
+      </Promo>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <InputBlockWrap>
+          {inputs.map((el, idx) => (
+            <InputWrap key={idx}>
+              <Input
+                placeholder={el.placeholder}
+                type={el.type}
+                {...register(el.name)}
+              ></Input>
+              <ErrorSpan>{errors[register(el.name).name]?.message}</ErrorSpan>
+            </InputWrap>
+          ))}
+        </InputBlockWrap>
+        <AuthButton name="submit" type="submit" aria-label={buttonName}>
           {buttonName}
-        </button>
-      </form>
-      <Link to={rout}>{account}</Link>
-    </div>
+        </AuthButton>
+      </Form>
+      <LinkStyled to={rout}>{account}</LinkStyled>
+    </AuthWrap>
   );
 };
