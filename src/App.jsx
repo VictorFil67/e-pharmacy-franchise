@@ -1,7 +1,13 @@
 import { Suspense, useEffect } from "react";
 import "./App.css";
 import { Loader } from "./components/Loader/Loader";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
 import Layout from "./components/Layout/Layout";
@@ -9,7 +15,11 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { useDispatch, useSelector } from "react-redux";
 import { setPath } from "./store/auth/authSlice";
-import { selectExpireTime, selectUser } from "./store/auth/selectors";
+import {
+  selectExpireTime,
+  selectPath,
+  selectUser,
+} from "./store/auth/selectors";
 import { currentThunk, refreshTokensThunk } from "./store/auth/operations";
 import { toast } from "react-toastify";
 
@@ -18,7 +28,9 @@ function App() {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const path = useSelector(selectPath);
   const expireTime = useSelector(selectExpireTime);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // if (pathname === "/register" || pathname === "/login") {
@@ -26,6 +38,12 @@ function App() {
     // }
     dispatch(setPath(pathname));
   });
+
+  useEffect(() => {
+    if (!user && path === "/") {
+      navigate("/register");
+    }
+  }, [navigate, user, path]);
 
   useEffect(() => {
     if (!user) {
