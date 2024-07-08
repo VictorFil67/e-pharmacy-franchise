@@ -20,7 +20,11 @@ const PublicRoute = ({ children }) => {
   // else {
   // return <Navigate to={"/"} />;
   // }
-  return <Navigate to={path ?? "/"} />;
+  return path === "/register" || path === "/login" ? (
+    <Navigate to={"/"} />
+  ) : (
+    <Navigate to={path} />
+  );
 };
 
 export default PublicRoute;

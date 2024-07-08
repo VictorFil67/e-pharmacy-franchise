@@ -22,6 +22,9 @@ import {
 } from "./store/auth/selectors";
 import { currentThunk, refreshTokensThunk } from "./store/auth/operations";
 import { toast } from "react-toastify";
+import CreateShopPage from "./pages/CreateShopPage/CreateShopPage";
+import ShopPage from "./pages/ShopPage/ShopPage";
+import EditShopPage from "./pages/EditShopPage/EditShopPage";
 
 function App() {
   const loading = useSelector((state) => state.loading.loading);
@@ -72,19 +75,28 @@ function App() {
               path="/shop"
               element={
                 <PrivateRoute>
-                  <h2>11111</h2>
+                  <ShopPage />
+                  {/* <h2>ShopPage</h2> */}
                 </PrivateRoute>
               }
             />
-            {/* <Route
-              path="/library"
-              element={<PrivateRoute> */}
-            {/* <MyLibraryPage /> */}
-            {/* </PrivateRoute>}
-            /> */}
             <Route
-              path="/reading"
-              element={<PrivateRoute>{/* <ReadingPage /> */}</PrivateRoute>}
+              path="/create-shop"
+              element={
+                <PrivateRoute>
+                  <CreateShopPage />
+                  {/* <h2>CreateShopPage</h2> */}
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/edit-shop"
+              element={
+                <PrivateRoute>
+                  <EditShopPage />
+                  {/* <h2>EditShopPage</h2> */}
+                </PrivateRoute>
+              }
             />
             <Route
               path="/register"
