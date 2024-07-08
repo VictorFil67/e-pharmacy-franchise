@@ -12,7 +12,10 @@ export const Container = styled.div`
   }
   @media only screen and (min-width: 1440px) {
     max-width: 1440px;
-    padding: 29px 128px 0px 128px;
+    padding: ${(props) =>
+      props.$path === "/register" || props.$path === "/login"
+        ? "28px 100px 0px"
+        : "28px 128px 0px"};
   }
 `;
 

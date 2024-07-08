@@ -1,20 +1,46 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SvgElements from "../../images/authImg/SvgElements";
+import SvgElementsTab from "../../images/authImg/SvgElementsTab";
 
 export const AuthWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
   position: relative;
+  margin-top: 42px;
+  @media only screen and (min-width: 768px) {
+    max-width: 614px;
+    gap: 54px;
+    margin-top: 104px;
+  }
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    margin-top: 162px;
+    min-width: 100%;
+  }
+`;
+
+export const PromoWrap = styled.div`
+  position: relative;
+
+  @media only screen and (min-width: 768px) {
+  }
 `;
 
 export const Picture = styled.img`
   display: block;
   margin: 0 auto;
   position: absolute;
-  top: -12px;
-  right: 20px;
+  top: -80px;
+  right: 5px;
+  @media only screen and (min-width: 375px) {
+    top: -55px;
+    right: 20px;
+  }
+  @media only screen and (min-width: 768px) {
+    top: -106px;
+  }
 `;
 
 export const Promo = styled.h1`
@@ -22,12 +48,12 @@ export const Promo = styled.h1`
   font-size: 28px;
   line-height: 1.28571;
   color: var(--black);
-  margin-top: 22px;
   @media only screen and (min-width: 768px) {
-    /* font-size: 16px;
-      line-height: 1.25; */
+    font-size: 54px;
+    line-height: 1.11;
   }
   @media only screen and (min-width: 1440px) {
+    width: 611px;
   }
 `;
 export const Span = styled.span`
@@ -39,11 +65,21 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 20px;
   max-width: 335px;
+  @media only screen and (min-width: 768px) {
+    max-width: 614px;
+    gap: 62px;
+  }
 `;
 export const InputBlockWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media only screen and (min-width: 768px) {
+    max-width: ${(props) => !props.$reg && "323px"};
+    flex-direction: ${(props) => props.$reg && "row"};
+    flex-wrap: ${(props) => props.$reg && "wrap"};
+    gap: 14px;
+  }
 `;
 export const InputWrap = styled.label`
   position: relative;
@@ -71,7 +107,14 @@ export const Input = styled.input`
   &:focus-within {
     border: 1px solid var(--green);
   }
+  @media only screen and (min-width: 768px) {
+    width: ${(props) => (props.$reg ? "280px" : "323px")};
+    /* flex-direction: ${(props) => props.$reg && "row"};
+    flex-wrap: ${(props) => props.$reg && "wrap"};
+    gap: 14px; */
+  }
 `;
+
 export const ErrorSpan = styled.span`
   color: #e90516;
   font-size: 10px;
@@ -84,6 +127,13 @@ export const AuthButtonWrap = styled.div`
   flex-direction: column;
   gap: 14px;
   margin-top: ${(props) => props.$marg && "108px"};
+  @media only screen and (min-width: 768px) {
+    margin-top: 0;
+    max-width: ${(props) => (props.$reg ? "280px" : "323px")};
+    /* flex-direction: ${(props) => props.$reg && "row"};
+    flex-wrap: ${(props) => props.$reg && "wrap"};
+    gap: 14px; */
+  }
 `;
 
 export const AuthButton = styled.button`
@@ -132,5 +182,14 @@ export const Elements = styled(SvgElements)`
   right: 0;
   @media only screen and (min-width: 768px) {
     display: none;
+  }
+`;
+export const ElementsTab = styled(SvgElementsTab)`
+  display: none;
+  @media only screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 `;

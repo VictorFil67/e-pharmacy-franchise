@@ -16,6 +16,7 @@ const schema = yup.object({
     .required("The email is required"),
   phone: yup
     .string()
+    .matches(/^[\\+]?[0-9]{12}$/, "Please write a valid phone number")
     .min(12, "The phone number must contain a minimum of 12 characters")
     .required("The phone number is required"),
   password: yup
@@ -91,6 +92,7 @@ const RegisterPage = () => {
         buttonName={"Register"}
         account={"Already have an account?"}
         rout={"/login"}
+        reg={true}
       />
     </>
   );

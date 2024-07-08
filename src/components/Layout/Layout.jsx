@@ -3,12 +3,17 @@ import Header from "../Header/Header";
 import FooterContent from "../FooterContent/FooterContent";
 import { Container, Footer, FooterContainer } from "./Layout.styled";
 import { useSelector } from "react-redux";
-import { selectToken, selectUser } from "../../store/auth/selectors";
+import {
+  selectPath,
+  selectToken,
+  selectUser,
+} from "../../store/auth/selectors";
 import { useEffect } from "react";
 
 const Layout = () => {
   const user = useSelector(selectUser);
   const token = useSelector(selectToken);
+  const path = useSelector(selectPath);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +25,7 @@ const Layout = () => {
 
   return (
     <>
-      <Container>
+      <Container $path={path}>
         <header>
           <Header />
         </header>

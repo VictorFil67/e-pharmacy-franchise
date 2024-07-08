@@ -21,9 +21,9 @@ function App() {
   const expireTime = useSelector(selectExpireTime);
 
   useEffect(() => {
-    if (pathname === "/register" || pathname === "/login") {
-      return;
-    }
+    // if (pathname === "/register" || pathname === "/login") {
+    //   return;
+    // }
     dispatch(setPath(pathname));
   });
 
