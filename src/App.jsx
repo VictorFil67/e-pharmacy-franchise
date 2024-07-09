@@ -40,7 +40,6 @@ function App() {
   console.log(authPath);
   useEffect(() => {
     if (pathname !== "/register" && pathname !== "/login") {
-      // console.log(pathname);
       dispatch(setPath(pathname));
     }
     dispatch(setAuthPath(pathname));

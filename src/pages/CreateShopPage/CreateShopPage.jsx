@@ -9,10 +9,11 @@ import { toast } from "react-toastify";
 import { Shop } from "../../components/Shop/Shop";
 import { createShopThunk } from "../../store/shops/operations";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 const schema = yup.object({
-  shopName: yup.string().required("The name is required"),
-  shopOwnerName: yup.string().required("The name is required"),
+  shopName: yup.string().required("The shop name is required"),
+  shopOwnerName: yup.string().required("The shop owner name is required"),
   shopEmail: yup
     .string()
     .email("Please write a valid email")
@@ -34,6 +35,11 @@ const schema = yup.object({
 
 const CreateShopPage = () => {
   const dispatch = useDispatch();
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
 
   const inputs = [
     {
@@ -87,8 +93,30 @@ const CreateShopPage = () => {
     resolver: yupResolver(schema),
   });
 
-  function onSubmit({ name, email, phone, password }) {
-    dispatch(createShopThunk({ name, email, phone, password }))
+  function onSubmit({
+    shopName,
+    shopOwnerName,
+    shopEmail,
+    shopPhone,
+    shopStreet,
+    shopCity,
+    shopZip,
+    password,
+    shopOwnDelivery,
+  }) {
+    dispatch(
+      createShopThunk({
+        shopName,
+        shopOwnerName,
+        shopEmail,
+        shopPhone,
+        shopStreet,
+        shopCity,
+        shopZip,
+        password,
+        shopOwnDelivery,
+      })
+    )
       .unwrap()
       .then(() => {
         toast.success("The shop has been created!");
@@ -109,7 +137,6 @@ const CreateShopPage = () => {
 
   return (
     <>
-      <p>1111</p>
       <Shop
         inputs={inputs}
         register={register}

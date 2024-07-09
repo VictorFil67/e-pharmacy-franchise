@@ -3,11 +3,20 @@ import {
   AuthButtonWrap,
   ErrorSpan,
   Form,
+  GenderLabel,
   Input,
   InputBlockWrap,
   InputWrap,
   LinkStyled,
+  Radio,
+  RadioGroup,
+  RadioSpan,
+  RadioWrap,
+  UploadLogo,
 } from "./Shop.Styled";
+import { useState } from "react";
+import RadioChecked from "../../images/shopImg/RadioChecked";
+import RadioUnChecked from "../../images/shopImg/RadioUnChecked";
 
 export const Shop = ({
   handleSubmit,
@@ -17,6 +26,12 @@ export const Shop = ({
   errors,
   buttonName,
 }) => {
+  const [value, setValue] = useState("Yes");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
     <div>
       <h1></h1>
@@ -37,6 +52,38 @@ export const Shop = ({
             </InputWrap>
           ))}
         </InputBlockWrap>
+        <p>Has own Delivery System?</p>
+        <RadioGroup>
+          <GenderLabel>
+            <RadioWrap>
+              {value === "Yes" ? <RadioChecked /> : <RadioUnChecked />}
+            </RadioWrap>
+            <Radio
+              {...register("shopOwnDelivery")}
+              type="radio"
+              // name="delivery"
+              value="Yes"
+              defaultChecked={value === "Yes"}
+              onChange={handleChange}
+            />
+            <RadioSpan>Yes</RadioSpan>
+          </GenderLabel>
+          <GenderLabel>
+            <RadioWrap>
+              {value === "No" ? <RadioChecked /> : <RadioUnChecked />}
+            </RadioWrap>
+            <Radio
+              {...register("shopOwnDelivery")}
+              type="radio"
+              // name="gender"
+              value="No"
+              defaultChecked={value === "No"}
+              onChange={handleChange}
+            />
+            <RadioSpan>No</RadioSpan>
+          </GenderLabel>
+        </RadioGroup>
+        <UploadLogo>Upload Logo</UploadLogo>
         <AuthButtonWrap
         // $marg={marg} $reg={reg}
         >

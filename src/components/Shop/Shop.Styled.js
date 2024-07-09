@@ -122,6 +122,59 @@ export const ErrorSpan = styled.span`
   line-height: 1.2;
 `;
 
+export const RadioGroup = styled.div`
+  display: flex;
+`;
+
+export const GenderLabel = styled.label`
+  position: relative;
+  margin-right: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+`;
+
+export const RadioWrap = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+`;
+
+export const Radio = styled.input`
+  margin-right: 8px;
+`;
+
+export const RadioSpan = styled.span`
+  margin-left: 8px;
+`;
+
+export const UploadLogo = styled.button`
+  border-radius: 60px;
+  padding: 12px 15px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  background: var(--white);
+  transition: all 0.3s;
+  min-width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  /* letter-spacing: 0.02em; */
+  color: var(--white);
+
+  &:hover,
+  &:active {
+    background-color: var(--active);
+  }
+  @media only screen and (min-width: 768px) {
+    /* padding: 16px 45px;
+    width: 166px;
+    font-size: 20px;
+    line-height: 1; */
+  }
+`;
+
 export const AuthButtonWrap = styled.div`
   display: flex;
   flex-direction: column;
