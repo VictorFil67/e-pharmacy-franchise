@@ -34,11 +34,11 @@ function App() {
   const path = useSelector(selectPath);
   const expireTime = useSelector(selectExpireTime);
   const navigate = useNavigate();
-
+  console.log(path);
   useEffect(() => {
-    // if (pathname === "/register" || pathname === "/login") {
-    //   return;
-    // }
+    if (pathname === "/register" || pathname === "/login") {
+      return;
+    }
     dispatch(setPath(pathname));
   });
 
@@ -46,7 +46,7 @@ function App() {
     if (!user && path === "/") {
       navigate("/register");
     }
-  }, [navigate, user, path]);
+  }, []);
 
   useEffect(() => {
     if (!user) {

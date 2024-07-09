@@ -1,30 +1,21 @@
 import { useSelector } from "react-redux";
-import { selectPath, selectToken, selectUser } from "../store/auth/selectors";
+import { selectPath, selectUser } from "../store/auth/selectors";
 import { Navigate } from "react-router-dom";
-// import { selectPath } from "../store/books/selectors";
 
 const PublicRoute = ({ children }) => {
   const user = useSelector(selectUser);
   const path = useSelector(selectPath);
-  const token = useSelector(selectToken);
-  console.log(token);
 
   if (!user) {
     return children;
   }
-  // else if (!token) {
-  //   console.log(token);
-  //   <Navigate to={"/login"} />;
-  //   return children;
+  // else if (path === "/register" || path === "/login") {
+  //   return <Navigate to={"/"} />;
   // }
   // else {
-  // return <Navigate to={"/"} />;
+  // return <Navigate to={path} />;
+  return <Navigate to={path ?? "/"} />;
   // }
-  return path === "/register" || path === "/login" ? (
-    <Navigate to={"/"} />
-  ) : (
-    <Navigate to={path} />
-  );
 };
 
 export default PublicRoute;
