@@ -4,7 +4,8 @@ import FooterContent from "../FooterContent/FooterContent";
 import { Container, Footer, FooterContainer } from "./Layout.styled";
 import { useSelector } from "react-redux";
 import {
-  selectPath,
+  selectAuthPath,
+  // selectPath,
   selectToken,
   selectUser,
 } from "../../store/auth/selectors";
@@ -13,7 +14,8 @@ import { useEffect } from "react";
 const Layout = () => {
   const user = useSelector(selectUser);
   const token = useSelector(selectToken);
-  const path = useSelector(selectPath);
+  // const path = useSelector(selectPath);
+  const authPath = useSelector(selectAuthPath);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,7 +27,7 @@ const Layout = () => {
 
   return (
     <>
-      <Container $path={path}>
+      <Container $path={authPath}>
         <header>
           <Header />
         </header>

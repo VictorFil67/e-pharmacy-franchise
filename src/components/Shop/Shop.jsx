@@ -21,7 +21,7 @@ export const Shop = ({
     <div>
       <h1></h1>
       <p></p>
-      {/* <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <InputBlockWrap
         // $reg={reg}
         >
@@ -47,10 +47,9 @@ export const Shop = ({
           //   to={rout}
           >
             {/* {account} */}
-      {/* </LinkStyled>
+          </LinkStyled>
         </AuthButtonWrap>
-      </Form> */}{" "}
-      */
+      </Form>
     </div>
   );
 };

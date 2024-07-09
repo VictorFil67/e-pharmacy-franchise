@@ -110,7 +110,7 @@ const CreateShopPage = () => {
   return (
     <>
       <p>1111</p>
-      {/* <Shop
+      <Shop
         inputs={inputs}
         register={register}
         handleSubmit={handleSubmit}
@@ -120,7 +120,7 @@ const CreateShopPage = () => {
         // account={"Don't have an account?"}
         // rout={"/register"}
         // marg={true}
-      /> */}
+      />
     </>
   );
 };

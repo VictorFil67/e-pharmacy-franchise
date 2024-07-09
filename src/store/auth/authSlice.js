@@ -17,11 +17,16 @@ const authSlice = createSlice({
     refreshToken: "",
     expireTime: 0,
     path: null,
+    authPath: null,
   },
   reducers: {
     setPath(state, { payload }) {
-      state.prevPath === state.path;
+      // state.prevPath === state.path;
       state.path = payload;
+    },
+    setAuthPath(state, { payload }) {
+      // state.prevPath === state.path;
+      state.authPath = payload;
     },
   },
   extraReducers: (builder) => {
@@ -74,4 +79,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const { setPath } = authSlice.actions;
+export const { setPath, setAuthPath } = authSlice.actions;

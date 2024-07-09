@@ -14,8 +14,9 @@ import Layout from "./components/Layout/Layout";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { useDispatch, useSelector } from "react-redux";
-import { setPath } from "./store/auth/authSlice";
+import { setAuthPath, setPath } from "./store/auth/authSlice";
 import {
+  selectAuthPath,
   selectExpireTime,
   selectPath,
   selectUser,
@@ -32,20 +33,24 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const path = useSelector(selectPath);
+  const authPath = useSelector(selectAuthPath);
   const expireTime = useSelector(selectExpireTime);
   const navigate = useNavigate();
   console.log(path);
+  console.log(authPath);
   useEffect(() => {
-    if (pathname === "/register" || pathname === "/login") {
-      return;
+    if (pathname !== "/register" && pathname !== "/login") {
+      // console.log(pathname);
+      dispatch(setPath(pathname));
     }
-    dispatch(setPath(pathname));
+    dispatch(setAuthPath(pathname));
   });
 
   useEffect(() => {
     if (!user && path === "/") {
       navigate("/register");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
