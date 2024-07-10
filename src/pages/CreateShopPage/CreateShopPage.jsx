@@ -148,7 +148,7 @@ const CreateShopPage = () => {
     if (shopLogoURL[0]) {
       formData.append("shopLogoURL", shopLogoURL[0]);
     } else {
-      console.error("No file selected");
+      alert("No file selected");
       return;
     }
 
@@ -156,6 +156,8 @@ const CreateShopPage = () => {
     for (let [key, value] of formData.entries()) {
       console.log(key, value);
     }
+
+    console.log(shopLogoURL[0].name);
 
     await dispatch(
       createShopThunk(
@@ -200,7 +202,7 @@ const CreateShopPage = () => {
         onSubmit={onSubmit}
         errors={errors}
         buttonName={"Create account"}
-        // handleFileChange={handleFileChange}
+        // logo={true}
         // account={"Don't have an account?"}
         // rout={"/register"}
         // marg={true}

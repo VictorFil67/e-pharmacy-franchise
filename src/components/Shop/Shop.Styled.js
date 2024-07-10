@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import SvgElements from "../../images/authImg/SvgElements";
-import SvgElementsTab from "../../images/authImg/SvgElementsTab";
 
 export const AuthWrap = styled.div`
   display: flex;
@@ -85,7 +82,64 @@ export const InputWrap = styled.label`
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  &:last-child {
+    border-radius: 60px;
+    padding: 13px 15px;
+    border: none;
+    background-color: var(--green);
+    transition: all 0.3s;
+    min-width: 100%;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      background-color: var(--active);
+    }
+    & > input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+  }
+`;
+
+export const LogoInputWrap = styled.div`
+  position: relative;
+  border-radius: 60px;
+  /* padding: 12px 15px; */
+  border: none;
+  background-color: var(--green);
+  transition: all 0.3s;
+  min-width: 100%;
+  /* font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571; */
+  /* letter-spacing: 0.02em; */
+
+  cursor: pointer;
+  &:hover,
+  &:active {
+    background-color: var(--active);
+  }
+  @media only screen and (min-width: 768px) {
+    /* padding: 16px 45px;
+    width: 166px;
+    font-size: 20px;
+    line-height: 1; */
+  }
+`;
+export const LogoInputText = styled.p`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  text-align: center;
+  /* position: absolute;
+  top: 12px;
+  left: 50px; */
 `;
 export const Input = styled.input`
   border: 1px solid rgba(29, 30, 33, 0.1);
@@ -100,6 +154,14 @@ export const Input = styled.input`
   font-size: 12px;
   line-height: 1.5;
   color: var(--black);
+  &:last-child {
+    /* visibility: hidden; */
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    opacity: 0; */
+  }
   &::placeholder {
     color: rgba(29, 30, 33, 0.4);
   }

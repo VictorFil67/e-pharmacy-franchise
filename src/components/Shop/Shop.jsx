@@ -7,6 +7,8 @@ import {
   Input,
   InputBlockWrap,
   InputWrap,
+  LogoInputText,
+  // LogoInputWrap,
   // LinkStyled,
   Radio,
   RadioGroup,
@@ -15,7 +17,7 @@ import {
   ShopLogoWrap,
   // UploadLogo,
 } from "./Shop.Styled";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import RadioChecked from "../../images/shopImg/RadioChecked";
 import RadioUnChecked from "../../images/shopImg/RadioUnChecked";
 import { useSelector } from "react-redux";
@@ -32,9 +34,15 @@ export const Shop = ({
 }) => {
   const shop = useSelector(selectShop);
   const [value, setValue] = useState("Yes");
+  const [fileValue, setFileValue] = useState("");
+  // const logoInput = useRef();
+  console.log(fileValue);
 
   const handleChange = (event) => {
     setValue(event.target.value);
+  };
+  const handleFileChange = (event) => {
+    setFileValue(event.target.value);
   };
 
   return (
@@ -47,12 +55,29 @@ export const Shop = ({
         >
           {inputs.map((el, idx) => (
             <InputWrap key={idx}>
-              <Input
-                // $reg={reg}
-                placeholder={el.placeholder}
-                type={el.type}
-                {...register(el.name)}
-              ></Input>
+              {el.type === "file" ? (
+                <>
+                  <LogoInputText>
+                    {" "}
+                    {fileValue ? "Logo is chosen" : "Upload Logo"}
+                  </LogoInputText>
+                  <Input
+                    // $reg={reg}
+                    placeholder={el.placeholder}
+                    type={el.type}
+                    {...register(el.name)}
+                    // ref={logoInput}
+                    onChange={handleFileChange}
+                  />
+                </>
+              ) : (
+                <Input
+                  // $reg={reg}
+                  placeholder={el.placeholder}
+                  type={el.type}
+                  {...register(el.name)}
+                />
+              )}
               <ErrorSpan>{errors[register(el.name).name]?.message}</ErrorSpan>
             </InputWrap>
           ))}
