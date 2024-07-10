@@ -150,28 +150,31 @@ export const RadioSpan = styled.span`
   margin-left: 8px;
 `;
 
-export const UploadLogo = styled.button`
-  border-radius: 60px;
-  padding: 12px 15px;
+export const UploadLogo = styled.input`
   border: 1px solid rgba(29, 30, 33, 0.1);
-  background: var(--white);
-  transition: all 0.3s;
+  border-radius: 60px;
+  padding: 12px 18px;
+  /* width: 335px; */
+  /* height: 44px; */
   min-width: 100%;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.28571;
-  /* letter-spacing: 0.02em; */
-  color: var(--white);
+  background: var(--white);
+  outline: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--black);
+  &::placeholder {
+    color: rgba(29, 30, 33, 0.4);
+  }
 
-  &:hover,
-  &:active {
-    background-color: var(--active);
+  &:focus-within {
+    border: 1px solid var(--green);
   }
   @media only screen and (min-width: 768px) {
-    /* padding: 16px 45px;
-    width: 166px;
-    font-size: 20px;
-    line-height: 1; */
+    width: ${(props) => (props.$reg ? "280px" : "323px")};
+    /* flex-direction: ${(props) => props.$reg && "row"};
+    flex-wrap: ${(props) => props.$reg && "wrap"};
+    gap: 14px; */
   }
 `;
 
@@ -213,36 +216,7 @@ export const AuthButton = styled.button`
     line-height: 1; */
   }
 `;
-export const LinkStyled = styled(Link)`
-  /* font-weight: 400; */
-  font-size: 12px;
-  line-height: 1.5;
-  text-decoration: none;
-  /* text-decoration-skip-ink: none; */
-  text-align: center;
-  color: var(--placeholder);
-  &:hover {
-    color: var(--black);
-  }
-  @media only screen and (min-width: 768px) {
-    /* font-size: 14px;
-    line-height: 1.28571; */
-  }
-`;
-export const Elements = styled(SvgElements)`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
-`;
-export const ElementsTab = styled(SvgElementsTab)`
-  display: none;
-  @media only screen and (min-width: 768px) {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
+export const ShopLogoWrap = styled.div`
+  width: 335px;
+  border: 1px solid red;
 `;

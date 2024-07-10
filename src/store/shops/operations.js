@@ -5,7 +5,11 @@ export const createShopThunk = createAsyncThunk(
   "shop/create",
   async (body, thunkAPI) => {
     try {
-      const { data } = await api.post("shop/create", body);
+      const { data } = await api.post("shop/create", body, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

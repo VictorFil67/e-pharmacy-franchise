@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { Shop } from "../../components/Shop/Shop";
 import { createShopThunk } from "../../store/shops/operations";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+// import { useState } from "react";
 
 const schema = yup.object({
   shopName: yup.string().required("The shop name is required"),
@@ -35,11 +35,11 @@ const schema = yup.object({
 
 const CreateShopPage = () => {
   const dispatch = useDispatch();
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [fileData, setSelectedFile] = useState(null);
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
+  // const handleFileChange = (event) => {
+  //   setSelectedFile(event.target.files[0]);
+  // };
 
   const inputs = [
     {
@@ -82,6 +82,11 @@ const CreateShopPage = () => {
       name: "password",
       type: "password",
     },
+    {
+      placeholder: "Upload Logo",
+      name: "shopLogoURL",
+      type: "file",
+    },
   ];
 
   const {
@@ -93,7 +98,18 @@ const CreateShopPage = () => {
     resolver: yupResolver(schema),
   });
 
-  function onSubmit({
+  // const [fileData, setFileData] = useState({
+  //   file: "",
+  // });
+
+  // const handleFileChange = (e) => {
+  //   setFileData(
+  //     // ...fileData,
+  //     e.target.files[0]
+  //   );
+  // };
+
+  async function onSubmit({
     shopName,
     shopOwnerName,
     shopEmail,
@@ -102,20 +118,60 @@ const CreateShopPage = () => {
     shopCity,
     shopZip,
     password,
+    shopLogoURL,
     shopOwnDelivery,
   }) {
-    dispatch(
-      createShopThunk({
-        shopName,
-        shopOwnerName,
-        shopEmail,
-        shopPhone,
-        shopStreet,
-        shopCity,
-        shopZip,
-        password,
-        shopOwnDelivery,
-      })
+    // const handleFileChange = (event) => {
+    //   const file = event.target.files[0];
+    //   const reader = new FileReader();
+
+    //   reader.onload = (e) => {
+    //     setImageSrc(e.target.result);
+    //   };
+
+    //   if (file) {
+    //     reader.readAsDataURL(file);
+    //   }
+    const formData = new FormData();
+    formData.append("shopName", shopName);
+    formData.append("shopOwnerName", shopOwnerName);
+    formData.append("shopEmail", shopEmail);
+    formData.append("shopPhone", shopPhone);
+    formData.append("shopStreet", shopStreet);
+    formData.append("shopCity", shopCity);
+    formData.append("shopZip", shopZip);
+    formData.append("password", password);
+    formData.append("shopLogoURL", shopLogoURL);
+    formData.append("shopOwnDelivery", shopOwnDelivery);
+    // console.log(formData.get("shopLogoURL"));
+
+    if (shopLogoURL[0]) {
+      formData.append("shopLogoURL", shopLogoURL[0]);
+    } else {
+      console.error("No file selected");
+      return;
+    }
+
+    // Log formData contents for debugging
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
+
+    await dispatch(
+      createShopThunk(
+        // {
+        //   shopName,
+        //   shopOwnerName,
+        //   shopEmail,
+        //   shopPhone,
+        //   shopStreet,
+        //   shopCity,
+        //   shopZip,
+        //   password,
+        //   shopOwnDelivery,
+        // },
+        formData
+      )
     )
       .unwrap()
       .then(() => {
@@ -144,6 +200,7 @@ const CreateShopPage = () => {
         onSubmit={onSubmit}
         errors={errors}
         buttonName={"Create account"}
+        // handleFileChange={handleFileChange}
         // account={"Don't have an account?"}
         // rout={"/register"}
         // marg={true}

@@ -13,7 +13,7 @@ import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/authSlice";
 // import { booksReducer } from "./books/booksSlise";
 import { loadingReducer } from "./loading/loadingSlice";
-import { shopReducer } from "./shops/shopSlise";
+import { shopsReducer } from "./shops/shopSlise";
 
 const persistConfig = {
   key: "auth",
@@ -21,19 +21,19 @@ const persistConfig = {
   storage,
   whitelist: ["token", "refreshToken", "expireTime"],
 };
-// const persistConfigBooks = {
-//   key: "books",
-//   version: 1,
-//   storage,
-//   whitelist: ["option", "userBooks", "bookInfo"],
-// };
+const persistConfigShops = {
+  key: "shops",
+  version: 1,
+  storage,
+  whitelist: ["shop"],
+};
 const persistedReducer = persistReducer(persistConfig, authReducer);
-// const persistedReducerBooks = persistReducer(persistConfigBooks, booksReducer);
+const persistedReducerShops = persistReducer(persistConfigShops, shopsReducer);
 
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    shops: shopReducer,
+    shops: persistedReducerShops,
     loading: loadingReducer,
   },
   middleware: (getDefaultMiddleware) =>

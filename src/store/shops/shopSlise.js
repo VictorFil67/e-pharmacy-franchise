@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createShopThunk } from "./operations";
 
-const shopSlice = createSlice({
+const shopsSlice = createSlice({
   name: "shops",
   initialState: {
     shop: null,
@@ -21,4 +21,4 @@ const shopSlice = createSlice({
   },
 });
 
-export const shopReducer = shopSlice.reducer;
+export const shopsReducer = shopsSlice.reducer;
