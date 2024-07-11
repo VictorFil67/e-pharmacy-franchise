@@ -17,10 +17,12 @@ export const FooterTop = styled.div`
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 88px;
   }
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
     gap: 139px;
+    padding-bottom: 64px;
   }
 `;
 

@@ -6,8 +6,12 @@ export const HeaderWrap = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 64px;
+  @media only screen and (min-width: 768px) {
+    padding-bottom: 80px;
+  }
   @media only screen and (min-width: 1440px) {
     justify-content: flex-start;
+    padding-bottom: 65px;
   }
 `;
 export const HeaderLogo = styled(Link)`
