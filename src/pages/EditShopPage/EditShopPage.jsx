@@ -30,52 +30,51 @@ const EditShopPage = () => {
 
   const inputs = [
     {
-      placeholder: "Shop Name",
+      label: "Shop Name",
       name: "shopName",
       type: "text",
     },
     {
-      placeholder: "Shop Owner Name",
+      label: "Shop Owner Name",
       name: "shopOwnerName",
       type: "text",
     },
     {
-      placeholder: "Email address",
+      label: "Email address",
       name: "shopEmail",
       type: "text",
     },
     {
-      placeholder: "Phone number",
+      label: "Phone number",
       name: "shopPhone",
       type: "text",
     },
     {
-      placeholder: "Street Address",
+      label: "Street Address",
       name: "shopStreet",
       type: "text",
     },
     {
-      placeholder: "City",
+      label: "City",
       name: "shopCity",
       type: "text",
     },
     {
-      placeholder: "Zip / Postal",
+      label: "Zip / Postal",
       name: "shopZip",
       type: "number",
     },
     {
-      placeholder: "Password",
+      label: "Password",
       name: "password",
       type: "password",
     },
     {
-      placeholder: "Upload Logo",
+      label: "Upload Logo",
       name: "shopLogoURL",
       type: "file",
     },
   ];
-
   const {
     register,
     handleSubmit,

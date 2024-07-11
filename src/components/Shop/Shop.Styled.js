@@ -120,17 +120,25 @@ export const InputWrap = styled.label`
     transition: all 0.3s;
     min-width: 100%;
     gap: 0;
-    cursor: pointer;
+    margin-top: 8px;
+    transition: transform 0.3s ease;
     &:hover,
     &:active {
       background-color: var(--active);
+      transform: scale(1.1);
     }
     & > input {
+      cursor: pointer;
       position: absolute;
       top: 0;
       left: 0;
       overflow: hidden;
       opacity: 0;
+      /* transition: transform 0.3s ease;
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+      } */
     }
     & > span {
       display: none;
@@ -146,31 +154,6 @@ export const LabelName = styled.span`
   padding-left: 18px;
 `;
 
-// export const LogoInputWrap = styled.div`
-//   position: relative;
-//   border-radius: 60px;
-//   /* padding: 12px 15px; */
-//   border: none;
-//   background-color: var(--green);
-//   transition: all 0.3s;
-//   min-width: 100%;
-//   /* font-weight: 500;
-//   font-size: 14px;
-//   line-height: 1.28571; */
-//   /* letter-spacing: 0.02em; */
-
-//   cursor: pointer;
-//   &:hover,
-//   &:active {
-//     background-color: var(--active);
-//   }
-//   @media only screen and (min-width: 768px) {
-//     /* padding: 16px 45px;
-//     width: 166px;
-//     font-size: 20px;
-//     line-height: 1; */
-//   }
-// `;
 export const LogoInputText = styled.p`
   font-weight: 500;
   font-size: 14px;
@@ -178,16 +161,11 @@ export const LogoInputText = styled.p`
   letter-spacing: 0.02em;
   color: var(--white);
   text-align: center;
-  /* position: absolute;
-  top: 12px;
-  left: 50px; */
 `;
 export const Input = styled.input`
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
   padding: 12px 18px;
-  /* width: 335px; */
-  /* height: 44px; */
   min-width: 100%;
   background: var(--white);
   outline: none;
