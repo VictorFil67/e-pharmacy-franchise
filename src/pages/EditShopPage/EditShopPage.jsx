@@ -85,22 +85,7 @@ const EditShopPage = () => {
     resolver: yupResolver(schema),
   });
 
-  // async
-  function onSubmit(
-    data
-    //   {
-    //   shopName,
-    //   shopOwnerName,
-    //   shopEmail,
-    //   shopPhone,
-    //   shopStreet,
-    //   shopCity,
-    //   shopZip,
-    //   password,
-    //   shopLogoURL,
-    //   shopOwnDelivery,
-    // }
-  ) {
+  function onSubmit(data) {
     const formData = new FormData();
 
     for (const key in data) {
@@ -111,44 +96,6 @@ const EditShopPage = () => {
       }
     }
 
-    // if (shopName) {
-    //   formData.append("shopName", shopName);
-    // }
-    // if (shopOwnerName) {
-    //   formData.append("shopOwnerName", shopOwnerName);
-    // }
-    // if (shopEmail) {
-    //   formData.append("shopEmail", shopEmail);
-    // }
-    // if (shopPhone) {
-    //   formData.append("shopPhone", shopPhone);
-    // }
-    // if (shopStreet) {
-    //   formData.append("shopStreet", shopStreet);
-    // }
-    // if (shopCity) {
-    //   formData.append("shopCity", shopCity);
-    // }
-    // if (shopZip) {
-    //   formData.append("shopZip", shopZip);
-    // }
-    // if (password) {
-    //   formData.append("password", password);
-    // }
-    // if (shopLogoURL[0]) {
-    //   formData.append("shopLogoURL", shopLogoURL[0]);
-    // }
-
-    // formData.append("shopOwnDelivery", shopOwnDelivery);
-
-    // Log formData contents for debugging
-    for (let [key, value] of formData.entries()) {
-      console.log(key, value);
-    }
-
-    // console.log(shopLogoURL[0]?.name);
-    console.log(...formData);
-    // await
     dispatch(editShopThunk({ id: _id, formData }))
       .unwrap()
       .then(() => {

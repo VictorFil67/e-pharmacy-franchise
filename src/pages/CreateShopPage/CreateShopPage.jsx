@@ -88,46 +88,20 @@ const CreateShopPage = () => {
     resolver: yupResolver(schema),
   });
 
-  // async
-  function onSubmit({
-    shopName,
-    shopOwnerName,
-    shopEmail,
-    shopPhone,
-    shopStreet,
-    shopCity,
-    shopZip,
-    password,
-    shopLogoURL,
-    shopOwnDelivery,
-  }) {
+  function onSubmit(data) {
     const formData = new FormData();
-    formData.append("shopName", shopName);
-    formData.append("shopOwnerName", shopOwnerName);
-    formData.append("shopEmail", shopEmail);
-    formData.append("shopPhone", shopPhone);
-    formData.append("shopStreet", shopStreet);
-    formData.append("shopCity", shopCity);
-    formData.append("shopZip", shopZip);
-    formData.append("password", password);
-    // formData.append("shopLogoURL", shopLogoURL);
-    formData.append("shopOwnDelivery", shopOwnDelivery);
 
-    if (shopLogoURL[0]) {
-      formData.append("shopLogoURL", shopLogoURL[0]);
-    } else {
-      alert("No file selected");
-      return;
+    for (const key in data) {
+      if (key === "shopLogoURL" && data[key][0]) {
+        formData.append(key, data[key][0]); // Append the file object
+      } else if (key === "shopLogoURL" && !data[key][0]) {
+        alert("No file selected");
+        return;
+      } else {
+        formData.append(key, data[key]);
+      }
     }
 
-    // Log formData contents for debugging
-    for (let [key, value] of formData.entries()) {
-      console.log(key, value);
-    }
-
-    console.log(shopLogoURL[0].name);
-
-    // await
     dispatch(createShopThunk(formData))
       .unwrap()
       .then(() => {
