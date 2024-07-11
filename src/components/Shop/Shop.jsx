@@ -17,7 +17,7 @@ import {
   ShopLogoWrap,
   // UploadLogo,
 } from "./Shop.Styled";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import RadioChecked from "../../images/shopImg/RadioChecked";
 import RadioUnChecked from "../../images/shopImg/RadioUnChecked";
 import { useSelector } from "react-redux";

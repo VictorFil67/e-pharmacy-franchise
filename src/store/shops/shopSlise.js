@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createShopThunk } from "./operations";
+import { createShopThunk, editShopThunk } from "./operations";
 
 const shopsSlice = createSlice({
   name: "shops",
@@ -16,6 +16,15 @@ const shopsSlice = createSlice({
         state.shop = payload;
       })
       .addCase(createShopThunk.rejected, (state, { payload }) => {
+        state.error = payload;
+      })
+      .addCase(editShopThunk.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(editShopThunk.fulfilled, (state, { payload }) => {
+        state.shop = payload;
+      })
+      .addCase(editShopThunk.rejected, (state, { payload }) => {
         state.error = payload;
       });
   },

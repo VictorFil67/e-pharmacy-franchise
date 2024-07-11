@@ -1,15 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-// import { AuthComponent } from "../../components/AuthComponent/AuthComponent";
 import { toast } from "react-toastify";
-// import { signUpThunk } from "../../store/auth/operations";
-// import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
 import { Shop } from "../../components/Shop/Shop";
 import { createShopThunk } from "../../store/shops/operations";
 import { useDispatch } from "react-redux";
-// import { useState } from "react";
 
 const schema = yup.object({
   shopName: yup.string().required("The shop name is required"),
@@ -35,11 +30,6 @@ const schema = yup.object({
 
 const CreateShopPage = () => {
   const dispatch = useDispatch();
-  // const [fileData, setSelectedFile] = useState(null);
-
-  // const handleFileChange = (event) => {
-  //   setSelectedFile(event.target.files[0]);
-  // };
 
   const inputs = [
     {
@@ -98,18 +88,8 @@ const CreateShopPage = () => {
     resolver: yupResolver(schema),
   });
 
-  // const [fileData, setFileData] = useState({
-  //   file: "",
-  // });
-
-  // const handleFileChange = (e) => {
-  //   setFileData(
-  //     // ...fileData,
-  //     e.target.files[0]
-  //   );
-  // };
-
-  async function onSubmit({
+  // async
+  function onSubmit({
     shopName,
     shopOwnerName,
     shopEmail,
@@ -121,17 +101,6 @@ const CreateShopPage = () => {
     shopLogoURL,
     shopOwnDelivery,
   }) {
-    // const handleFileChange = (event) => {
-    //   const file = event.target.files[0];
-    //   const reader = new FileReader();
-
-    //   reader.onload = (e) => {
-    //     setImageSrc(e.target.result);
-    //   };
-
-    //   if (file) {
-    //     reader.readAsDataURL(file);
-    //   }
     const formData = new FormData();
     formData.append("shopName", shopName);
     formData.append("shopOwnerName", shopOwnerName);
@@ -141,9 +110,8 @@ const CreateShopPage = () => {
     formData.append("shopCity", shopCity);
     formData.append("shopZip", shopZip);
     formData.append("password", password);
-    formData.append("shopLogoURL", shopLogoURL);
+    // formData.append("shopLogoURL", shopLogoURL);
     formData.append("shopOwnDelivery", shopOwnDelivery);
-    // console.log(formData.get("shopLogoURL"));
 
     if (shopLogoURL[0]) {
       formData.append("shopLogoURL", shopLogoURL[0]);
@@ -159,38 +127,13 @@ const CreateShopPage = () => {
 
     console.log(shopLogoURL[0].name);
 
-    await dispatch(
-      createShopThunk(
-        // {
-        //   shopName,
-        //   shopOwnerName,
-        //   shopEmail,
-        //   shopPhone,
-        //   shopStreet,
-        //   shopCity,
-        //   shopZip,
-        //   password,
-        //   shopOwnDelivery,
-        // },
-        formData
-      )
-    )
+    // await
+    dispatch(createShopThunk(formData))
       .unwrap()
       .then(() => {
         toast.success("The shop has been created!");
-        // navigate("/login");
-        // dispatch(signInThunk({ email, password }))
-        //   .unwrap()
-        //   .then(() => {
-        //     toast.success(`Welcome`);
-        //     navigate("/recommended");
-        //   })
-        //   .catch((err) => toast.error(err));
       })
-      // .catch(() => toast.error("Ooops... Something went wrong!"));
       .catch((err) => toast.error(err));
-    // notify();
-    // console.log(name, email, phone, password);
   }
 
   return (
@@ -202,10 +145,6 @@ const CreateShopPage = () => {
         onSubmit={onSubmit}
         errors={errors}
         buttonName={"Create account"}
-        // logo={true}
-        // account={"Don't have an account?"}
-        // rout={"/register"}
-        // marg={true}
       />
     </>
   );
