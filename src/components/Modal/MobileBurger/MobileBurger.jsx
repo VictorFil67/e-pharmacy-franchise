@@ -33,13 +33,23 @@ const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
           <BurgerMenu>
             <BurgerLinkWraper>
               <LinkContainer>
-                <BurgerLink to={"/"}>Shop</BurgerLink>
+                <BurgerLink
+                  to="/create-shop"
+                  onClick={closeBurger}
+                  aria-label="Create shop"
+                >
+                  Shop
+                </BurgerLink>
               </LinkContainer>
               <LinkContainer>
-                <BurgerLink to={"/medicine"}>Medicine</BurgerLink>
+                <BurgerLink to={"/medicine"} onClick={closeBurger}>
+                  Medicine
+                </BurgerLink>
               </LinkContainer>
               <LinkContainer>
-                <BurgerLink to={"/statistics"}>Statistics</BurgerLink>
+                <BurgerLink to={"/statistics"} onClick={closeBurger}>
+                  Statistics
+                </BurgerLink>
               </LinkContainer>
             </BurgerLinkWraper>
             <BurgerButtonLogAut onClick={onLogout}>Log out</BurgerButtonLogAut>

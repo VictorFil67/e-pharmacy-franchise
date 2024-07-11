@@ -65,7 +65,7 @@ const Header = () => {
           <>
             <HeaderLinkWraper>
               <LinkContainer>
-                <HeaderLink to="/" aria-label="Shop">
+                <HeaderLink to="/create-shop" aria-label="Create shop">
                   Shop
                 </HeaderLink>
               </LinkContainer>

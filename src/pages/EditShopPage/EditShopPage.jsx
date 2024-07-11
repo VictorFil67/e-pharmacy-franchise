@@ -107,6 +107,7 @@ const EditShopPage = () => {
   return (
     <>
       <Shop
+        title={"Edit data"}
         inputs={inputs}
         register={register}
         handleSubmit={handleSubmit}
