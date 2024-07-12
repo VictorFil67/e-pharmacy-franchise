@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   createShopThunk,
   editShopThunk,
+  getAllProductsThunk,
   getShopIdThunk,
+  getShopProductsThunk,
   getShopThunk,
 } from "./operations";
 
@@ -10,6 +12,8 @@ const shopsSlice = createSlice({
   name: "shops",
   initialState: {
     shop: null,
+    shopProducts: [],
+    allProducts: [],
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -50,6 +54,24 @@ const shopsSlice = createSlice({
       .addCase(getShopIdThunk.rejected, (state, { payload }) => {
         state.error = payload;
         state.shop = null;
+      })
+      .addCase(getShopProductsThunk.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(getShopProductsThunk.fulfilled, (state, { payload }) => {
+        state.shopProducts = payload;
+      })
+      .addCase(getShopProductsThunk.rejected, (state, { payload }) => {
+        state.error = payload;
+      })
+      .addCase(getAllProductsThunk.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(getAllProductsThunk.fulfilled, (state, { payload }) => {
+        state.allProducts = payload;
+      })
+      .addCase(getAllProductsThunk.rejected, (state, { payload }) => {
+        state.error = payload;
       });
   },
 });

@@ -66,3 +66,30 @@ export const getShopThunk = createAsyncThunk(
     }
   }
 );
+
+export const getAllProductsThunk = createAsyncThunk(
+  "shop/getAllProducts",
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await api(`shop/all/products"`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response.data.message ?? error.message
+      );
+    }
+  }
+);
+export const getShopProductsThunk = createAsyncThunk(
+  "shop/getShopProducts",
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await api(`shop/${id}/product`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response.data.message ?? error.message
+      );
+    }
+  }
+);
