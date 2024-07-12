@@ -45,7 +45,7 @@ const shopsSlice = createSlice({
         state.error = null;
       })
       .addCase(getShopIdThunk.fulfilled, (state, { payload }) => {
-        state.shop = payload.data;
+        state.shop = payload;
       })
       .addCase(getShopIdThunk.rejected, (state, { payload }) => {
         state.error = payload;

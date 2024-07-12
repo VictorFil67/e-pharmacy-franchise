@@ -43,7 +43,7 @@ export const getShopIdThunk = createAsyncThunk(
   "shop/getShopId",
   async (_, thunkAPI) => {
     try {
-      const data = await api(`shop/own`);
+      const { data } = await api(`shop/own`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -52,11 +52,12 @@ export const getShopIdThunk = createAsyncThunk(
     }
   }
 );
+
 export const getShopThunk = createAsyncThunk(
   "shop/getShopInfo",
   async (id, thunkAPI) => {
     try {
-      const data = await api(`shop/${id}`);
+      const { data } = await api(`shop/${id}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
