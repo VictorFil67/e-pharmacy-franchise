@@ -10,8 +10,12 @@ import {
   BurgerMenu,
   LinkContainer,
 } from "./MobileBurger.Styled";
+import { selectShop } from "../../../store/shops/selectors";
+import { useSelector } from "react-redux";
 
 const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
+  const shop = useSelector(selectShop);
+
   function close(e) {
     if (e.target === e.currentTarget) {
       closeBurger();
@@ -34,7 +38,7 @@ const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
             <BurgerLinkWraper>
               <LinkContainer>
                 <BurgerLink
-                  to="/create-shop"
+                  to={shop ? "/shop" : "/create-shop"}
                   onClick={closeBurger}
                   aria-label="Create shop"
                 >

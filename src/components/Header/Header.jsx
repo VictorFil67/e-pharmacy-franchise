@@ -18,9 +18,11 @@ import { selectToken, selectUser } from "../../store/auth/selectors";
 import { logoutThunk } from "../../store/auth/operations";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { selectShop } from "../../store/shops/selectors";
 
 const Header = () => {
   const user = useSelector(selectUser);
+  const shop = useSelector(selectShop);
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -65,7 +67,10 @@ const Header = () => {
           <>
             <HeaderLinkWraper>
               <LinkContainer>
-                <HeaderLink to="/create-shop" aria-label="Create shop">
+                <HeaderLink
+                  to={shop ? "/shop" : "/create-shop"}
+                  aria-label="Create shop"
+                >
                   Shop
                 </HeaderLink>
               </LinkContainer>
