@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectShop } from "../../store/shops/selectors";
 import {
@@ -13,6 +13,7 @@ import {
   EditLink,
   EditWrap,
   InfoWrap,
+  ProductsBtn,
   ProductsBtnWrap,
   ShopName,
   ShopPageWrap,
@@ -28,6 +29,7 @@ const ShopPage = () => {
   const dispatch = useDispatch();
   const { shopId } = useSelector(selectShop);
   const shop = useSelector(selectShop);
+  const [active, setactive] = useState("Drug store");
 
   useEffect(() => {
     dispatch(getShopThunk(shopId))
@@ -78,8 +80,18 @@ const ShopPage = () => {
           </EditWrap>
         </InfoWrap>
         <ProductsBtnWrap>
-          <button>Drug store</button>
-          <button>All medicine</button>
+          <ProductsBtn
+            onClick={() => setactive("Drug store")}
+            $act={active === "Drug store"}
+          >
+            Drug store
+          </ProductsBtn>
+          <ProductsBtn
+            onClick={() => setactive("All medicine")}
+            $act={active === "All medicine"}
+          >
+            All medicine
+          </ProductsBtn>
         </ProductsBtnWrap>
       </ShopWrap>
       <ul>

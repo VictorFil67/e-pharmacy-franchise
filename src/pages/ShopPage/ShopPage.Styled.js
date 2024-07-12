@@ -91,3 +91,23 @@ export const AddMedicine = styled.button`
   color: #f7f8fa;
   background-color: var(--green);
 `;
+export const ProductsBtn = styled.button`
+  /* border-radius: 30px;
+  padding: 10px 24px;
+  width: 124px;
+  height: 38px; */
+  font-size: 14px;
+  line-height: 1.28571;
+  color: ${(props) => (props.$act ? "var(--black)" : "#93939a")};
+  /* background-color: var(--green); */
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${(props) => props.$act && "var(--green)"};
+  }
+`;
