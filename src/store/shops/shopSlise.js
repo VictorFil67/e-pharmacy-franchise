@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createShopThunk, editShopThunk } from "./operations";
+import {
+  createShopThunk,
+  editShopThunk,
+  getShopIdThunk,
+  getShopThunk,
+} from "./operations";
 
 const shopsSlice = createSlice({
   name: "shops",
@@ -26,6 +31,25 @@ const shopsSlice = createSlice({
       })
       .addCase(editShopThunk.rejected, (state, { payload }) => {
         state.error = payload;
+      })
+      .addCase(getShopThunk.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(getShopThunk.fulfilled, (state, { payload }) => {
+        state.shop = payload;
+      })
+      .addCase(getShopThunk.rejected, (state, { payload }) => {
+        state.error = payload;
+      })
+      .addCase(getShopIdThunk.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(getShopIdThunk.fulfilled, (state, { payload }) => {
+        state.shop = payload.data;
+      })
+      .addCase(getShopIdThunk.rejected, (state, { payload }) => {
+        state.error = payload;
+        state.shop = null;
       });
   },
 });

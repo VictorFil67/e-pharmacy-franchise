@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 const PrivateRoute = ({ children }) => {
   const user = useSelector(selectUser);
-  // const user = true;
   if (user) {
     return children;
   }

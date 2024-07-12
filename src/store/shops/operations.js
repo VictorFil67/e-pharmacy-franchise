@@ -38,3 +38,30 @@ export const editShopThunk = createAsyncThunk(
     }
   }
 );
+
+export const getShopIdThunk = createAsyncThunk(
+  "shop/getShopId",
+  async (_, thunkAPI) => {
+    try {
+      const data = await api(`shop/own`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response.data.message ?? error.message
+      );
+    }
+  }
+);
+export const getShopThunk = createAsyncThunk(
+  "shop/getShopInfo",
+  async (id, thunkAPI) => {
+    try {
+      const data = await api(`shop/${id}`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response.data.message ?? error.message
+      );
+    }
+  }
+);

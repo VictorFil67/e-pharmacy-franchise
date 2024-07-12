@@ -9,11 +9,6 @@ const PublicRoute = ({ children }) => {
   if (!user) {
     return children;
   }
-  // else if (path === "/register" || path === "/login") {
-  //   return <Navigate to={"/"} />;
-  // }
-  // else {
-  // return <Navigate to={path} />;
   return <Navigate to={path ?? "/"} />;
   // }
 };

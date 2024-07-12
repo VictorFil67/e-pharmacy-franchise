@@ -40,7 +40,7 @@ const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
                 <BurgerLink
                   to={shop ? "/shop" : "/create-shop"}
                   onClick={closeBurger}
-                  aria-label="Create shop"
+                  aria-label="Shop"
                 >
                   Shop
                 </BurgerLink>

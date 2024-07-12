@@ -5,6 +5,7 @@ import { AuthComponent } from "../../components/AuthComponent/AuthComponent";
 import { toast } from "react-toastify";
 import { signInThunk } from "../../store/auth/operations";
 import { useDispatch } from "react-redux";
+import { getShopIdThunk } from "../../store/shops/operations";
 
 const schema = yup.object({
   // name: yup.string().required("The name is required"),
@@ -63,13 +64,12 @@ const LoginPage = () => {
       .unwrap()
       .then(() => {
         toast.success("Welcome!");
-        // dispatch(signInThunk({ email, password }))
-        //   .unwrap()
-        //   .then(() => {
-        //     toast.success(`Welcome`);
-        //     navigate("/recommended");
-        //   })
-        //   .catch((err) => toast.error(err));
+        dispatch(getShopIdThunk())
+          .unwrap()
+          .then(() => {
+            toast.success(`You have your own shop`);
+          })
+          .catch(() => toast.error(`You don't have your own shop`));
       })
       // .catch(() => toast.error("Ooops... Something went wrong!"));
       .catch((err) => toast.error(err));

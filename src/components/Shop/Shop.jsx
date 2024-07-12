@@ -151,7 +151,7 @@ export const Shop = ({
         </Form>
       </FormWrap>
       <ShopLogoWrap>
-        <img src={shop?.shopLogoURL} alt="Shop Logo" />
+        {shop?.shopLogoURL && <img src={shop?.shopLogoURL} alt="Shop Logo" />}
       </ShopLogoWrap>
     </ShopWrap>
   );
