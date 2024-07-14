@@ -22,6 +22,13 @@ export const Container = styled.div`
 export const Footer = styled.footer`
   width: 100%;
   background-color: #59b17a;
+  margin-top: 80px;
+  @media only screen and (min-width: 768px) {
+    margin-top: 120px;
+  }
+  @media only screen and (min-width: 1440px) {
+    margin-top: 100px;
+  }
 `;
 
 export const FooterContainer = styled.div`

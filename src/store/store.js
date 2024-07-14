@@ -11,7 +11,6 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/authSlice";
-// import { booksReducer } from "./books/booksSlise";
 import { loadingReducer } from "./loading/loadingSlice";
 import { shopsReducer } from "./shops/shopSlise";
 

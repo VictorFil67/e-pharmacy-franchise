@@ -6,13 +6,13 @@ export const ShopWrap = styled.div`
   gap: 20px;
   /* position: relative; */
   /* margin-bottom: 80px; */
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
   @media only screen and (min-width: 768px) {
-    padding-bottom: 120px;
+    /* padding-bottom: 120px; */
   }
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
   }
 `;
 

@@ -111,3 +111,9 @@ export const ProductsBtn = styled.button`
     background-color: ${(props) => props.$act && "var(--green)"};
   }
 `;
+
+export const ProductList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
