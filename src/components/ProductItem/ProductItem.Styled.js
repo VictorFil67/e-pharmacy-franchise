@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ItemWrap = styled.li`
@@ -87,4 +88,45 @@ export const DeleteButton = styled.button`
   line-height: 1;
   color: var(--green);
   background-color: rgba(89, 177, 122, 0.1);
+`;
+
+export const ControlAllMedicineWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const AddToShopButton = styled.button`
+  border-radius: 24px;
+  padding: 10px 16px;
+  width: 114px;
+  height: 34px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+  color: #f7f8fa;
+  background-color: var(--green);
+`;
+
+export const DetailsLink = styled(Link)`
+  background: transparent;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--black);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 2px;
+  @media only screen and (min-width: 768px) {
+    /* font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25; */
+  }
+  @media only screen and (min-width: 1440px) {
+    /* flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0; */
+    /* padding-right: 139px; */
+    /* flex-grow: 1; */
+  }
 `;

@@ -1,7 +1,10 @@
 import {
+  AddToShopButton,
+  ControlAllMedicineWrap,
   ControlWrap,
   DataWrap,
   DeleteButton,
+  DetailsLink,
   EditButton,
   ImgWrap,
   InfoWrap,
@@ -11,7 +14,7 @@ import {
   TextWrap,
 } from "./ProductItem.Styled";
 
-export const ProductItem = ({ photo, name, price }) => {
+export const ProductItem = ({ photo, name, price, suppliers, active }) => {
   return (
     <ItemWrap>
       {photo && (
@@ -23,14 +26,21 @@ export const ProductItem = ({ photo, name, price }) => {
         <DataWrap>
           <TextWrap>
             <MedicineName>{name}</MedicineName>
-            <MedicineBrand>Framing (Wood)</MedicineBrand>
+            <MedicineBrand>{suppliers}</MedicineBrand>
           </TextWrap>
           <p>{price}</p>
         </DataWrap>
-        <ControlWrap>
-          <EditButton>Edit</EditButton>
-          <DeleteButton>Delete</DeleteButton>
-        </ControlWrap>
+        {active === "Drug store" ? (
+          <ControlWrap>
+            <EditButton>Edit</EditButton>
+            <DeleteButton>Delete</DeleteButton>
+          </ControlWrap>
+        ) : (
+          <ControlAllMedicineWrap>
+            <AddToShopButton>Add to shop</AddToShopButton>
+            <DetailsLink to="/medicine">Details</DetailsLink>
+          </ControlAllMedicineWrap>
+        )}
       </InfoWrap>
     </ItemWrap>
   );

@@ -69,26 +69,6 @@ const ShopPage = () => {
       .catch(() => toast.error(`Ooops... Something went wrong!`));
   }, [dispatch, shopId]);
 
-  // function getAllProducts() {
-  //   dispatch(getAllProductsThunk())
-  //     .unwrap()
-  //     .then(() => {
-  //       toast.success(`Here are all the products`);
-  //       setactive("All medicine");
-  //     })
-  //     .catch(() => toast.error(`Ooops... Something went wrong!`));
-  // }
-
-  // function getShopProducts() {
-  //   dispatch(getShopProductsThunk(shopId))
-  //     .unwrap()
-  //     .then(() => {
-  //       toast.success(`Here are the products of your shop`);
-  //       setactive("Drug store");
-  //     })
-  //     .catch(() => toast.error(`Ooops... Something went wrong!`));
-  // }
-
   return (
     <ShopPageWrap>
       <ShopWrap>
@@ -141,6 +121,8 @@ const ShopPage = () => {
                 photo={product.photo}
                 name={product.name}
                 price={product.price}
+                suppliers={product.suppliers}
+                active={active}
                 // product={product}
               />
             ))
@@ -150,6 +132,8 @@ const ShopPage = () => {
                 photo={product.photo}
                 name={product.name}
                 price={product.price}
+                suppliers={product.suppliers}
+                active={active}
                 // product={product}
               />
             ))}

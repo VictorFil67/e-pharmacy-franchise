@@ -103,6 +103,15 @@ function App() {
               }
             />
             <Route
+              path="/medicine"
+              element={
+                <PrivateRoute>
+                  {/* <EditShopPage /> */}
+                  <h2>Medicine</h2>
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/register"
               element={
                 <PublicRoute>
