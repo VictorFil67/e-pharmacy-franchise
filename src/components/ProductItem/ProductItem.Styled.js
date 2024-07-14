@@ -49,7 +49,7 @@ export const TextWrap = styled.div`
   gap: 4px;
 `;
 
-export const MedicineName = styled.h2`
+export const Medicine = styled.h2`
   font-weight: 600;
   font-size: 16px;
   line-height: 1.4;

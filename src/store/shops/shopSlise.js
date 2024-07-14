@@ -14,6 +14,7 @@ const shopsSlice = createSlice({
     shop: null,
     shopProducts: [],
     allProducts: [],
+    error: null,
   },
   reducers: {},
   extraReducers: (builder) => {

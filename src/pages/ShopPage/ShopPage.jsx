@@ -40,6 +40,8 @@ const ShopPage = () => {
   const allProducts = useSelector(selectAllProducts);
   const [active, setactive] = useState("Drug store");
   console.log(shopProducts);
+  console.log(allProducts);
+  console.log(shopId);
 
   useEffect(() => {
     dispatch(getShopThunk(shopId))
@@ -114,7 +116,7 @@ const ShopPage = () => {
         </ProductsBtnWrap>
       </ShopWrap>
       <ProductList>
-        {active
+        {active === "Drug store"
           ? shopProducts.map((product) => (
               <ProductItem
                 key={product._id}
@@ -123,7 +125,8 @@ const ShopPage = () => {
                 price={product.price}
                 suppliers={product.suppliers}
                 active={active}
-                // product={product}
+                shopId={shopId}
+                productId={product._id}
               />
             ))
           : allProducts.map((product) => (
@@ -134,7 +137,8 @@ const ShopPage = () => {
                 price={product.price}
                 suppliers={product.suppliers}
                 active={active}
-                // product={product}
+                shopId={shopId}
+                productId={product._id}
               />
             ))}
       </ProductList>
