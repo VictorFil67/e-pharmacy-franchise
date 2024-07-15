@@ -31,6 +31,8 @@ import {
 import AdressSvg from "../../images/shopImg/AdressSvg";
 import PhoneSvg from "../../images/shopImg/PhoneSvg";
 import { ProductItem } from "../../components/ProductItem/ProductItem";
+import { createPortal } from "react-dom";
+import { MedicineModal } from "../../components/MedicineModal/MedicineModal";
 
 const ShopPage = () => {
   const dispatch = useDispatch();
@@ -39,9 +41,7 @@ const ShopPage = () => {
   const shopProducts = useSelector(selectShopProducts);
   const allProducts = useSelector(selectAllProducts);
   const [active, setactive] = useState("Drug store");
-  console.log(shopProducts);
-  console.log(allProducts);
-  console.log(shopId);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     dispatch(getShopThunk(shopId))
@@ -71,6 +71,14 @@ const ShopPage = () => {
       .catch(() => toast.error(`Ooops... Something went wrong!`));
   }, [dispatch, shopId]);
 
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [modal]);
+
   return (
     <ShopPageWrap>
       <ShopWrap>
@@ -97,7 +105,9 @@ const ShopPage = () => {
             <EditLink to="/edit-shop" aria-label="Edit shop">
               Edit data
             </EditLink>
-            <AddMedicine>Add medicine</AddMedicine>
+            <AddMedicine onClick={() => setModal(true)}>
+              Add medicine
+            </AddMedicine>
           </EditWrap>
         </InfoWrap>
         <ProductsBtnWrap>
@@ -142,6 +152,8 @@ const ShopPage = () => {
               />
             ))}
       </ProductList>
+      {modal &&
+        createPortal(<MedicineModal setModal={setModal} />, document.body)}
     </ShopPageWrap>
   );
 };

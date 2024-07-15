@@ -65,12 +65,9 @@ export const Shop = ({
           </Warning>
         </TitleWrap>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <InputBlockWrap
-          // $reg={reg}
-          >
+          <InputBlockWrap>
             {inputs.map((el, idx) => (
               <InputWrap key={idx}>
-                {/* {el.type === "file" ? "" : el.label} */}
                 {el.type === "file" ? (
                   <>
                     <LogoInputText>
@@ -78,11 +75,8 @@ export const Shop = ({
                       {fileValue ? "Logo is chosen" : "Upload Logo"}
                     </LogoInputText>
                     <Input
-                      // $reg={reg}
-                      // placeholder={el.placeholder}
                       type={el.type}
                       {...register(el.name)}
-                      // ref={logoInput}
                       onChange={handleFileChange}
                     />
                   </>
@@ -90,7 +84,6 @@ export const Shop = ({
                   <>
                     <LabelName>{el.label}</LabelName>
                     <Input
-                      // $reg={reg}
                       placeholder="Enter text"
                       type={el.type}
                       {...register(el.name)}

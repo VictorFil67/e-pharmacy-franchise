@@ -3,9 +3,14 @@ import { api } from "../../api/api";
 
 export const addProductThunk = createAsyncThunk(
   "product/addProduct",
-  async ({ id, body }, thunkAPI) => {
+  async ({ id, formData }, thunkAPI) => {
+    console.log(formData);
     try {
-      const { data } = await api.post(`/shop/${id}/product/add`, body);
+      const { data } = await api.post(`/shop/${id}/product/add`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

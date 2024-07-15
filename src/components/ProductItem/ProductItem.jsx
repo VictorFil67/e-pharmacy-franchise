@@ -30,7 +30,7 @@ export const ProductItem = ({
 }) => {
   const dispatch = useDispatch();
 
-  console.log(shopId, productId, name, price);
+  // console.log(shopId, productId, name, price);
 
   function addCatalogProduct({ shopId, productId }) {
     dispatch(addCatalogProductThunk({ shopId, productId }))
@@ -72,7 +72,7 @@ export const ProductItem = ({
             <AddToShopButton
               onClick={() => addCatalogProduct({ shopId, productId })}
             >
-              {console.log(shopId, productId)}
+              {/* {console.log(shopId, productId)} */}
               Add to shop
             </AddToShopButton>
             <DetailsLink to="/medicine">Details</DetailsLink>
