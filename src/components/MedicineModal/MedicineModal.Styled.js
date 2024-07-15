@@ -8,36 +8,47 @@ export const Overlay = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 300px;
-  background: rgba(20, 20, 20, 0.6);
-  z-index: 3;
+  align-items: center;
+
+  background: rgba(29, 30, 33, 0.45);
+  z-index: 1;
   overflow: auto;
   @media only screen and (min-width: 768px) {
-    padding-top: 350px;
   }
   @media only screen and (min-width: 1280px) {
-    padding-top: 280px;
   }
 `;
 export const Modal = styled.div`
+  width: 89%;
   position: relative;
   border: 1px solid rgba(104, 104, 104, 0.2);
   /* padding: 59px 46px; */
   background-color: var(--white);
-  border-radius: 12px;
-  max-width: 335px;
-  @media only screen and (min-width: 768px) {
-    padding: 50px;
-    max-width: 342px;
+  /* border-radius: 12px; */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  /* background: #fff; */
+  border-radius: 27px;
+  gap: 16px;
+  @media only screen and (min-width: 335px) {
+    max-width: 335px;
   }
-  @media only screen and (min-width: 1280px) {
+  @media only screen and (min-width: 768px) {
+    padding: 40px 38px;
+    max-width: 700px;
+  }
+  @media only screen and (min-width: 1440px) {
+    padding: 40px;
+    width: 708px;
   }
 `;
 export const CloseButton = styled.button`
   position: absolute;
-  top: 16px;
-  right: 12px;
+  top: 20px;
+  right: 20px;
   border: none;
   background-color: transparent;
   padding: 0;

@@ -1,21 +1,30 @@
 import { useState } from "react";
 import {
+  // AttachPhotoStyled,
+  AttachPhotoWrap,
+  CancelButton,
   //   ContentWrap,
   ErrorSpan,
   Form,
-  FormWrap,
+  FormButtonsWrap,
+  // FormWrap,
   ImageInputText,
+  ImgWrap,
   Input,
   InputBlockWrap,
   InputWrap,
   LabelName,
-  ShopButton,
+  MedicineButton,
+  Photo,
+  // ShopButton,
   Textarea,
   //   Span,
   //   Text,
   //   TextWrap,
   Title,
 } from "./MedicineForm.Styled";
+import AttachPhotoSVG from "../../images/modal/AttachPhotoSVG";
+import Pills from "../../images/modal/Pills.png";
 
 export const MedicineForm = ({
   title,
@@ -25,6 +34,7 @@ export const MedicineForm = ({
   handleSubmit,
   onSubmit,
   errors,
+  setModal,
 }) => {
   const [imageSrc, setImageSrc] = useState(null);
 
@@ -40,28 +50,37 @@ export const MedicineForm = ({
   };
 
   return (
-    <FormWrap>
+    // <FormWrap>
+    <>
       {/* <div>
         <input type="file" accept="image/*" onChange={handleFileChange} />
         
       </div> */}
       <Title>{title}</Title>
-      {imageSrc && (
-        <div>
-          {/* <h3>Uploaded Image:</h3> */}
-          <img src={imageSrc} alt="Uploaded" style={{ maxWidth: "100%" }} />
-        </div>
-      )}
+
+      <ImgWrap $img={imageSrc}>
+        {imageSrc ? (
+          <Photo
+            src={imageSrc}
+            // alt="Uploaded" style={{ maxWidth: "100%" }}
+          />
+        ) : (
+          <img src={Pills} alt="Pill" loading="lazy" />
+        )}
+      </ImgWrap>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputBlockWrap>
           {inputs.map((el, idx) => (
             <InputWrap key={idx}>
               {el.type === "file" ? (
                 <>
-                  <ImageInputText>
-                    {" "}
-                    {imageSrc ? "Image is chosen" : "Upload image"}
-                  </ImageInputText>
+                  <AttachPhotoWrap>
+                    <AttachPhotoSVG />
+                    <ImageInputText>
+                      {" "}
+                      {imageSrc ? "Image is chosen" : "Upload image"}
+                    </ImageInputText>
+                  </AttachPhotoWrap>
                   <Input
                     type={el.type}
                     {...register(el.name)}
@@ -92,10 +111,21 @@ export const MedicineForm = ({
             <ErrorSpan>{errors.description?.message}</ErrorSpan>
           </InputWrap>
         </InputBlockWrap>
-        <ShopButton name="submit" type="submit" aria-label={titleButton}>
-          {titleButton}
-        </ShopButton>
+        <FormButtonsWrap>
+          <MedicineButton name="submit" type="submit" aria-label={titleButton}>
+            {titleButton}
+          </MedicineButton>
+          <CancelButton
+            name="cancel"
+            type="reset"
+            aria-label="Cancel"
+            onClick={() => setModal(false)}
+          >
+            Cancel
+          </CancelButton>
+        </FormButtonsWrap>
       </Form>
-    </FormWrap>
+    </>
+    // </FormWrap>
   );
 };

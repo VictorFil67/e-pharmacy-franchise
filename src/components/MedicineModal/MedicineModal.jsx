@@ -109,6 +109,7 @@ export const MedicineModal = ({ setModal }) => {
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
           errors={errors}
+          setModal={setModal}
         />
       </Modal>
     </Overlay>

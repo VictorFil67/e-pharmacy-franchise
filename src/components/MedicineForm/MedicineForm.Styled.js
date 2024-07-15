@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import AttachPhotoSVG from "../../images/modal/AttachPhotoSVG";
 
 // export const Overlay = styled.div`
 //   position: fixed;
@@ -45,17 +46,17 @@ import styled from "styled-components";
 //     right: 16px;
 //   }
 // `;
-export const ContentWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  width: 100%;
-  @media only screen and (min-width: 768px) {
-    gap: 32px;
-    width: 242px;
-  }
-`;
+// export const ContentWrap = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   align-items: center;
+//   width: 100%;
+//   @media only screen and (min-width: 768px) {
+//     gap: 32px;
+//     width: 242px;
+//   }
+// `;
 // export const Picture = styled.img`
 //   display: block;
 //   margin: 0 auto;
@@ -94,21 +95,21 @@ export const ContentWrap = styled.div`
 //   line-height: 1.28571;
 //   color: var(--white);
 // `;
-export const FormWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 40px 20px;
-  background: #fff;
-  border-radius: 27px;
-  gap: 40px;
-  @media only screen and (min-width: 768px) {
-    padding: 40px 38px;
-  }
-  @media only screen and (min-width: 1440px) {
-    padding: 40px;
-    width: 708px;
-  }
-`;
+// export const FormWrap = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   padding: 40px 20px;
+//   background: #fff;
+//   border-radius: 27px;
+//   gap: 40px;
+//   @media only screen and (min-width: 768px) {
+//     padding: 40px 38px;
+//   }
+//   @media only screen and (min-width: 1440px) {
+//     padding: 40px;
+//     width: 708px;
+//   }
+// `;
 
 export const Title = styled.h1`
   font-weight: 600;
@@ -121,10 +122,26 @@ export const Title = styled.h1`
   }
 `;
 
+export const ImgWrap = styled.div`
+  border: ${(props) =>
+    props.$img ? "1.15px solid rgba(89, 177, 122, 0.6)" : "none"};
+  border-radius: 20px;
+  width: 130px;
+  height: 130px;
+  margin-top: 4px;
+  overflow: hidden;
+`;
+
+export const Photo = styled.img`
+  display: block;
+  height: 100%;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
   /* min-width: 280px; */
   @media only screen and (min-width: 375px) {
     /* width: 335px; */
@@ -151,19 +168,17 @@ export const InputWrap = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  /* &:last-child {
-    border-radius: 60px;
-    padding: 13px 15px;
+  &:first-child {
     border: none;
-    background-color: var(--green);
+    /* background-color: var(--green); */
     transition: all 0.3s;
     min-width: 100%;
     gap: 0;
-    margin-top: 8px;
+    margin-bottom: 40px;
     transition: transform 0.3s ease;
     &:hover,
     &:active {
-      background-color: var(--active);
+      /* background-color: var(--active); */
       transform: scale(1.1);
     }
     & > input {
@@ -174,15 +189,15 @@ export const InputWrap = styled.label`
       overflow: hidden;
       opacity: 0;
     }
-    & > span {
+    /* & > span {
       display: none;
     }
     @media only screen and (min-width: 768px) {
       min-width: 200px;
       height: 44px;
       margin-top: 26px;
-    }
-  } */
+    } */
+  }
 `;
 
 export const LabelName = styled.span`
@@ -193,12 +208,26 @@ export const LabelName = styled.span`
   padding-left: 18px;
 `;
 
+export const AttachPhotoWrap = styled.div`
+  display: flex;
+  gap: 8px;
+  align-self: center;
+`;
+
+export const AttachPhotoStyled = styled(AttachPhotoSVG)`
+  /* position: absolute;
+  top: 0;
+  left: 82px; */
+`;
+
 export const ImageInputText = styled.p`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.28571;
-  letter-spacing: 0.02em;
-  color: var(--white);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 2px;
+  color: rgba(29, 30, 33, 0.6);
   text-align: center;
 `;
 
@@ -206,7 +235,7 @@ export const Input = styled.input`
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
   padding: 12px 18px;
-  min-width: 240px;
+  min-width: 100%;
   background: var(--white);
   outline: none;
   font-weight: 400;
@@ -214,7 +243,7 @@ export const Input = styled.input`
   line-height: 1.5;
   color: var(--black);
   @media only screen and (min-width: 375px) {
-    width: 295px;
+    max-width: 295px;
   }
   &:last-child {
     /* visibility: hidden; */
@@ -246,33 +275,11 @@ export const ErrorSpan = styled.span`
   line-height: 1.2;
 `;
 
-export const ShopButton = styled.button`
-  border-radius: 60px;
-  padding: 13px 15px;
-  border: none;
-  background-color: var(--green);
-  transition: all 0.3s;
-  /* min-width: 100%; */
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.28571;
-  margin-top: 20px;
-  /* letter-spacing: 0.02em; */
-  color: var(--white);
-  max-width: 155px;
-  &:hover,
-  &:active {
-    background-color: var(--active);
-  }
-  @media only screen and (min-width: 768px) {
-    max-width: 167px;
-  }
-`;
 export const Textarea = styled.textarea`
   border: 1px solid rgba(29, 30, 33, 0.2);
   outline: none;
   border-radius: 15px;
-  min-width: 240px;
+  min-width: 100%;
   height: 100px;
   padding: 13px 15px;
   font-weight: 400;
@@ -284,5 +291,65 @@ export const Textarea = styled.textarea`
   }
   @media only screen and (min-width: 375px) {
     width: 295px;
+  }
+`;
+
+export const FormButtonsWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+export const MedicineButton = styled.button`
+  border-radius: 60px;
+  /* padding: 13px 28px; */
+  padding: 13px;
+  border: none;
+  background-color: var(--green);
+  transition: all 0.3s;
+  /* min-width: 100%; */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  /* margin-top: 20px; */
+  color: #f7f8fa;
+  min-width: 51%;
+  &:hover,
+  &:active {
+    background-color: var(--active);
+  }
+  @media only screen and (min-width: 335px) {
+    max-width: 148px;
+  }
+  @media only screen and (min-width: 768px) {
+    max-width: 167px;
+  }
+`;
+export const CancelButton = styled.button`
+  border-radius: 60px;
+  /* padding: 13px 46px; */
+  padding: 13px;
+  border: none;
+  background-color: rgba(29, 30, 33, 0.1);
+  transition: all 0.3s;
+  min-width: 46%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  /* margin-top: 20px; */
+  /* letter-spacing: 0.02em; */
+  color: rgba(29, 30, 33, 0.4);
+  /* max-width: 139px; */
+  &:hover,
+  &:active {
+    background-color: var(--active);
+  }
+  @media only screen and (min-width: 335px) {
+    max-width: 139px;
+  }
+  @media only screen and (min-width: 768px) {
+    max-width: 167px;
   }
 `;
