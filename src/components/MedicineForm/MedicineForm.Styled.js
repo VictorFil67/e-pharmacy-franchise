@@ -135,6 +135,7 @@ export const ImgWrap = styled.div`
 export const Photo = styled.img`
   display: block;
   height: 100%;
+  width: 100%;
 `;
 
 export const Form = styled.form`

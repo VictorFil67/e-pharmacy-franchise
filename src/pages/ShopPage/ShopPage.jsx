@@ -33,6 +33,7 @@ import PhoneSvg from "../../images/shopImg/PhoneSvg";
 import { ProductItem } from "../../components/ProductItem/ProductItem";
 import { createPortal } from "react-dom";
 import { MedicineModal } from "../../components/MedicineModal/MedicineModal";
+import { PaginatedItems } from "../../components/Pagination/PaginatedItems";
 
 const ShopPage = () => {
   const dispatch = useDispatch();
@@ -125,7 +126,7 @@ const ShopPage = () => {
           </ProductsBtn>
         </ProductsBtnWrap>
       </ShopWrap>
-      <ProductList>
+      {/* <ProductList>
         {active === "Drug store"
           ? shopProducts.map((product) => (
               <ProductItem
@@ -151,7 +152,8 @@ const ShopPage = () => {
                 productId={product._id}
               />
             ))}
-      </ProductList>
+      </ProductList> */}
+      <PaginatedItems itemsPerPage={5} active={active} shopId={shopId} />
       {modal &&
         createPortal(<MedicineModal setModal={setModal} />, document.body)}
     </ShopPageWrap>
