@@ -34,6 +34,7 @@ import { ProductItem } from "../../components/ProductItem/ProductItem";
 import { createPortal } from "react-dom";
 import { MedicineModal } from "../../components/MedicineModal/MedicineModal";
 import { PaginatedItems } from "../../components/Pagination/PaginatedItems";
+import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
 
 const ShopPage = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,8 @@ const ShopPage = () => {
   const shopProducts = useSelector(selectShopProducts);
   const allProducts = useSelector(selectAllProducts);
   const [active, setactive] = useState("Drug store");
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [value, setValue] = useState("");
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
@@ -79,6 +82,12 @@ const ShopPage = () => {
       document.body.style.overflow = "auto";
     }
   }, [modal]);
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  const query = { selectedOption, value };
 
   return (
     <ShopPageWrap>
@@ -126,6 +135,19 @@ const ShopPage = () => {
           </ProductsBtn>
         </ProductsBtnWrap>
       </ShopWrap>
+      <div>
+        <CategoriesFilter
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+        />
+        <input type="text" onChange={handleChange} />
+        <button
+          type="submit"
+          onClick={() => dispatch(getAllProductsThunk(query))}
+        >
+          Filter
+        </button>
+      </div>
       <ProductList>
         {active === "Drug store"
           ? shopProducts.map((product) => (

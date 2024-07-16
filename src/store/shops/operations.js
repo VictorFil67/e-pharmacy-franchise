@@ -69,9 +69,11 @@ export const getShopThunk = createAsyncThunk(
 
 export const getAllProductsThunk = createAsyncThunk(
   "shop/getAllProducts",
-  async (_, thunkAPI) => {
+  async ({ category, q, page = 1, limit = 8 }, thunkAPI) => {
     try {
-      const { data } = await api(`shop/all/products`);
+      const { data } = await api(`shop/all/products`, {
+        params: { category, q, page, limit },
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
