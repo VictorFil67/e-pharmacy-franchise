@@ -19,7 +19,7 @@ export const Overlay = styled.div`
   }
 `;
 export const Modal = styled.div`
-  width: 89%;
+  width: 88.06%;
   position: relative;
   border: 1px solid rgba(104, 104, 104, 0.2);
   /* padding: 59px 46px; */

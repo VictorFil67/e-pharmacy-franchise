@@ -14,6 +14,8 @@ const shopsSlice = createSlice({
     shop: null,
     shopProducts: [],
     allProducts: [],
+    total: 0,
+    shopTotal: 0,
     error: null,
   },
   reducers: {},
@@ -60,7 +62,8 @@ const shopsSlice = createSlice({
         state.error = null;
       })
       .addCase(getShopProductsThunk.fulfilled, (state, { payload }) => {
-        state.shopProducts = payload;
+        state.shopProducts = payload.result;
+        state.shopTotal = payload.total;
       })
       .addCase(getShopProductsThunk.rejected, (state, { payload }) => {
         state.error = payload;
@@ -69,7 +72,8 @@ const shopsSlice = createSlice({
         state.error = null;
       })
       .addCase(getAllProductsThunk.fulfilled, (state, { payload }) => {
-        state.allProducts = payload;
+        state.allProducts = payload.result;
+        state.total = payload.total;
       })
       .addCase(getAllProductsThunk.rejected, (state, { payload }) => {
         state.error = payload;

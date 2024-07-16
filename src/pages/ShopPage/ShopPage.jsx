@@ -126,7 +126,7 @@ const ShopPage = () => {
           </ProductsBtn>
         </ProductsBtnWrap>
       </ShopWrap>
-      {/* <ProductList>
+      <ProductList>
         {active === "Drug store"
           ? shopProducts.map((product) => (
               <ProductItem
@@ -152,8 +152,11 @@ const ShopPage = () => {
                 productId={product._id}
               />
             ))}
-      </ProductList> */}
-      <PaginatedItems itemsPerPage={5} active={active} shopId={shopId} />
+      </ProductList>
+      <PaginatedItems
+        itemsPerPage={5}
+        //  active={active} shopId={shopId}
+      />
       {modal &&
         createPortal(<MedicineModal setModal={setModal} />, document.body)}
     </ShopPageWrap>
