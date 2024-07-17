@@ -1,13 +1,14 @@
 import { FilterSelect } from "./CategoriesFilter.Styled";
 
 const options = [
-  { value: "medicine", label: "Medicine" },
-  { value: "head", label: "Head" },
-  { value: "dental-care", label: "Dental Care" },
-  { value: "leg", label: "Leg" },
-  { value: "heart", label: "Heart" },
-  { value: "hand", label: "Hand" },
-  { value: "skin-care", label: "Skin Care" },
+  { value: "Medicine", label: "Medicine" },
+  { value: "Head", label: "Head" },
+  { value: "Dental Care", label: "Dental Care" },
+  { value: "Leg", label: "Leg" },
+  { value: "Heart", label: "Heart" },
+  { value: "Hand", label: "Hand" },
+  { value: "Skin Care", label: "Skin Care" },
+  { value: null, label: "All Medicines" },
 ];
 
 const CategoriesFilter = ({ selectedOption, setSelectedOption }) => {

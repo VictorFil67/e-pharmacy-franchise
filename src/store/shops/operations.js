@@ -70,6 +70,7 @@ export const getShopThunk = createAsyncThunk(
 export const getAllProductsThunk = createAsyncThunk(
   "shop/getAllProducts",
   async ({ category, q, page = 1, limit = 8 }, thunkAPI) => {
+    console.log(category);
     try {
       const { data } = await api(`shop/all/products`, {
         params: { category, q, page, limit },

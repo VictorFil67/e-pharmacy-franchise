@@ -41,7 +41,6 @@ import { MedicineModal } from "../../components/MedicineModal/MedicineModal";
 import { PaginatedItems } from "../../components/Pagination/PaginatedItems";
 import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
 import FilterSvg from "../../images/shopImg/FilterSvg";
-import SearchSvg from "../../images/shopImg/SearchSvg";
 
 const ShopPage = () => {
   const dispatch = useDispatch();
@@ -53,6 +52,8 @@ const ShopPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [value, setValue] = useState("");
   const [modal, setModal] = useState(false);
+  const query = { category: selectedOption?.value, q: value };
+  console.log(query);
 
   useEffect(() => {
     dispatch(getShopThunk(shopId))
@@ -74,13 +75,14 @@ const ShopPage = () => {
   }, [dispatch, shopId]);
 
   useEffect(() => {
-    dispatch(getAllProductsThunk())
+    dispatch(getAllProductsThunk(query))
       .unwrap()
       .then(() => {
         toast.success(`All the products are received`);
       })
       .catch(() => toast.error(`Ooops... Something went wrong!`));
-  }, [dispatch, shopId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (modal) {
@@ -93,8 +95,6 @@ const ShopPage = () => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-
-  const query = { selectedOption, value };
 
   return (
     <ShopPageWrap>
@@ -142,27 +142,29 @@ const ShopPage = () => {
           </ProductsBtn>
         </ProductsBtnWrap>
       </ShopWrap>
-      <FilterWrap>
-        <CategoriesFilter
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-        />
-        <InputWrap>
-          <InputFilter
-            type="text"
-            placeholder="Search medicine"
-            onChange={handleChange}
+      {active === "All medicine" && (
+        <FilterWrap>
+          <CategoriesFilter
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
           />
-          <SearchSvgStyled />
-        </InputWrap>
-        <ButtonFilter
-          type="submit"
-          onClick={() => dispatch(getAllProductsThunk(query))}
-        >
-          <FilterSvg />
-          <span>Filter</span>
-        </ButtonFilter>
-      </FilterWrap>
+          <InputWrap>
+            <InputFilter
+              type="text"
+              placeholder="Search medicine"
+              onChange={handleChange}
+            />
+            <SearchSvgStyled />
+          </InputWrap>
+          <ButtonFilter
+            type="submit"
+            onClick={() => dispatch(getAllProductsThunk(query))}
+          >
+            <FilterSvg />
+            <span>Filter</span>
+          </ButtonFilter>
+        </FilterWrap>
+      )}
       <ProductList>
         {active === "Drug store"
           ? shopProducts.map((product) => (
