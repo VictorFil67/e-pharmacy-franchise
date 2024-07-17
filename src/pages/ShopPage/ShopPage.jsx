@@ -16,12 +16,14 @@ import {
   ButtonFilter,
   ContactsWrap,
   DataWrap,
+  Edge,
   EditLink,
   EditWrap,
   FilterWrap,
   InfoWrap,
   InputFilter,
   InputWrap,
+  Pagination,
   ProductList,
   ProductsBtn,
   ProductsBtnWrap,
@@ -192,10 +194,18 @@ const ShopPage = () => {
               />
             ))}
       </ProductList>
-      <PaginatedItems
-        itemsPerPage={5}
-        //  active={active} shopId={shopId}
-      />
+      <Pagination>
+        <Edge>
+          <span>&#171;</span>
+        </Edge>
+        <PaginatedItems
+          itemsPerPage={5}
+          //  active={active} shopId={shopId}
+        />
+        <Edge>
+          <span>&#187;</span>
+        </Edge>
+      </Pagination>
       {modal &&
         createPortal(<MedicineModal setModal={setModal} />, document.body)}
     </ShopPageWrap>

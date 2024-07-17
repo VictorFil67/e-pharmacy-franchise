@@ -34,14 +34,20 @@ export const PaginatedItems = ({ itemsPerPage }) => {
       {/* <Items currentItems={currentItems} active={active} shopId={shopId} /> */}
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={4}
+        pageRangeDisplayed={1}
         marginPagesDisplayed={1}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="<"
         renderOnZeroPageCount={null}
+        className="pagination"
         pageClassName="page"
+        activeClassName="activePage"
+        previousClassName="previous"
+        nextClassName="next"
+        previousLinkClassName="previousLink"
+        nextLinkClassName="nextLink"
       />
     </>
   );
