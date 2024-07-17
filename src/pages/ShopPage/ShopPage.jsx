@@ -13,14 +13,19 @@ import {
 import { toast } from "react-toastify";
 import {
   AddMedicine,
+  ButtonFilter,
   ContactsWrap,
   DataWrap,
   EditLink,
   EditWrap,
+  FilterWrap,
   InfoWrap,
+  InputFilter,
+  InputWrap,
   ProductList,
   ProductsBtn,
   ProductsBtnWrap,
+  SearchSvgStyled,
   ShopName,
   ShopPageWrap,
   ShopWrap,
@@ -35,6 +40,8 @@ import { createPortal } from "react-dom";
 import { MedicineModal } from "../../components/MedicineModal/MedicineModal";
 import { PaginatedItems } from "../../components/Pagination/PaginatedItems";
 import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
+import FilterSvg from "../../images/shopImg/FilterSvg";
+import SearchSvg from "../../images/shopImg/SearchSvg";
 
 const ShopPage = () => {
   const dispatch = useDispatch();
@@ -135,19 +142,27 @@ const ShopPage = () => {
           </ProductsBtn>
         </ProductsBtnWrap>
       </ShopWrap>
-      <div>
+      <FilterWrap>
         <CategoriesFilter
           selectedOption={selectedOption}
           setSelectedOption={setSelectedOption}
         />
-        <input type="text" onChange={handleChange} />
-        <button
+        <InputWrap>
+          <InputFilter
+            type="text"
+            placeholder="Search medicine"
+            onChange={handleChange}
+          />
+          <SearchSvgStyled />
+        </InputWrap>
+        <ButtonFilter
           type="submit"
           onClick={() => dispatch(getAllProductsThunk(query))}
         >
-          Filter
-        </button>
-      </div>
+          <FilterSvg />
+          <span>Filter</span>
+        </ButtonFilter>
+      </FilterWrap>
       <ProductList>
         {active === "Drug store"
           ? shopProducts.map((product) => (

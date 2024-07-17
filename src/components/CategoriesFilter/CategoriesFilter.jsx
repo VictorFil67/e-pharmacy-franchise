@@ -1,10 +1,13 @@
 import { FilterSelect } from "./CategoriesFilter.Styled";
 
 const options = [
-  { value: "unread", label: "Unread" },
-  { value: "in-progress", label: "In progress" },
-  { value: "done", label: "Done" },
-  { value: "all-books", label: "All books" },
+  { value: "medicine", label: "Medicine" },
+  { value: "head", label: "Head" },
+  { value: "dental-care", label: "Dental Care" },
+  { value: "leg", label: "Leg" },
+  { value: "heart", label: "Heart" },
+  { value: "hand", label: "Hand" },
+  { value: "skin-care", label: "Skin Care" },
 ];
 
 const CategoriesFilter = ({ selectedOption, setSelectedOption }) => {
@@ -16,75 +19,77 @@ const CategoriesFilter = ({ selectedOption, setSelectedOption }) => {
         IndicatorSeparator: () => null,
       }}
       options={options}
-      aria-label="Filter for the books"
-      placeholder="All books"
+      aria-label="Filter for the categories"
+      placeholder="Product category"
       defaultValue={selectedOption}
       styles={{
         control: (baseStyles, state) => ({
           ...baseStyles,
-          backgroundColor: "var(--dark-grey)",
+          backgroundColor: "var(--white)",
           boxShadow: state.isFocused ? "#3e3e3e" : "#3e3e3e",
-          borderRadius: "12px",
-          width: "120px",
+          borderRadius: "60px",
+          width: "100%",
+          paddingLeft: "10px",
           "@media only screen and (min-width: 768px)": {
             width: "153px",
           },
-          height: "40px",
+          height: "44px",
           cursor: "pointer",
-          border: "1px solid #3e3e3e",
+          border: "1px solid rgba(29, 30, 33, 0.1)",
           ":hover": {
-            borderColor: "#3e3e3e",
+            borderColor: "var(--green)",
             outline: "none",
           },
           ":active": {
-            borderColor: "#3e3e3e",
+            borderColor: "var(--green)",
             outline: "none",
           },
           caretColor: "transparent",
         }),
         singleValue: (b) => ({
           ...b,
-          color: "var(--white)",
+          color: "var(--black)",
         }),
         dropdownIndicator: (b, s) => ({
           ...b,
-          color: "var(--white)",
+          color: "var(--black)",
+          paddingRight: "17px",
           transform: s.selectProps.menuIsOpen
             ? "rotate(180deg)"
             : "rotate(0deg)",
           ":hover": {
-            color: "var(--white)",
+            color: "var(--black)",
           },
         }),
         option: (b, s) => ({
           ...b,
-          color: !s.isSelected ? "var(--input-title)" : "var(--white)",
-          backgroundColor: "var(--input-bg)",
+          color: !s.isSelected ? "var(--green)" : "var(--black)",
+          backgroundColor: "var(--white)",
           cursor: "pointer",
-          padding: "0 0 8px 0",
+          padding: "0 0 4px 0",
           "&:last-child": {
             paddingBottom: "0px",
           },
           ":active": {
-            color: s.isSelected ? "var(--white)" : "var(--input-title)",
+            color: s.isSelected ? "var(--green)" : "var(--black)",
           },
         }),
         menu: (styles) => ({
           ...styles,
-          borderRadius: "12px",
-          backgroundColor: "var(--input-bg)",
-          padding: "14px",
+          borderRadius: "15px",
+          backgroundColor: "var(--white)",
+          padding: "18px",
         }),
         placeholder: (defaultStyles) => ({
           ...defaultStyles,
-          color: "var(--white)",
+          color: "rgba(29, 30, 33, 0.4)",
         }),
         menuList: (styles) => ({
           ...styles,
-          borderRadius: "12px",
+          // borderRadius: "30px",
           color: "var(--white)",
           "::-webkit-scrollbar": {
-            width: "8px",
+            width: "20px",
           },
           "::-webkit-scrollbar-track": {
             borderRadius: "10px",
