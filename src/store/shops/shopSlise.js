@@ -17,9 +17,13 @@ const shopsSlice = createSlice({
     total: 0,
     shopTotal: 0,
     page: 1,
+    shopPage: 1,
     pageCount: 0,
+    shopPageCount: 0,
     startPage: false,
     endPage: false,
+    shopStartPage: false,
+    shopEndPage: false,
     error: null,
   },
   reducers: {
@@ -30,6 +34,14 @@ const shopsSlice = createSlice({
     },
     setPageCount(state, { payload }) {
       state.pageCount = payload;
+    },
+    setShopPage(state, { payload }) {
+      state.shopPage = payload;
+      state.shopStartPage = payload === 1 ? true : false;
+      state.shopEndPage = payload === state.pageCount ? true : false;
+    },
+    setShopPageCount(state, { payload }) {
+      state.shopPageCount = payload;
     },
   },
   extraReducers: (builder) => {
@@ -95,4 +107,5 @@ const shopsSlice = createSlice({
 });
 
 export const shopsReducer = shopsSlice.reducer;
-export const { setPageCount, setPage } = shopsSlice.actions;
+export const { setPageCount, setPage, setShopPage, setShopPageCount } =
+  shopsSlice.actions;

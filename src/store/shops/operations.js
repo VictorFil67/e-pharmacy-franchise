@@ -83,25 +83,15 @@ export const getAllProductsThunk = createAsyncThunk(
     }
   }
 );
-// export const getAllProductsThunk = createAsyncThunk(
-//   "shop/getAllProducts",
-//   async (_, thunkAPI) => {
-//     try {
-//       const { data } = await api(`shop/all/products`);
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(
-//         error.response.data.message ?? error.message
-//       );
-//     }
-//   }
-// );
 
 export const getShopProductsThunk = createAsyncThunk(
   "shop/getShopProducts",
-  async (id, thunkAPI) => {
+  async ({ id, page = 1, limit = 8 }, thunkAPI) => {
+    console.log(page, limit);
     try {
-      const { data } = await api(`shop/${id}/product`);
+      const { data } = await api(`shop/${id}/product`, {
+        params: { page, limit },
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
