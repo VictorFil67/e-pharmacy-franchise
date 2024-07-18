@@ -16,7 +16,7 @@ import {
   Overlay,
 } from "../MedicineModal/MedicineModal.Styled";
 
-export const EditMedicineModal = ({ setModal, productId }) => {
+export const EditMedicineModal = ({ setModal, productId, photo }) => {
   const dispatch = useDispatch();
   const { shopId } = useSelector(selectShop);
 
@@ -101,6 +101,7 @@ export const EditMedicineModal = ({ setModal, productId }) => {
           onSubmit={onSubmit}
           errors={errors}
           setModal={setModal}
+          photo={photo}
         />
       </Modal>
     </Overlay>

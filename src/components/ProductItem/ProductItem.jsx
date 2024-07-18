@@ -15,12 +15,16 @@ import {
   // MedicineName,
   TextWrap,
 } from "./ProductItem.Styled";
-import { addCatalogProductThunk } from "../../store/products/operations";
+import {
+  addCatalogProductThunk,
+  // deleteProductThunk,
+} from "../../store/products/operations";
 import { toast } from "react-toastify";
 import { getShopProductsThunk } from "../../store/shops/operations";
 import { createPortal } from "react-dom";
 import { EditMedicineModal } from "../EditMedicineModal/EditMedicineModal";
 import { useState } from "react";
+import { DeleteMedicineModal } from "../DeleteMedicineModal/DeleteMedicineModal";
 
 export const ProductItem = ({
   photo,
@@ -33,6 +37,7 @@ export const ProductItem = ({
 }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   // console.log(shopId, productId, name, price);
 
@@ -41,7 +46,7 @@ export const ProductItem = ({
       .unwrap()
       .then(() => {
         toast.success(`The product has been added to your shop successfully!`);
-        dispatch(getShopProductsThunk(shopId))
+        dispatch(getShopProductsThunk({ id: shopId }))
           .unwrap()
           .then(() => {
             toast.success(`The products of your shop are received`);
@@ -50,6 +55,23 @@ export const ProductItem = ({
       })
       .catch((err) => toast.error(err));
   }
+
+  // function deleteProduct({ shopId, productId }) {
+  //   dispatch(deleteProductThunk({ id: shopId, productId }))
+  //     .unwrap()
+  //     .then(() => {
+  //       toast.success(
+  //         `The product has been deleted from your shop successfully!`
+  //       );
+  //       dispatch(getShopProductsThunk({ id: shopId }))
+  //         .unwrap()
+  //         .then(() => {
+  //           toast.success(`The products of your shop are received`);
+  //         })
+  //         .catch((err) => toast.error(err));
+  //     })
+  //     .catch((err) => toast.error(err));
+  // }
 
   return (
     <ItemWrap>
@@ -69,7 +91,12 @@ export const ProductItem = ({
         {active === "Drug store" ? (
           <ControlWrap>
             <EditButton onClick={() => setModal(true)}>Edit</EditButton>
-            <DeleteButton>Delete</DeleteButton>
+            <DeleteButton
+              onClick={() => setDeleteModal(true)}
+              // onClick={() => dispatch(deleteProduct({ shopId, productId }))}
+            >
+              Delete
+            </DeleteButton>
           </ControlWrap>
         ) : (
           <ControlAllMedicineWrap>
@@ -85,7 +112,21 @@ export const ProductItem = ({
       </InfoWrap>
       {modal &&
         createPortal(
-          <EditMedicineModal setModal={setModal} productId={productId} />,
+          <EditMedicineModal
+            setModal={setModal}
+            productId={productId}
+            photo={photo}
+          />,
+          document.body
+        )}
+      {deleteModal &&
+        createPortal(
+          <DeleteMedicineModal
+            setModal={setDeleteModal}
+            shopId={shopId}
+            productId={productId}
+            photo={photo}
+          />,
           document.body
         )}
     </ItemWrap>

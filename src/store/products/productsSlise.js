@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   addCatalogProductThunk,
   addProductThunk,
+  deleteProductThunk,
   editProductThunk,
 } from "./operations";
 
@@ -37,6 +38,15 @@ const productSlice = createSlice({
         state.error = null;
       })
       .addCase(editProductThunk.rejected, (state, { payload }) => {
+        state.error = payload;
+      })
+      .addCase(deleteProductThunk.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(deleteProductThunk.fulfilled, (state) => {
+        state.error = null;
+      })
+      .addCase(deleteProductThunk.rejected, (state, { payload }) => {
         state.error = payload;
       });
   },

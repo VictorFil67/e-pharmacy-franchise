@@ -59,3 +59,19 @@ export const editProductThunk = createAsyncThunk(
     }
   }
 );
+export const deleteProductThunk = createAsyncThunk(
+  "product/delete",
+  async ({ id, productId }, thunkAPI) => {
+    // console.log(body);
+    try {
+      const { data } = await api.patch(
+        `shop/${id}/product/${productId}/delete`
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response.data.message ?? error.message
+      );
+    }
+  }
+);
