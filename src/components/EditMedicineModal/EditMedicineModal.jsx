@@ -1,12 +1,17 @@
 import { useForm } from "react-hook-form";
 import CloseSVG from "../../images/modal/CloseSVG";
-import { CloseButton, Modal, Overlay } from "./MedicineModal.Styled";
+// import { CloseButton, Modal, Overlay } from "./MedicineModal.Styled";
 import { addProductThunk } from "../../store/products/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { MedicineForm } from "../MedicineForm/MedicineForm";
 import { selectShop } from "../../store/shops/selectors";
 import { getShopProductsThunk } from "../../store/shops/operations";
+import {
+  CloseButton,
+  Modal,
+  Overlay,
+} from "../MedicineModal/MedicineModal.Styled";
 
 export const MedicineModal = ({ setModal }) => {
   const dispatch = useDispatch();
