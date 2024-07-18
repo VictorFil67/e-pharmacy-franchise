@@ -18,6 +18,9 @@ import {
 import { addCatalogProductThunk } from "../../store/products/operations";
 import { toast } from "react-toastify";
 import { getShopProductsThunk } from "../../store/shops/operations";
+import { createPortal } from "react-dom";
+import { EditMedicineModal } from "../EditMedicineModal/EditMedicineModal";
+import { useState } from "react";
 
 export const ProductItem = ({
   photo,
@@ -29,6 +32,7 @@ export const ProductItem = ({
   shopId,
 }) => {
   const dispatch = useDispatch();
+  const [modal, setModal] = useState(false);
 
   // console.log(shopId, productId, name, price);
 
@@ -64,7 +68,7 @@ export const ProductItem = ({
         </DataWrap>
         {active === "Drug store" ? (
           <ControlWrap>
-            <EditButton>Edit</EditButton>
+            <EditButton onClick={() => setModal(true)}>Edit</EditButton>
             <DeleteButton>Delete</DeleteButton>
           </ControlWrap>
         ) : (
@@ -79,6 +83,11 @@ export const ProductItem = ({
           </ControlAllMedicineWrap>
         )}
       </InfoWrap>
+      {modal &&
+        createPortal(
+          <EditMedicineModal setModal={setModal} productId={productId} />,
+          document.body
+        )}
     </ItemWrap>
   );
 };

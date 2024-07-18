@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
 import CloseSVG from "../../images/modal/CloseSVG";
 // import { CloseButton, Modal, Overlay } from "./MedicineModal.Styled";
-import { addProductThunk } from "../../store/products/operations";
+import {
+  //   addProductThunk,
+  editProductThunk,
+} from "../../store/products/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { MedicineForm } from "../MedicineForm/MedicineForm";
@@ -13,7 +16,7 @@ import {
   Overlay,
 } from "../MedicineModal/MedicineModal.Styled";
 
-export const MedicineModal = ({ setModal }) => {
+export const EditMedicineModal = ({ setModal, productId }) => {
   const dispatch = useDispatch();
   const { shopId } = useSelector(selectShop);
 
@@ -39,7 +42,7 @@ export const MedicineModal = ({ setModal }) => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    // reset,
   } = useForm({
     mode: "onChange",
   });
@@ -50,20 +53,17 @@ export const MedicineModal = ({ setModal }) => {
     for (const key in data) {
       if (key === "photo" && data[key][0]) {
         formData.append(key, data[key][0]); // Append the file object
-      } else if (key === "photo" && !data[key][0]) {
-        alert("No file selected");
-        return;
-      } else {
+      } else if (data[key]) {
         formData.append(key, data[key]);
       }
     }
-    dispatch(addProductThunk({ id: shopId, formData }))
+    dispatch(editProductThunk({ id: shopId, productId, formData }))
       .unwrap()
       .then(() => {
-        toast.success("Congratulations! The medicine is added successfully!");
-        reset();
+        toast.success("Congratulations! The medicine is updated successfully!");
+        // reset();
         setModal(false);
-        dispatch(getShopProductsThunk(shopId))
+        dispatch(getShopProductsThunk({ id: shopId }))
           .unwrap()
           .then(() => {
             toast.success(`The products of your shop are received`);
@@ -93,9 +93,9 @@ export const MedicineModal = ({ setModal }) => {
           <CloseSVG />
         </CloseButton>
         <MedicineForm
-          title={"Add medicine to store"}
+          title={"Edit medicine"}
           inputs={inputs}
-          titleButton={"Add medicine"}
+          titleButton={"Save medicine"}
           register={register}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}

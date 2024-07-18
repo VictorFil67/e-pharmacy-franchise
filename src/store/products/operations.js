@@ -36,3 +36,26 @@ export const addCatalogProductThunk = createAsyncThunk(
     }
   }
 );
+
+export const editProductThunk = createAsyncThunk(
+  "product/edit",
+  async ({ id, productId, formData }, thunkAPI) => {
+    // console.log(body);
+    try {
+      const { data } = await api.put(
+        `shop/${id}/product/${productId}/edit`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response.data.message ?? error.message
+      );
+    }
+  }
+);
