@@ -16,9 +16,22 @@ const shopsSlice = createSlice({
     allProducts: [],
     total: 0,
     shopTotal: 0,
+    page: 1,
+    pageCount: 0,
+    startPage: false,
+    endPage: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setPage(state, { payload }) {
+      state.page = payload;
+      state.startPage = payload === 1 ? true : false;
+      state.endPage = payload === state.pageCount ? true : false;
+    },
+    setPageCount(state, { payload }) {
+      state.pageCount = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createShopThunk.pending, (state) => {
@@ -82,3 +95,4 @@ const shopsSlice = createSlice({
 });
 
 export const shopsReducer = shopsSlice.reducer;
+export const { setPageCount, setPage } = shopsSlice.actions;

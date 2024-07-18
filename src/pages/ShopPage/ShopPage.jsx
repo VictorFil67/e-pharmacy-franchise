@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectAllProducts,
+  // selectAllProducts,
   selectShop,
-  selectShopProducts,
+  // selectShopProducts,
+  selectShops,
 } from "../../store/shops/selectors";
 import {
   getAllProductsThunk,
@@ -43,19 +44,36 @@ import { MedicineModal } from "../../components/MedicineModal/MedicineModal";
 import { PaginatedItems } from "../../components/Pagination/PaginatedItems";
 import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
 import FilterSvg from "../../images/shopImg/FilterSvg";
+import { setPage } from "../../store/shops/shopSlise";
 
 const ShopPage = () => {
   const dispatch = useDispatch();
   const { shopId } = useSelector(selectShop);
   const shop = useSelector(selectShop);
-  const shopProducts = useSelector(selectShopProducts);
-  const allProducts = useSelector(selectAllProducts);
+  const { shopProducts, allProducts, page, pageCount } =
+    useSelector(selectShops);
   const [active, setactive] = useState("Drug store");
   const [selectedOption, setSelectedOption] = useState(null);
   const [value, setValue] = useState("");
+  const [limit, setlimit] = useState(12);
   const [modal, setModal] = useState(false);
-  const query = { category: selectedOption?.value, q: value };
-  console.log(query);
+
+  useEffect(() => {
+    window.innerWidth <= 767 ? setlimit(8) : setlimit(12);
+  }, []);
+
+  const query = {
+    category: selectedOption?.value,
+    q: value,
+    limit,
+    page,
+  };
+  const queryFilter = {
+    category: selectedOption?.value,
+    q: value,
+    limit,
+    page: 1,
+  };
 
   useEffect(() => {
     dispatch(getShopThunk(shopId))
@@ -77,6 +95,7 @@ const ShopPage = () => {
   }, [dispatch, shopId]);
 
   useEffect(() => {
+    const query = { ...queryFilter, limit, page };
     dispatch(getAllProductsThunk(query))
       .unwrap()
       .then(() => {
@@ -84,7 +103,7 @@ const ShopPage = () => {
       })
       .catch(() => toast.error(`Ooops... Something went wrong!`));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, limit, page]);
 
   useEffect(() => {
     if (modal) {
@@ -160,7 +179,7 @@ const ShopPage = () => {
           </InputWrap>
           <ButtonFilter
             type="submit"
-            onClick={() => dispatch(getAllProductsThunk(query))}
+            onClick={() => dispatch(getAllProductsThunk(queryFilter))}
           >
             <FilterSvg />
             <span>Filter</span>
@@ -195,14 +214,21 @@ const ShopPage = () => {
             ))}
       </ProductList>
       <Pagination>
-        <Edge>
+        <Edge
+          disabled={page === 1 ? true : false}
+          onClick={() => dispatch(setPage(1))}
+        >
           <span>&#171;</span>
         </Edge>
         <PaginatedItems
-          itemsPerPage={5}
+          itemsPerPage={limit}
+          query={query}
           //  active={active} shopId={shopId}
         />
-        <Edge>
+        <Edge
+          disabled={page === pageCount ? true : false}
+          onClick={() => dispatch(setPage(pageCount))}
+        >
           <span>&#187;</span>
         </Edge>
       </Pagination>
