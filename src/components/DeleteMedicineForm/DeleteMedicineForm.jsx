@@ -11,6 +11,11 @@ import {
 } from "../MedicineForm/MedicineForm.Styled";
 import Pills from "../../images/modal/Pills.png";
 import { useDispatch } from "react-redux";
+import {
+  MedicineBrand,
+  ProductName,
+  QuestionText,
+} from "./DeleteMedicineForm.Styled";
 
 export const DeleteMedicineForm = ({
   title,
@@ -19,6 +24,8 @@ export const DeleteMedicineForm = ({
   photo,
   shopId,
   productId,
+  suppliers,
+  name,
 }) => {
   const dispatch = useDispatch();
 
@@ -42,57 +49,16 @@ export const DeleteMedicineForm = ({
   return (
     <>
       <Title>{title}</Title>
-
-      <ImgWrap>
+      <QuestionText>Are you sure you want to delete this item?</QuestionText>
+      <ImgWrap $img={photo}>
         {photo ? (
           <Photo src={photo} />
         ) : (
           <img src={Pills} alt="Pill" loading="lazy" />
         )}
       </ImgWrap>
-      {/* <Form onSubmit={handleSubmit(onSubmit)}>
-        <InputBlockWrap>
-          {inputs.map((el, idx) => (
-            <InputWrap key={idx}>
-              {el.type === "file" ? (
-                <>
-                  <AttachPhotoWrap>
-                    <AttachPhotoSVG />
-                    <ImageInputText>
-                      {" "}
-                      {imageSrc ? "Image is chosen" : "Upload image"}
-                    </ImageInputText>
-                  </AttachPhotoWrap>
-                  <Input
-                    type={el.type}
-                    {...register(el.name)}
-                    onChange={handleFileChange}
-                  />
-                </>
-              ) : (
-                <>
-                  <LabelName>{el.label}</LabelName>
-                  <Input
-                    placeholder="Enter text"
-                    type={el.type}
-                    {...register(el.name)}
-                  />
-                </>
-              )}
-              <ErrorSpan>{errors[register(el.name).name]?.message}</ErrorSpan>
-            </InputWrap>
-          ))}
-
-          <InputWrap>
-            <LabelName>Description</LabelName>
-            <Textarea
-              {...register("description")}
-              rows="4"
-              placeholder="Enter text"
-            ></Textarea>
-            <ErrorSpan>{errors.description?.message}</ErrorSpan>
-          </InputWrap>
-        </InputBlockWrap> */}
+      <ProductName>{name}</ProductName>
+      <MedicineBrand>{suppliers}</MedicineBrand>
       <FormButtonsWrap>
         <MedicineButton
           name="confirm"

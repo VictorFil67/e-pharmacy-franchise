@@ -23,7 +23,7 @@ import { toast } from "react-toastify";
 import { getShopProductsThunk } from "../../store/shops/operations";
 import { createPortal } from "react-dom";
 import { EditMedicineModal } from "../EditMedicineModal/EditMedicineModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DeleteMedicineModal } from "../DeleteMedicineModal/DeleteMedicineModal";
 
 export const ProductItem = ({
@@ -57,22 +57,16 @@ export const ProductItem = ({
       .catch((err) => toast.error(err));
   }
 
-  // function deleteProduct({ shopId, productId }) {
-  //   dispatch(deleteProductThunk({ id: shopId, productId }))
-  //     .unwrap()
-  //     .then(() => {
-  //       toast.success(
-  //         `The product has been deleted from your shop successfully!`
-  //       );
-  //       dispatch(getShopProductsThunk({ id: shopId }))
-  //         .unwrap()
-  //         .then(() => {
-  //           toast.success(`The products of your shop are received`);
-  //         })
-  //         .catch((err) => toast.error(err));
-  //     })
-  //     .catch((err) => toast.error(err));
-  // }
+  useEffect(() => {
+    if (modal || deleteModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modal, deleteModal]);
 
   return (
     <ItemWrap>
@@ -120,6 +114,7 @@ export const ProductItem = ({
             name={name}
             price={price}
             description={description}
+            suppliers={suppliers}
           />,
           document.body
         )}
@@ -133,6 +128,7 @@ export const ProductItem = ({
             name={name}
             price={price}
             description={description}
+            suppliers={suppliers}
           />,
           document.body
         )}

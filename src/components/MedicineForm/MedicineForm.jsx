@@ -54,7 +54,7 @@ export const MedicineForm = ({
     <>
       <Title>{title}</Title>
 
-      <ImgWrap $img={imageSrc}>
+      <ImgWrap $img={imageSrc || photo}>
         {imageSrc ? (
           <Photo src={imageSrc} />
         ) : photo ? (

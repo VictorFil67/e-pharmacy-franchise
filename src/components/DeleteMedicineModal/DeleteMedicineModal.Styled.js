@@ -1,23 +1,5 @@
 import styled from "styled-components";
 
-export const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: rgba(29, 30, 33, 0.45);
-  z-index: 1;
-  overflow: auto;
-  @media only screen and (min-width: 768px) {
-  }
-  @media only screen and (min-width: 1280px) {
-  }
-`;
 export const Modal = styled.div`
   width: 88.06%;
   position: relative;
@@ -32,7 +14,7 @@ export const Modal = styled.div`
   padding: 40px 20px;
   /* background: #fff; */
   border-radius: 20px;
-  gap: 16px;
+  /* gap: 16px; */
   @media only screen and (min-width: 335px) {
     max-width: 335px;
   }

@@ -1,5 +1,5 @@
 export function cutString(str, num) {
-  const arr = str.split(" ");
+  const arr = str?.split(" ");
   let newStr = "";
   let outputStr = "";
 

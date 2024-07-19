@@ -4,13 +4,21 @@
 // import { getShopProductsThunk } from "../../store/shops/operations";
 import {
   CloseButton,
-  Modal,
+  //   Modal,
   Overlay,
 } from "../MedicineModal/MedicineModal.Styled";
 import CloseSVG from "../../images/modal/CloseSVG";
 import { DeleteMedicineForm } from "../DeleteMedicineForm/DeleteMedicineForm";
+import { Modal } from "./DeleteMedicineModal.Styled";
 
-export const DeleteMedicineModal = ({ setModal, shopId, productId, photo }) => {
+export const DeleteMedicineModal = ({
+  setModal,
+  shopId,
+  productId,
+  photo,
+  suppliers,
+  name,
+}) => {
   //   const dispatch = useDispatch();
 
   function handleClick(e) {
@@ -56,6 +64,8 @@ export const DeleteMedicineModal = ({ setModal, shopId, productId, photo }) => {
           productId={productId}
           setModal={setModal}
           photo={photo}
+          name={name}
+          suppliers={suppliers}
         />
       </Modal>
     </Overlay>
