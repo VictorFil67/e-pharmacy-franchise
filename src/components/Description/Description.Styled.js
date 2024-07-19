@@ -4,7 +4,6 @@ export const DescriptionWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* padding-bottom: 20px; */
 `;
 
 export const Text = styled.p`
