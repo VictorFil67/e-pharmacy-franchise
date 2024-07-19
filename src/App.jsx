@@ -27,6 +27,7 @@ import CreateShopPage from "./pages/CreateShopPage/CreateShopPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import EditShopPage from "./pages/EditShopPage/EditShopPage";
 import MedicinePage from "./pages/MedicinePage/MedicinePage";
+import { selectProduct } from "./store/products/selectors";
 
 function App() {
   const loading = useSelector((state) => state.loading.loading);
@@ -36,6 +37,7 @@ function App() {
   const path = useSelector(selectPath);
   const authPath = useSelector(selectAuthPath);
   const expireTime = useSelector(selectExpireTime);
+  const product = useSelector(selectProduct);
   const navigate = useNavigate();
   console.log(path);
   console.log(authPath);
@@ -81,7 +83,6 @@ function App() {
               element={
                 <PrivateRoute>
                   <ShopPage />
-                  {/* <h2>ShopPage</h2> */}
                 </PrivateRoute>
               }
             />
@@ -90,7 +91,6 @@ function App() {
               element={
                 <PrivateRoute>
                   <CreateShopPage />
-                  {/* <h2>CreateShopPage</h2> */}
                 </PrivateRoute>
               }
             />
@@ -99,16 +99,19 @@ function App() {
               element={
                 <PrivateRoute>
                   <EditShopPage />
-                  {/* <h2>EditShopPage</h2> */}
                 </PrivateRoute>
               }
             />
             <Route
               path="/medicine"
               element={
-                <PrivateRoute>
-                  <MedicinePage />
-                </PrivateRoute>
+                product ? (
+                  <PrivateRoute>
+                    <MedicinePage />
+                  </PrivateRoute>
+                ) : (
+                  <Navigate to="/shop" />
+                )
               }
             />
             <Route

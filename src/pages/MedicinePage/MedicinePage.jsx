@@ -4,7 +4,7 @@ import { TabsContainer } from "../../components/TabsContainer/TabsContainer";
 const MedicinePage = () => {
   return (
     <>
-      <ProductOverview>ProductOverview</ProductOverview>
+      <ProductOverview />
       <TabsContainer />
     </>
   );

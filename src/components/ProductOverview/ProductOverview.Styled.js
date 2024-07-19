@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const ItemWrap = styled.li`
+export const ItemWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 8px;
 `;
 
 export const ImgWrap = styled.div`
   min-width: 280px;
   border: 1.15px solid rgba(89, 177, 122, 0.6);
-  border-radius: 20px;
+  border-radius: 27px;
   overflow: hidden;
   height: 337px;
   @media only screen and (min-width: 375px) {

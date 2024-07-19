@@ -27,14 +27,24 @@ const persistConfigShops = {
   storage,
   whitelist: ["shop"],
 };
+const persistConfigProducts = {
+  key: "products",
+  version: 1,
+  storage,
+  whitelist: ["product"],
+};
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const persistedReducerShops = persistReducer(persistConfigShops, shopsReducer);
+const persistedReducerProducts = persistReducer(
+  persistConfigProducts,
+  productsReducer
+);
 
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
     shops: persistedReducerShops,
-    products: productsReducer,
+    products: persistedReducerProducts,
     loading: loadingReducer,
   },
   middleware: (getDefaultMiddleware) =>
