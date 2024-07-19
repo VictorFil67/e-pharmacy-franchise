@@ -34,6 +34,7 @@ export const ProductItem = ({
   active,
   productId,
   shopId,
+  description,
 }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -116,6 +117,9 @@ export const ProductItem = ({
             setModal={setModal}
             productId={productId}
             photo={photo}
+            name={name}
+            price={price}
+            description={description}
           />,
           document.body
         )}
@@ -126,6 +130,9 @@ export const ProductItem = ({
             shopId={shopId}
             productId={productId}
             photo={photo}
+            name={name}
+            price={price}
+            description={description}
           />,
           document.body
         )}

@@ -15,10 +15,19 @@ import {
   Modal,
   Overlay,
 } from "../MedicineModal/MedicineModal.Styled";
+import { cutString } from "../../helpers/cutString";
 
-export const EditMedicineModal = ({ setModal, productId, photo }) => {
+export const EditMedicineModal = ({
+  setModal,
+  productId,
+  photo,
+  price,
+  name,
+  description,
+}) => {
   const dispatch = useDispatch();
   const { shopId } = useSelector(selectShop);
+  console.log(name, price, photo, productId);
 
   const inputs = [
     {
@@ -38,6 +47,8 @@ export const EditMedicineModal = ({ setModal, productId, photo }) => {
     },
   ];
 
+  const newDescription = cutString(description, 165);
+
   const {
     register,
     handleSubmit,
@@ -45,6 +56,11 @@ export const EditMedicineModal = ({ setModal, productId, photo }) => {
     // reset,
   } = useForm({
     mode: "onChange",
+    defaultValues: {
+      name: name,
+      price: price,
+      description: newDescription,
+    },
   });
 
   function onSubmit(data) {
