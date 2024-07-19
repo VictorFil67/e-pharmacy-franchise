@@ -12,7 +12,7 @@ export const ImgWrap = styled.div`
   border: 1.15px solid rgba(89, 177, 122, 0.6);
   border-radius: 20px;
   overflow: hidden;
-  height: 300px;
+  height: 337px;
   @media only screen and (min-width: 375px) {
     width: 335px;
     /* border-radius: 27px; */
@@ -37,7 +37,7 @@ export const ProductImg = styled.img`
 export const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
   border-radius: 20px;
   padding: 20px;
   background: var(--white);
@@ -104,8 +104,8 @@ export const ControlAllMedicineWrap = styled.div`
 export const AddToShopButton = styled.button`
   border-radius: 24px;
   padding: 10px 16px;
-  width: 114px;
-  height: 34px;
+  width: 146px;
+  height: 44px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1;

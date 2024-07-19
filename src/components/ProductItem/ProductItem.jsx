@@ -12,6 +12,7 @@ import {
   ItemWrap,
   Medicine,
   MedicineBrand,
+  ProductImg,
   // MedicineName,
   TextWrap,
 } from "./ProductItem.Styled";
@@ -25,6 +26,7 @@ import { createPortal } from "react-dom";
 import { EditMedicineModal } from "../EditMedicineModal/EditMedicineModal";
 import { useEffect, useState } from "react";
 import { DeleteMedicineModal } from "../DeleteMedicineModal/DeleteMedicineModal";
+import { setProduct } from "../../store/products/productsSlise";
 
 export const ProductItem = ({
   photo,
@@ -39,6 +41,16 @@ export const ProductItem = ({
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const prodactData = {
+    photo,
+    name,
+    price,
+    suppliers,
+    active,
+    productId,
+    shopId,
+    description,
+  };
 
   // console.log(shopId, productId, name, price);
 
@@ -72,7 +84,7 @@ export const ProductItem = ({
     <ItemWrap>
       {photo && (
         <ImgWrap>
-          <img src={photo} alt={name} />
+          <ProductImg src={photo} alt={name} />
         </ImgWrap>
       )}
       <InfoWrap>
@@ -101,7 +113,12 @@ export const ProductItem = ({
               {/* {console.log(shopId, productId)} */}
               Add to shop
             </AddToShopButton>
-            <DetailsLink to="/medicine">Details</DetailsLink>
+            <DetailsLink
+              to="/medicine"
+              onClick={() => dispatch(setProduct(prodactData))}
+            >
+              Details
+            </DetailsLink>
           </ControlAllMedicineWrap>
         )}
       </InfoWrap>

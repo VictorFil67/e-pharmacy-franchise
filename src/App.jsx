@@ -26,6 +26,7 @@ import { toast } from "react-toastify";
 import CreateShopPage from "./pages/CreateShopPage/CreateShopPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import EditShopPage from "./pages/EditShopPage/EditShopPage";
+import MedicinePage from "./pages/MedicinePage/MedicinePage";
 
 function App() {
   const loading = useSelector((state) => state.loading.loading);
@@ -106,8 +107,7 @@ function App() {
               path="/medicine"
               element={
                 <PrivateRoute>
-                  {/* <EditShopPage /> */}
-                  <h2>Medicine</h2>
+                  <MedicinePage />
                 </PrivateRoute>
               }
             />

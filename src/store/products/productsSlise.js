@@ -10,6 +10,12 @@ const productSlice = createSlice({
   name: "products",
   initialState: {
     error: null,
+    product: null,
+  },
+  reducers: {
+    setProduct(state, { payload }) {
+      state.product = payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -53,3 +59,4 @@ const productSlice = createSlice({
 });
 
 export const productsReducer = productSlice.reducer;
+export const { setProduct } = productSlice.actions;
