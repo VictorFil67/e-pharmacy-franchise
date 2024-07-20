@@ -1,15 +1,24 @@
-import { Author, ItemWrap, Rating, Testimonial } from "./Reviews.Styled";
+import { useSelector } from "react-redux";
+import {
+  Author,
+  ItemWrap,
+  Rating,
+  ReviewsList,
+  Testimonial,
+} from "./Reviews.Styled";
+import { selectProduct } from "../../store/products/selectors";
 
 export const Reviews = () => {
+  const { reviews } = useSelector(selectProduct);
   return (
-    <ItemWrap>
-      <Author>{"Maria Tkachuk"}</Author>
-      <Rating>Rating:{"4.8"}</Rating>
-      <Testimonial>
-        {
-          "I recently used this medical platform to book an appointment with a specialist, and I was impressed by how easy and user-friendly the process was. Highly recommended!"
-        }
-      </Testimonial>
-    </ItemWrap>
+    <ReviewsList>
+      {reviews.map((review) => (
+        <ItemWrap key={review._id}>
+          <Author>{review.name}</Author>
+          <Rating>Rating:{review.rating}</Rating>
+          <Testimonial>{review.testimonial}</Testimonial>
+        </ItemWrap>
+      ))}
+    </ReviewsList>
   );
 };

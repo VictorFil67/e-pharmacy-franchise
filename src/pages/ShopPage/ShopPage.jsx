@@ -205,6 +205,7 @@ const ShopPage = () => {
                 shopId={shopId}
                 productId={product._id}
                 description={product.description}
+                reviews={product.reviews}
               />
             ))
           : allProducts.map((product) => (
@@ -218,6 +219,7 @@ const ShopPage = () => {
                 shopId={shopId}
                 productId={product._id}
                 description={product.description}
+                reviews={product.reviews}
               />
             ))}
       </ProductList>

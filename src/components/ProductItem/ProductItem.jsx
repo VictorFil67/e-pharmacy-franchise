@@ -37,6 +37,7 @@ export const ProductItem = ({
   productId,
   shopId,
   description,
+  reviews,
 }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -50,6 +51,7 @@ export const ProductItem = ({
     productId,
     shopId,
     description,
+    reviews,
   };
 
   // console.log(shopId, productId, name, price);

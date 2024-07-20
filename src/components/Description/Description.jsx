@@ -12,7 +12,7 @@ export const Description = () => {
         proper usage and caution.
       </Text>
       <Text>
-        Medicinal Uses: Antioxidant Properties:
+        Medicinal Uses: Antioxidant Properties:{" "}
         <Span>
           Moringa is packed with antioxidants that help fight oxidative stress
           and inflammation in the body.
