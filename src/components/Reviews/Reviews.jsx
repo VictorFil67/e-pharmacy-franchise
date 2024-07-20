@@ -35,50 +35,115 @@ export const Reviews = () => {
           </ItemWrap>
         ))}
       </ReviewsList>
-      <ReactPaginate
-        previousLabel={"<"}
-        nextLabel={">"}
-        breakLabel={"..."}
-        breakClassName={"break-me"}
-        pageCount={Math.ceil(reviews.length / reviewsPerPage)}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={3}
-        onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        activeClassName={"active"}
-        pageClassName={"page-item"}
-        pageLinkClassName={"page-link"}
-        previousClassName={"page-item"}
-        previousLinkClassName={"page-link"}
-        nextClassName={"page-item"}
-        nextLinkClassName={"page-link"}
-        breakLinkClassName={"page-link"}
-        disabledClassName={"disabled"}
-        renderFirstButton={() => (
-          <li className="page-item">
-            <a
-              onClick={() => setCurrentPage(0)}
-              href="!#"
+      <nav>
+        <ul className="pagination">
+          <li className={`page-item ${currentPage === 0 ? "disabled" : ""}`}>
+            <button
               className="page-link"
+              onClick={() => setCurrentPage(0)}
+              disabled={currentPage === 0}
             >
               «
-            </a>
+            </button>
           </li>
-        )}
-        renderLastButton={() => (
-          <li className="page-item">
-            <a
+          <li className={`page-item ${currentPage === 0 ? "disabled" : ""}`}>
+            <button
+              className="page-link"
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 0))}
+              disabled={currentPage === 0}
+            >
+              &lt;
+            </button>
+          </li>
+          <ReactPaginate
+            previousLabel={""}
+            nextLabel={""}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(reviews.length / reviewsPerPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={3}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination"}
+            activeClassName={"active"}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextClassName={"page-item"}
+            nextLinkClassName={"page-link"}
+            breakLinkClassName={"page-link"}
+            disabledClassName={"disabled"}
+            // renderFirstButton={() => (
+            //   <li className="page-item">
+            //     <a
+            //       onClick={() => setCurrentPage(0)}
+            //       href="!#"
+            //       className="page-link"
+            //     >
+            //       «
+            //     </a>
+            //   </li>
+            // )}
+            // renderLastButton={() => (
+            //   <li className="page-item">
+            //     <a
+            //       onClick={() =>
+            //         setCurrentPage(Math.ceil(reviews.length / reviewsPerPage) - 1)
+            //       }
+            //       href="!#"
+            //       className="page-link"
+            //     >
+            //       »
+            //     </a>
+            //   </li>
+            // )}
+          />
+          <li
+            className={`page-item ${
+              currentPage === Math.ceil(reviews.length / reviewsPerPage) - 1
+                ? "disabled"
+                : ""
+            }`}
+          >
+            <button
+              className="page-link"
+              onClick={() =>
+                setCurrentPage((prev) =>
+                  Math.min(
+                    prev + 1,
+                    Math.ceil(reviews.length / reviewsPerPage) - 1
+                  )
+                )
+              }
+              disabled={
+                currentPage === Math.ceil(reviews.length / reviewsPerPage) - 1
+              }
+            >
+              &gt;
+            </button>
+          </li>
+          <li
+            className={`page-item ${
+              currentPage === Math.ceil(reviews.length / reviewsPerPage) - 1
+                ? "disabled"
+                : ""
+            }`}
+          >
+            <button
+              className="page-link"
               onClick={() =>
                 setCurrentPage(Math.ceil(reviews.length / reviewsPerPage) - 1)
               }
-              href="!#"
-              className="page-link"
+              disabled={
+                currentPage === Math.ceil(reviews.length / reviewsPerPage) - 1
+              }
             >
               »
-            </a>
+            </button>
           </li>
-        )}
-      />
+        </ul>
+      </nav>
     </div>
   );
 };
