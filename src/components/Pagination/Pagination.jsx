@@ -1,5 +1,5 @@
 import ReactPaginate from "react-paginate";
-import { Edge, PaginationWrap } from "./Pagination.Styled";
+import { Edge, PaginationWrap, Transit } from "./Pagination.Styled";
 
 export const Pagination = ({
   currentPage,
@@ -11,24 +11,30 @@ export const Pagination = ({
     <nav>
       <PaginationWrap>
         {/* <li className={`page-item ${currentPage === 0 ? "disabled" : ""}`}> */}
-        <Edge>
-          <button
+        {/* <Edge> */}
+        {/* <button
             className="page-link"
             onClick={() => setCurrentPage(0)}
             disabled={currentPage === 0}
-          >
-            «
-          </button>
+          > */}
+        <Edge
+          //   className="page-link"
+          onClick={() => setCurrentPage(0)}
+          disabled={currentPage === 0}
+        >
+          <span>&#171;</span>
+          {/* « */}
         </Edge>
-        <li className={`page-item ${currentPage === 0 ? "disabled" : ""}`}>
-          <button
-            className="page-link"
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 0))}
-            disabled={currentPage === 0}
-          >
-            &lt;
-          </button>
-        </li>
+        {/* </Edge> */}
+        {/* <li className={`page-item ${currentPage === 0 ? "disabled" : ""}`}> */}
+        <Transit
+          // className="page-link"
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 0))}
+          disabled={currentPage === 0}
+        >
+          <span> &lt;</span>
+        </Transit>
+        {/* </li> */}
         <ReactPaginate
           previousLabel={""}
           nextLabel={""}
@@ -46,44 +52,45 @@ export const Pagination = ({
           pageClassName="page"
           //   pageLinkClassName={"page-link"}
           //   previousClassName={"page-item"}
-          previousClassName="previous"
+          //   previousClassName="previous"
           //   previousLinkClassName={"page-link"}
-          previousLinkClassName="previousLink"
+          //   previousLinkClassName="previousLink"
           //   nextClassName={"page-item"}
-          nextClassName="next"
+          //   nextClassName="next"
           //   nextLinkClassName={"page-link"}
-          nextLinkClassName="nextLink"
+          //   nextLinkClassName="nextLink"
           //   breakLinkClassName={"page-link"}
           disabledClassName={"disabled"}
+          forcePage={currentPage} //force sets current page
         />
-        <li
+        {/* <li
           className={`page-item ${
             currentPage === pageCount - 1 ? "disabled" : ""
           }`}
+        > */}
+        <Transit
+          //   className="page-link"
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, pageCount - 1))
+          }
+          disabled={currentPage === pageCount - 1}
         >
-          <button
-            className="page-link"
-            onClick={() =>
-              setCurrentPage((prev) => Math.min(prev + 1, pageCount - 1))
-            }
-            disabled={currentPage === pageCount - 1}
-          >
-            &gt;
-          </button>
-        </li>
-        <li
+          <span>&gt;</span>
+        </Transit>
+        {/* </li> */}
+        {/* <li
           className={`page-item ${
             currentPage === pageCount - 1 ? "disabled" : ""
           }`}
+        > */}
+        <Edge
+          // className="page-link"
+          onClick={() => setCurrentPage(pageCount - 1)}
+          disabled={currentPage === pageCount - 1}
         >
-          <button
-            className="page-link"
-            onClick={() => setCurrentPage(pageCount - 1)}
-            disabled={currentPage === pageCount - 1}
-          >
-            »
-          </button>
-        </li>
+          <span>»</span>
+        </Edge>
+        {/* </li> */}
       </PaginationWrap>
     </nav>
   );
