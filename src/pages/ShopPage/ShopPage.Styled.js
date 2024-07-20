@@ -245,7 +245,7 @@ export const Edge = styled.button`
   }
 `;
 
-export const Pagination = styled.div`
+export const Pagination = styled.nav`
   display: flex;
   gap: 4px;
   & > .pagination {

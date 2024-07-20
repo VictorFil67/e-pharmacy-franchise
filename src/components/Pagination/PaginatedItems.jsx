@@ -63,21 +63,21 @@ export const PaginatedItems = ({ itemsPerPage, activeTab }) => {
     <>
       {/* <Items currentItems={currentItems} active={active} shopId={shopId} /> */}
       <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
+        // breakLabel="..."
+        // nextLabel=">"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={1}
-        marginPagesDisplayed={1}
-        pageCount={pageCount}
-        previousLabel="<"
+        // pageRangeDisplayed={1}
+        // marginPagesDisplayed={1}
+        // pageCount={pageCount}
+        // previousLabel="<"
         renderOnZeroPageCount={null}
-        className="pagination"
-        pageClassName="page"
-        activeClassName="activePage"
-        previousClassName="previous"
-        nextClassName="next"
-        previousLinkClassName="previousLink"
-        nextLinkClassName="nextLink"
+        // className="pagination"
+        // pageClassName="page"
+        // activeClassName="activePage"
+        // previousClassName="previous"
+        // nextClassName="next"
+        // previousLinkClassName="previousLink"
+        // nextLinkClassName="nextLink"
       />
     </>
   );
