@@ -32,7 +32,7 @@ const CategoriesFilter = ({ selectedOption, setSelectedOption }) => {
           width: "100%",
           paddingLeft: "10px",
           "@media only screen and (min-width: 768px)": {
-            width: "153px",
+            width: "214px",
           },
           height: "44px",
           cursor: "pointer",

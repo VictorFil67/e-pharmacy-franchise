@@ -239,55 +239,15 @@ const ShopPage = () => {
               />
             ))}
       </ProductList>
-      {/* <Pagination>
-        {active === "Drug store"}
-        {active === "All medicine"}
-        <Edge
-          disabled={
-            active === "All medicine"
-              ? page === 1
-                ? true
-                : false
-              : shopPage === 1
-              ? true
-              : false
-          }
-          onClick={
-            active === "All medicine"
-              ? () => dispatch(setPage(1))
-              : () => dispatch(setShopPage(1))
-          }
-        >
-          <span>&#171;</span>
-        </Edge>
-        <PaginatedItems itemsPerPage={limit} activeTab={active} />
-        <Edge
-          disabled={
-            active === "All medicine"
-              ? page === pageCount
-                ? true
-                : false
-              : shopPage === shopPageCount
-              ? true
-              : false
-          }
-          onClick={
-            active === "All medicine"
-              ? () => dispatch(setPage(pageCount))
-              : () => dispatch(setShopPage(shopPageCount))
-          }
-        >
-          <span>&#187;</span>
-        </Edge>
-      </Pagination> */}
+      {/* {(active === "Drug store" && shopTotal > limit) ||
+        (active === "All medicine" && total > limit && ( */}
       <Pagination
-        // arrey={reviews}
-        // itemsPerPage={reviewsPerPage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         pageCount={pageCount}
         handlePageClick={handlePageClick}
       />
+      {/* ))} */}
       {modal &&
         createPortal(<MedicineModal setModal={setModal} />, document.body)}
     </ShopPageWrap>

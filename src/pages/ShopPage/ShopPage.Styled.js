@@ -14,6 +14,9 @@ export const ShopWrap = styled.div`
   gap: 20px;
   border-bottom: 1px solid rgba(29, 30, 33, 0.12);
   padding-bottom: 16px;
+  @media only screen and (min-width: 768px) {
+    gap: 40px;
+  }
 `;
 
 export const ShopName = styled.h1`
@@ -27,12 +30,19 @@ export const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  /* @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  } */
 `;
 
 export const DataWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 16px;
+  }
 `;
 
 export const Text = styled.p`
@@ -40,6 +50,10 @@ export const Text = styled.p`
   font-size: 14px;
   line-height: 1.28571;
   color: #93939a;
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
 `;
 export const TextSpan = styled.span`
   font-weight: 400;
@@ -79,6 +93,10 @@ export const ProductsBtnWrap = styled.div`
   display: flex;
   gap: 16px;
   margin-top: 20px;
+  @media only screen and (min-width: 768px) {
+    margin-top: 0;
+    /* padding-left: 10px; */
+  }
 `;
 
 export const AddMedicine = styled.button`
@@ -93,14 +111,9 @@ export const AddMedicine = styled.button`
   background-color: var(--green);
 `;
 export const ProductsBtn = styled.button`
-  /* border-radius: 30px;
-  padding: 10px 24px;
-  width: 124px;
-  height: 38px; */
   font-size: 14px;
   line-height: 1.28571;
   color: ${(props) => (props.$act ? "var(--black)" : "#93939a")};
-  /* background-color: var(--green); */
   position: relative;
   &::after {
     content: "";
@@ -111,50 +124,33 @@ export const ProductsBtn = styled.button`
     height: 2px;
     background-color: ${(props) => props.$act && "var(--green)"};
   }
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+    &::after {
+      top: 34px;
+      left: 0;
+      width: 100%;
+    }
+    &:first-child {
+      padding: 0 10px;
+    }
+  }
 `;
 
 export const FilterWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 14px;
+  }
 `;
 
 export const InputWrap = styled.label`
   position: relative;
-  /* display: flex;
-  flex-direction: column;
-  gap: 8px;
-  &:last-child {
-    border-radius: 60px;
-    padding: 13px 15px;
-    border: none;
-    background-color: var(--green);
-    transition: all 0.3s;
-    min-width: 100%;
-    gap: 0;
-    margin-top: 8px;
-    transition: transform 0.3s ease;
-    &:hover,
-    &:active {
-      background-color: var(--active);
-      transform: scale(1.1);
-    }
-    & > input {
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      opacity: 0;
-
-    }
-    & > span {
-      display: none;
-    } */
   @media only screen and (min-width: 768px) {
-    /* min-width: 200px;
-      height: 44px;
-      margin-top: 26px; */
   }
 `;
 
@@ -179,7 +175,7 @@ export const InputFilter = styled.input`
     border: 1px solid var(--green);
   }
   @media only screen and (min-width: 768px) {
-    width: 200px;
+    width: 224px;
     /* flex-direction: ${(props) => props.$reg && "row"};
     flex-wrap: ${(props) => props.$reg && "wrap"};
     gap: 14px; */
@@ -227,6 +223,11 @@ export const ProductList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 13px;
+    flex-wrap: wrap;
+  }
 `;
 
 export const Edge = styled.button`
@@ -279,4 +280,7 @@ export const Pagination = styled.div`
     font-size: 28px;
     font-weight: 500;
   }
+  /* @media only screen and (min-width: 768px) {
+    max-width: 446px;
+  } */
 `;

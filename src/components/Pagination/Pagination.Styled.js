@@ -14,6 +14,10 @@ export const Edge = styled.button`
     font-size: 24px;
     font-weight: 300;
   }
+  @media only screen and (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+  }
 `;
 export const Transit = styled.button`
   width: 35px;
@@ -28,6 +32,10 @@ export const Transit = styled.button`
     transform: scaleX(0.6);
     font-size: 24px;
     font-weight: 300;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 44px;
+    height: 44px;
   }
 `;
 
@@ -70,5 +78,17 @@ export const PaginationWrap = styled.ul`
     transform: scaleX(0.5);
     font-size: 28px;
     font-weight: 500;
+  }
+  @media only screen and (min-width: 768px) {
+    max-width: 446px;
+    margin: 0 auto;
+    padding-bottom: 0;
+    & .page,
+    .break {
+      width: 44px;
+      height: 44px;
+      font-size: 18px;
+      line-height: 1.22;
+    }
   }
 `;

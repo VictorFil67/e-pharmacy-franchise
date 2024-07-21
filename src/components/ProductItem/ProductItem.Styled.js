@@ -5,10 +5,13 @@ export const ItemWrap = styled.li`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  @media only screen and (min-width: 768px) {
+    width: 226px;
+  }
 `;
 
 export const ImgWrap = styled.div`
-  min-width: 280px;
+  min-width: 226px;
   border: 1.15px solid rgba(89, 177, 122, 0.6);
   border-radius: 20px;
   overflow: hidden;
@@ -18,7 +21,9 @@ export const ImgWrap = styled.div`
     /* border-radius: 27px; */
   }
   @media only screen and (min-width: 768px) {
-    width: 704px;
+    /* min-width: 226px; */
+    width: 100%;
+    height: 260px;
   }
   @media only screen and (min-width: 1440px) {
     width: 456px;
