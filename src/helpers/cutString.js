@@ -3,7 +3,7 @@ export function cutString(str, num) {
   let newStr = "";
   let outputStr = "";
 
-  if (num >= str.length) {
+  if (!str || num >= str.length) {
     newStr = str;
   } else {
     for (let i = 0; i < arr.length; i += 1) {

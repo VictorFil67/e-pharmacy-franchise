@@ -37,8 +37,8 @@ export const Modal = styled.div`
     max-width: 335px;
   }
   @media only screen and (min-width: 768px) {
-    padding: 40px 38px;
-    max-width: 700px;
+    padding: 50px;
+    max-width: 568px;
   }
   @media only screen and (min-width: 1440px) {
     padding: 40px;
@@ -53,6 +53,5 @@ export const CloseButton = styled.button`
   background-color: transparent;
   padding: 0;
   @media only screen and (min-width: 768px) {
-    right: 16px;
   }
 `;

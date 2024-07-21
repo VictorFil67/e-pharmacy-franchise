@@ -21,6 +21,10 @@ export const ImgWrap = styled.div`
   height: 130px;
   margin-top: 4px;
   overflow: hidden;
+  @media only screen and (min-width: 768px) {
+    width: 160px;
+    height: 160px;
+  }
 `;
 
 export const Photo = styled.img`
@@ -51,7 +55,7 @@ export const InputBlockWrap = styled.div`
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 14px;
+    column-gap: 8px;
     row-gap: 16px;
   }
 `;
@@ -83,12 +87,10 @@ export const InputWrap = styled.label`
     }
     /* & > span {
       display: none;
-    }
-    @media only screen and (min-width: 768px) {
-      min-width: 200px;
-      height: 44px;
-      margin-top: 26px;
     } */
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 9px;
+    }
   }
 `;
 
@@ -98,6 +100,9 @@ export const LabelName = styled.span`
   line-height: 1.28571;
   color: var(--black);
   padding-left: 18px;
+  @media only screen and (min-width: 768px) {
+    padding-left: 15px;
+  }
 `;
 
 export const AttachPhotoWrap = styled.div`
@@ -153,7 +158,7 @@ export const Input = styled.input`
     border: 1px solid var(--green);
   }
   @media only screen and (min-width: 768px) {
-    width: 200px;
+    width: 228px;
     /* flex-direction: ${(props) => props.$reg && "row"};
     flex-wrap: ${(props) => props.$reg && "wrap"};
     gap: 14px; */
