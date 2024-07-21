@@ -56,7 +56,7 @@ export const InputBlockWrap = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 8px;
-    row-gap: 16px;
+    row-gap: 8px;
   }
 `;
 export const InputWrap = styled.label`
@@ -89,7 +89,7 @@ export const InputWrap = styled.label`
       display: none;
     } */
     @media only screen and (min-width: 768px) {
-      margin-bottom: 9px;
+      margin-bottom: 17px;
     }
   }
 `;
@@ -111,11 +111,7 @@ export const AttachPhotoWrap = styled.div`
   align-self: center;
 `;
 
-export const AttachPhotoStyled = styled(AttachPhotoSVG)`
-  /* position: absolute;
-  top: 0;
-  left: 82px; */
-`;
+export const AttachPhotoStyled = styled(AttachPhotoSVG)``;
 
 export const ImageInputText = styled.p`
   font-weight: 400;
@@ -143,12 +139,6 @@ export const Input = styled.input`
     max-width: 295px;
   }
   &:last-child {
-    /* visibility: hidden; */
-    /* position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    opacity: 0; */
   }
   &::placeholder {
     color: rgba(29, 30, 33, 0.4);
@@ -158,10 +148,7 @@ export const Input = styled.input`
     border: 1px solid var(--green);
   }
   @media only screen and (min-width: 768px) {
-    width: 228px;
-    /* flex-direction: ${(props) => props.$reg && "row"};
-    flex-wrap: ${(props) => props.$reg && "wrap"};
-    gap: 14px; */
+    width: 229px;
   }
 `;
 
@@ -189,6 +176,9 @@ export const Textarea = styled.textarea`
   @media only screen and (min-width: 375px) {
     width: 295px;
   }
+  @media only screen and (min-width: 768px) {
+    width: 468px;
+  }
 `;
 
 export const FormButtonsWrap = styled.div`
@@ -198,20 +188,21 @@ export const FormButtonsWrap = styled.div`
   align-items: center;
   margin-top: 10px;
   width: 100%;
+  @media only screen and (min-width: 768px) {
+    margin-top: 1px;
+    max-width: 285px;
+  }
 `;
 
 export const MedicineButton = styled.button`
   border-radius: 60px;
-  /* padding: 13px 28px; */
   padding: 13px;
   border: none;
   background-color: var(--green);
   transition: all 0.3s;
-  /* min-width: 100%; */
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
-  /* margin-top: 20px; */
   color: #f7f8fa;
   min-width: 51%;
   &:hover,
@@ -222,12 +213,12 @@ export const MedicineButton = styled.button`
     max-width: 148px;
   }
   @media only screen and (min-width: 768px) {
-    max-width: 167px;
+    min-width: 20%;
+    width: 144px;
   }
 `;
 export const CancelButton = styled.button`
   border-radius: 60px;
-  /* padding: 13px 46px; */
   padding: 13px;
   border: none;
   background-color: rgba(29, 30, 33, 0.1);
@@ -236,18 +227,15 @@ export const CancelButton = styled.button`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
-  /* margin-top: 20px; */
-  /* letter-spacing: 0.02em; */
   color: rgba(29, 30, 33, 0.4);
-  /* max-width: 139px; */
   &:hover,
   &:active {
     background-color: var(--active);
   }
   @media only screen and (min-width: 335px) {
-    max-width: 139px;
+    width: 139px;
   }
   @media only screen and (min-width: 768px) {
-    max-width: 167px;
+    max-width: 133px;
   }
 `;

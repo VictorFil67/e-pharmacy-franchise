@@ -26,7 +26,7 @@ export const MedicineModal = ({ setModal }) => {
     {
       label: "Price",
       name: "price",
-      type: "text",
+      type: "number",
     },
   ];
 
