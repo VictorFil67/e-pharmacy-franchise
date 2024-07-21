@@ -14,7 +14,7 @@ import { Pagination } from "../Pagination/Pagination";
 export const Reviews = () => {
   const { reviews } = useSelector(selectProduct);
   const [currentPage, setCurrentPage] = useState(0);
-  const reviewsPerPage = 2;
+  const reviewsPerPage = 3;
 
   const indexOfLastItem = (currentPage + 1) * reviewsPerPage;
   const indexOfFirstItem = indexOfLastItem - reviewsPerPage;

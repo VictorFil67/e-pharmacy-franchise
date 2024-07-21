@@ -17,14 +17,14 @@ import {
   ButtonFilter,
   ContactsWrap,
   DataWrap,
-  Edge,
+  // Edge,
   EditLink,
   EditWrap,
   FilterWrap,
   InfoWrap,
   InputFilter,
   InputWrap,
-  Pagination,
+  // Pagination,
   ProductList,
   ProductsBtn,
   ProductsBtnWrap,
@@ -41,10 +41,11 @@ import PhoneSvg from "../../images/shopImg/PhoneSvg";
 import { ProductItem } from "../../components/ProductItem/ProductItem";
 import { createPortal } from "react-dom";
 import { MedicineModal } from "../../components/MedicineModal/MedicineModal";
-import { PaginatedItems } from "../../components/Pagination/PaginatedItems";
+// import { PaginatedItems } from "../../components/Pagination/PaginatedItems";
 import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
 import FilterSvg from "../../images/shopImg/FilterSvg";
 import { setPage, setShopPage } from "../../store/shops/shopSlise";
+import { Pagination } from "../../components/Pagination/Pagination";
 
 const ShopPage = () => {
   const dispatch = useDispatch();
@@ -53,12 +54,12 @@ const ShopPage = () => {
   const {
     shopProducts,
     allProducts,
-    // total,
-    // shopTotal,
+    total,
+    shopTotal,
     page,
     shopPage,
-    pageCount,
-    shopPageCount,
+    // pageCount,
+    // shopPageCount,
     // startPage,
     // endPage,
     // shopStartPage,
@@ -69,6 +70,7 @@ const ShopPage = () => {
   const [value, setValue] = useState("");
   const [limit, setlimit] = useState(12);
   const [modal, setModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     window.innerWidth <= 767 ? setlimit(8) : setlimit(12);
@@ -122,6 +124,20 @@ const ShopPage = () => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
+
+  const pageCount =
+    active === "All medicine"
+      ? Math.ceil(total / limit)
+      : Math.ceil(shopTotal / limit);
+  const handlePageClick = (data) => {
+    setCurrentPage(data.selected);
+  };
+
+  useEffect(() => {
+    active === "All medicine"
+      ? dispatch(setPage(currentPage + 1))
+      : dispatch(setShopPage(currentPage + 1));
+  }, [dispatch, currentPage, active]);
 
   return (
     <ShopPageWrap>
@@ -223,7 +239,7 @@ const ShopPage = () => {
               />
             ))}
       </ProductList>
-      <Pagination>
+      {/* <Pagination>
         {active === "Drug store"}
         {active === "All medicine"}
         <Edge
@@ -263,7 +279,15 @@ const ShopPage = () => {
         >
           <span>&#187;</span>
         </Edge>
-      </Pagination>
+      </Pagination> */}
+      <Pagination
+        // arrey={reviews}
+        // itemsPerPage={reviewsPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        pageCount={pageCount}
+        handlePageClick={handlePageClick}
+      />
       {modal &&
         createPortal(<MedicineModal setModal={setModal} />, document.body)}
     </ShopPageWrap>
