@@ -1345,6 +1345,10 @@ attempted value: ${s}
   height: 130px;
   margin-top: 4px;
   overflow: hidden;
+  @media only screen and (min-width: 768px) {
+    width: 160px;
+    height: 160px;
+  }
 `,Hd=j.img`
   display: block;
   height: 100%;
@@ -1370,7 +1374,7 @@ attempted value: ${s}
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 14px;
+    column-gap: 8px;
     row-gap: 16px;
   }
 `,jv=j.label`
@@ -1401,12 +1405,10 @@ attempted value: ${s}
     }
     /* & > span {
       display: none;
-    }
-    @media only screen and (min-width: 768px) {
-      min-width: 200px;
-      height: 44px;
-      margin-top: 26px;
     } */
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 9px;
+    }
   }
 `,Tv=j.span`
   font-weight: 600;
@@ -1414,6 +1416,9 @@ attempted value: ${s}
   line-height: 1.28571;
   color: var(--black);
   padding-left: 18px;
+  @media only screen and (min-width: 768px) {
+    padding-left: 15px;
+  }
 `,h7=j.div`
   display: flex;
   gap: 8px;
@@ -1461,7 +1466,7 @@ attempted value: ${s}
     border: 1px solid var(--green);
   }
   @media only screen and (min-width: 768px) {
-    width: 200px;
+    width: 228px;
     /* flex-direction: ${e=>e.$reg&&"row"};
     flex-wrap: ${e=>e.$reg&&"wrap"};
     gap: 14px; */
@@ -1580,8 +1585,8 @@ attempted value: ${s}
     max-width: 335px;
   }
   @media only screen and (min-width: 768px) {
-    padding: 40px 38px;
-    max-width: 700px;
+    padding: 50px;
+    max-width: 568px;
   }
   @media only screen and (min-width: 1440px) {
     padding: 40px;
@@ -1595,9 +1600,8 @@ attempted value: ${s}
   background-color: transparent;
   padding: 0;
   @media only screen and (min-width: 768px) {
-    right: 16px;
   }
-`;function v7(e,t){const n=e==null?void 0:e.split(" ");let r="",i="";if(t>=e.length)r=e;else{for(let o=0;o<n.length;o+=1)r.length<=t-2&&(r+=n[o]+" ",r.length>t-2&&(i=r.slice(0,-(n[o].length+2))+"..."));r=i}return r}const y7=({setModal:e,productId:t,photo:n,price:r,name:i,description:o})=>{const s=rn(),{shopId:a}=be(jr);console.log(i,r,n,t);const l=[{label:"Upload image",name:"photo",type:"file"},{label:"Medicine Name",name:"name",type:"text"},{label:"Price",name:"price",type:"text"}],u=v7(o,165),{register:c,handleSubmit:f,formState:{errors:p}}=ho({mode:"onChange",defaultValues:{name:i,price:r,description:u}});function y(w){const h=new FormData;for(const d in w)d==="photo"&&w[d][0]?h.append(d,w[d][0]):w[d]&&h.append(d,w[d]);s(Ya({id:a,productId:t,formData:h})).unwrap().then(()=>{_.success("Congratulations! The medicine is updated successfully!"),e(!1),s(Wn({id:a})).unwrap().then(()=>{_.success("The products of your shop are received")}).catch(d=>_.error(d))}).catch(d=>_.error(d))}function g(w){w.target===w.currentTarget&&e(!1)}document.addEventListener("keydown",x);function x(w){w.code==="Escape"&&(e(!1),document.removeEventListener("keydown",x))}return m.jsx(bh,{onClick:g,children:m.jsxs(Uw,{children:[m.jsx(Sh,{onClick:()=>e(!1),children:m.jsx(wh,{})}),m.jsx(Ww,{title:"Edit medicine",inputs:l,titleButton:"Save medicine",register:c,handleSubmit:f,onSubmit:y,errors:p,setModal:e,photo:n})]})})},x7=j.p`
+`;function v7(e,t){const n=e==null?void 0:e.split(" ");let r="",i="";if(!e||t>=e.length)r=e;else{for(let o=0;o<n.length;o+=1)r.length<=t-2&&(r+=n[o]+" ",r.length>t-2&&(i=r.slice(0,-(n[o].length+2))+"..."));r=i}return r}const y7=({setModal:e,productId:t,photo:n,price:r,name:i,description:o})=>{const s=rn(),{shopId:a}=be(jr);console.log(i,r,n,t);const l=[{label:"Upload image",name:"photo",type:"file"},{label:"Medicine Name",name:"name",type:"text"},{label:"Price",name:"price",type:"text"}],u=v7(o,165),{register:c,handleSubmit:f,formState:{errors:p}}=ho({mode:"onChange",defaultValues:{name:i,price:r,description:u}});function y(w){const h=new FormData;for(const d in w)d==="photo"&&w[d][0]?h.append(d,w[d][0]):w[d]&&h.append(d,w[d]);s(Ya({id:a,productId:t,formData:h})).unwrap().then(()=>{_.success("Congratulations! The medicine is updated successfully!"),e(!1),s(Wn({id:a})).unwrap().then(()=>{_.success("The products of your shop are received")}).catch(d=>_.error(d))}).catch(d=>_.error(d))}function g(w){w.target===w.currentTarget&&e(!1)}document.addEventListener("keydown",x);function x(w){w.code==="Escape"&&(e(!1),document.removeEventListener("keydown",x))}return m.jsx(bh,{onClick:g,children:m.jsxs(Uw,{children:[m.jsx(Sh,{onClick:()=>e(!1),children:m.jsx(wh,{})}),m.jsx(Ww,{title:"Edit medicine",inputs:l,titleButton:"Save medicine",register:c,handleSubmit:f,onSubmit:y,errors:p,setModal:e,photo:n})]})})},x7=j.p`
   font-size: 14px;
   line-height: 1.28571;
   color: #6a6a6f;
