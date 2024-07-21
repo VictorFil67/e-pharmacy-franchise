@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Edge = styled.button`
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   border: 1px solid rgba(29, 30, 33, 0.2);
   display: flex;
@@ -16,8 +16,8 @@ export const Edge = styled.button`
   }
 `;
 export const Transit = styled.button`
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   border: 1px solid rgba(29, 30, 33, 0.2);
   display: flex;
@@ -49,8 +49,8 @@ export const PaginationWrap = styled.ul`
   /* .previous, */
   /* .next, */
   .break {
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     border: 1px solid rgba(29, 30, 33, 0.2);
     display: flex;
