@@ -28,6 +28,7 @@ import ShopPage from "./pages/ShopPage/ShopPage";
 import EditShopPage from "./pages/EditShopPage/EditShopPage";
 import MedicinePage from "./pages/MedicinePage/MedicinePage";
 import { selectProduct } from "./store/products/selectors";
+import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 
 function App() {
   const loading = useSelector((state) => state.loading.loading);
@@ -99,6 +100,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <EditShopPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/statistics"
+              element={
+                <PrivateRoute>
+                  <StatisticsPage />
                 </PrivateRoute>
               }
             />

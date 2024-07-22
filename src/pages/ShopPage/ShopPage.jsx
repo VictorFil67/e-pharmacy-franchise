@@ -51,20 +51,8 @@ const ShopPage = () => {
   const dispatch = useDispatch();
   const { shopId } = useSelector(selectShop);
   const shop = useSelector(selectShop);
-  const {
-    shopProducts,
-    allProducts,
-    total,
-    shopTotal,
-    page,
-    shopPage,
-    // pageCount,
-    // shopPageCount,
-    // startPage,
-    // endPage,
-    // shopStartPage,
-    // shopEndPage,
-  } = useSelector(selectShops);
+  const { shopProducts, allProducts, total, shopTotal, page, shopPage } =
+    useSelector(selectShops);
   const [active, setactive] = useState("Drug store");
   const [selectedOption, setSelectedOption] = useState(null);
   const [value, setValue] = useState("");
@@ -239,15 +227,22 @@ const ShopPage = () => {
               />
             ))}
       </ProductList>
-      {/* {(active === "Drug store" && shopTotal > limit) ||
-        (active === "All medicine" && total > limit && ( */}
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        pageCount={pageCount}
-        handlePageClick={handlePageClick}
-      />
-      {/* ))} */}
+      {active === "All medicine" && total > limit && (
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          pageCount={pageCount}
+          handlePageClick={handlePageClick}
+        />
+      )}
+      {active === "Drug store" && shopTotal > limit && (
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          pageCount={pageCount}
+          handlePageClick={handlePageClick}
+        />
+      )}
       {modal &&
         createPortal(<MedicineModal setModal={setModal} />, document.body)}
     </ShopPageWrap>
