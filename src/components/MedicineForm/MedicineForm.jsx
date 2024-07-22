@@ -9,6 +9,7 @@ import {
   FormButtonsWrap,
   // FormWrap,
   ImageInputText,
+  Img,
   ImgWrap,
   Input,
   InputBlockWrap,
@@ -60,7 +61,7 @@ export const MedicineForm = ({
         ) : photo ? (
           <Photo src={photo} />
         ) : (
-          <img src={Pills} alt="Pill" loading="lazy" />
+          <Img src={Pills} alt="Pill" loading="lazy" />
         )}
       </ImgWrap>
       <Form onSubmit={handleSubmit(onSubmit)}>

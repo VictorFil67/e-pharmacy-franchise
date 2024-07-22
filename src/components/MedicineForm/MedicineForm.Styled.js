@@ -26,6 +26,9 @@ export const ImgWrap = styled.div`
     height: 160px;
   }
 `;
+export const Img = styled.img`
+  width: 100%;
+`;
 
 export const Photo = styled.img`
   display: block;
