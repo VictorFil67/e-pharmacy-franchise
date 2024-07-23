@@ -14,6 +14,7 @@ import { authReducer } from "./auth/authSlice";
 import { loadingReducer } from "./loading/loadingSlice";
 import { shopsReducer } from "./shops/shopSlise";
 import { productsReducer } from "./products/productsSlise";
+import { statisticsReducer } from "./statistics/statisticsSlice";
 
 const persistConfig = {
   key: "auth",
@@ -45,6 +46,7 @@ export const store = configureStore({
     auth: persistedReducer,
     shops: persistedReducerShops,
     products: persistedReducerProducts,
+    statistics: statisticsReducer,
     loading: loadingReducer,
   },
   middleware: (getDefaultMiddleware) =>

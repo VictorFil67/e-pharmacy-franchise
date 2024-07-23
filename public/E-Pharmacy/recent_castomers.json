@@ -1,0 +1,47 @@
+[
+    {
+      "photo": "https://i.imgur.com/1As0akH.png1",
+      "name": "Nadia Ivanova",
+      "email": "nadia.ivanova@gmail.com",
+      "spent": "2,300.50",
+      "phone": "+380707614324",
+      "address": "Obolon, Bldg. 10, Apt. 45",
+      "register_date": "Mar 1, 2024"
+    },
+    {
+      "image": "https://i.imgur.com/UYCE7Rr.png",
+      "name": "Petro Kovalchuk",
+      "email": "petro.kovalchuk@gmail.com",
+      "spent": "3,450.75",
+      "phone": "+380602345678",
+      "address": "Lva Tolstoho, Bldg. 31, Apt. 91",
+      "register_date": "Mar 2, 2024"
+    },
+    {
+      "image": "https://i.imgur.com/hz6bZkb.png",
+      "name": "Oleksiy Shevchenko",
+      "email": "oleksiy.shevchenko@gmail.com",
+      "spent": "1,980.25",
+      "phone": "+380703486789",
+      "address": "Kharkivske Shose, Bldg. 13, Apt. 24",
+      "register_date": "Mar 3, 2024"
+    },
+    {
+      "image": "https://i.imgur.com/FHMKqK5.png",
+      "name": "Iryna Melnyk",
+      "email": "iryna.melnyk@gmail.com",
+      "spent": "2,150.00",
+      "phone": "+380104567890",
+      "address": "Peremohy Ave, Bldg. 50, Apt. 81",
+      "register_date": "Mar 4, 2024"
+    },
+    {
+      "image": "https://i.imgur.com/UYCE7Rr.png",
+      "name": "Yuriy Hrytsenko",
+      "email": "yuriy.hrytsenko@gmail.com",
+      "spent": "2,750.90",
+      "phone": "+380705677901",
+      "address": "Saksahanskoho, Bldg. 8, Apt. 63",
+      "register_date": "Mar 5, 2024"
+    }
+]
