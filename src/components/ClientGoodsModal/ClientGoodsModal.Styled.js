@@ -31,12 +31,15 @@ export const Modal = styled.div`
   padding: 40px 10px;
   border-radius: 20px;
   gap: 20px;
+  height: 546px;
   @media only screen and (min-width: 335px) {
     max-width: 335px;
   }
   @media only screen and (min-width: 768px) {
-    padding: 50px;
-    max-width: 568px;
+    padding: 40px 50px 50px;
+    max-width: 613px;
+    height: 632px;
+    gap: 30px;
   }
   @media only screen and (min-width: 1440px) {
     padding: 40px;
@@ -65,19 +68,71 @@ export const Title = styled.h1`
     line-height: 1.14286;
   }
 `;
+
+export const ClientInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: #e7f1ed;
+  border: 0px solid rgba(29, 30, 33, 0.08);
+  border-radius: 8px;
+  width: 100%;
+  height: 58px;
+  gap: 4px;
+  padding: 12px 16px;
+  @media only screen and (min-width: 375px) {
+    padding: 10px 28px;
+  }
+`;
+
+export const ClientDataTitle = styled.h4`
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.16667;
+  color: rgba(29, 30, 33, 0.4);
+  @media only screen and (min-width: 375px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+`;
+
+export const ClientDataText = styled.p`
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.28571;
+  color: var(--black);
+  white-space: nowrap;
+  @media only screen and (min-width: 375px) {
+    font-size: 14px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.125;
+  }
+`;
+
 export const GoodsList = styled.ul`
   display: flex;
   flex-direction: column;
-  height: 320px;
+  /* height: 320px; */
   overflow-y: auto;
   width: 100%;
   padding: 0 20px;
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.125;
+  }
 `;
 
 export const GoodsItem = styled.li`
   position: relative;
 
   padding: 20px 0;
+  &:first-child {
+    padding-top: 10px;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -92,6 +147,9 @@ export const GoodsItem = styled.li`
 export const MtdicineLink = styled(Link)`
   display: flex;
   gap: 12px;
+  @media only screen and (min-width: 768px) {
+    gap: 20px;
+  }
 `;
 
 export const ImgWrap = styled.div`
@@ -99,9 +157,10 @@ export const ImgWrap = styled.div`
   border-radius: 15px;
   width: 80px;
   height: 80px;
+  overflow: hidden;
   @media only screen and (min-width: 768px) {
-    /* width: 160px;
-    height: 160px; */
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -135,8 +194,8 @@ export const MedicineName = styled.h3`
   line-height: 1.4;
   color: var(--black);
   @media only screen and (min-width: 768px) {
-    /* font-size: 28px;
-    line-height: 1.14286; */
+    font-size: 18px;
+    line-height: 1.4;
   }
 `;
 export const MedicineBrief = styled.p`
@@ -145,8 +204,8 @@ export const MedicineBrief = styled.p`
   line-height: 1.16667;
   color: #6a6a6f;
   @media only screen and (min-width: 768px) {
-    /* font-size: 28px;
-    line-height: 1.14286; */
+    font-size: 14px;
+    line-height: 1.28571;
   }
 `;
 export const MedicinePrice = styled.span`

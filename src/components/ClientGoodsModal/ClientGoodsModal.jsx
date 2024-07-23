@@ -1,5 +1,8 @@
 import CloseSVG from "../../images/modal/CloseSVG";
 import {
+  ClientDataText,
+  ClientDataTitle,
+  ClientInfo,
   CloseButton,
   GoodsItem,
   GoodsList,
@@ -16,12 +19,30 @@ import {
   Title,
 } from "./ClientGoodsModal.Styled";
 import { useDispatch, useSelector } from "react-redux";
-import { selectGoods } from "../../store/statistics/selectors";
+import {
+  selectClientInfo,
+  selectGoods,
+} from "../../store/statistics/selectors";
 import { setProduct } from "../../store/products/productsSlise";
+import { useEffect, useState } from "react";
 
-export const ClientGoodsModal = ({ setModal, email, name, spent }) => {
+export const ClientGoodsModal = ({ setModal }) => {
   const dispatch = useDispatch();
   const goods = useSelector(selectGoods);
+  const { name, email, spent } = useSelector(selectClientInfo);
+  const [laptop, setLaptop] = useState(window.innerWidth >= 768);
+
+  useEffect(() => {
+    function handleSize() {
+      setLaptop(window.innerWidth >= 768);
+    }
+    window.addEventListener("resize", handleSize);
+    return () => {
+      window.removeEventListener("resize", handleSize);
+    };
+  }, []);
+
+  const newEmail = !laptop ? email.slice(0, 12) + "..." : email;
 
   function handleClick(e) {
     if (e.target === e.currentTarget) {
@@ -48,20 +69,21 @@ export const ClientGoodsModal = ({ setModal, email, name, spent }) => {
           <CloseSVG />
         </CloseButton>
         <Title>The client&apos;s goods</Title>
-        <div>
+        <ClientInfo>
           <div>
-            <h4>Name</h4>
-            <p>{name}</p>
+            <ClientDataTitle>Name</ClientDataTitle>
+            <ClientDataText>{name}</ClientDataText>
           </div>
           <div>
-            <h4>Email</h4>
-            <p>{email}</p>
+            <ClientDataTitle>Email</ClientDataTitle>
+            <ClientDataText>{newEmail}</ClientDataText>
+            {console.log(newEmail)}
           </div>
           <div>
-            <h4>Spent</h4>
-            <p>{spent}</p>
+            <ClientDataTitle>Spent</ClientDataTitle>
+            <ClientDataText>{spent}</ClientDataText>
           </div>
-        </div>
+        </ClientInfo>
         <GoodsList>
           {goods.map((item) => (
             <GoodsItem key={item._id}>

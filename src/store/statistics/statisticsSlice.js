@@ -7,11 +7,12 @@ const statisticsSlice = createSlice({
     error: null,
     statistics: null,
     clientProducts: [],
+    clientInfo: null,
   },
   reducers: {
-    // setProduct(state, { payload }) {
-    //   state.product = payload;
-    // },
+    setClientInfo(state, { payload }) {
+      state.clientInfo = payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -39,4 +40,4 @@ const statisticsSlice = createSlice({
 });
 
 export const statisticsReducer = statisticsSlice.reducer;
-// export const { setProduct } = statisticSlice.actions;
+export const { setClientInfo } = statisticsSlice.actions;

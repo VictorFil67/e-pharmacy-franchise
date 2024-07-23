@@ -12,13 +12,15 @@ import { toast } from "react-toastify";
 import { createPortal } from "react-dom";
 import { ClientGoodsModal } from "../ClientGoodsModal/ClientGoodsModal";
 import { useEffect, useState } from "react";
+import { setClientInfo } from "../../store/statistics/statisticsSlice";
 
 export const Customers = () => {
   const customers = useSelector(selectCustomers);
   const [modal, setModal] = useState(false);
 
   const dispatch = useDispatch();
-  function getClientGoods(clientId) {
+  function getClientGoods(data, clientId) {
+    dispatch(setClientInfo(data));
     dispatch(getClientGoodsThunk(clientId))
       .unwrap()
       .then(() => {
@@ -64,25 +66,28 @@ export const Customers = () => {
                 <td>{customer.email}</td>
                 <td>{customer.spent}</td>
                 <td>
-                  <button onClick={() => getClientGoods(customer._id)}>
+                  <button
+                    onClick={() =>
+                      getClientGoods(
+                        {
+                          name: customer.name,
+                          email: customer.email,
+                          spent: customer.spent,
+                        },
+                        customer._id
+                      )
+                    }
+                  >
                     View
                   </button>
                 </td>
-                {modal &&
-                  createPortal(
-                    <ClientGoodsModal
-                      setModal={setModal}
-                      email={customer.email}
-                      name={customer.name}
-                      spent={customer.spent}
-                    />,
-                    document.body
-                  )}
               </tr>
             ))}
           </tbody>
         </Table>
       </TableWrap>
+      {modal &&
+        createPortal(<ClientGoodsModal setModal={setModal} />, document.body)}
     </TableContainer>
   );
 };
