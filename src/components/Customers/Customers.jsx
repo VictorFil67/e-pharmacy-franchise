@@ -9,9 +9,13 @@ import {
 import { selectCustomers } from "../../store/statistics/selectors";
 import { getClientGoodsThunk } from "../../store/statistics/operations";
 import { toast } from "react-toastify";
+import { createPortal } from "react-dom";
+import { ClientGoodsModal } from "../ClientGoodsModal/ClientGoodsModal";
+import { useEffect, useState } from "react";
 
 export const Customers = () => {
   const customers = useSelector(selectCustomers);
+  const [modal, setModal] = useState(false);
 
   const dispatch = useDispatch();
   function getClientGoods(clientId) {
@@ -19,9 +23,21 @@ export const Customers = () => {
       .unwrap()
       .then(() => {
         toast.success(`The customer's goods are received`);
+        setModal(true);
       })
       .catch(() => toast.error(`Ooops... Something went wrong!`));
   }
+
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modal]);
 
   return (
     <TableContainer
@@ -52,6 +68,16 @@ export const Customers = () => {
                     View
                   </button>
                 </td>
+                {modal &&
+                  createPortal(
+                    <ClientGoodsModal
+                      setModal={setModal}
+                      email={customer.email}
+                      name={customer.name}
+                      spent={customer.spent}
+                    />,
+                    document.body
+                  )}
               </tr>
             ))}
           </tbody>

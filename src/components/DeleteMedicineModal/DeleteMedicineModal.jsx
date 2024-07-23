@@ -1,12 +1,4 @@
-// import { useDispatch } from "react-redux";
-// import { deleteProductThunk } from "../../store/products/operations";
-// import { toast } from "react-toastify";
-// import { getShopProductsThunk } from "../../store/shops/operations";
-import {
-  CloseButton,
-  //   Modal,
-  Overlay,
-} from "../MedicineModal/MedicineModal.Styled";
+import { CloseButton, Overlay } from "../MedicineModal/MedicineModal.Styled";
 import CloseSVG from "../../images/modal/CloseSVG";
 import { DeleteMedicineForm } from "../DeleteMedicineForm/DeleteMedicineForm";
 import { Modal } from "./DeleteMedicineModal.Styled";
@@ -33,23 +25,6 @@ export const DeleteMedicineModal = ({
       document.removeEventListener("keydown", onWindowEscape);
     }
   }
-
-  //   function deleteProduct({ shopId, productId }) {
-  //     dispatch(deleteProductThunk({ id: shopId, productId }))
-  //       .unwrap()
-  //       .then(() => {
-  //         toast.success(
-  //           `The product has been deleted from your shop successfully!`
-  //         );
-  //         dispatch(getShopProductsThunk({ id: shopId }))
-  //           .unwrap()
-  //           .then(() => {
-  //             toast.success(`The products of your shop are received`);
-  //           })
-  //           .catch((err) => toast.error(err));
-  //       })
-  //       .catch((err) => toast.error(err));
-  //   }
 
   return (
     <Overlay onClick={handleClick}>
