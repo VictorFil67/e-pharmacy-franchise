@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TableContainer = styled.div`
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 8px;
   /* padding: 14px; */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */

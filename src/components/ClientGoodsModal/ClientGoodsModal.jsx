@@ -17,10 +17,7 @@ import {
 } from "./ClientGoodsModal.Styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectGoods } from "../../store/statistics/selectors";
-import { Link } from "react-router-dom";
 import { setProduct } from "../../store/products/productsSlise";
-// import { Title } from "../MedicineForm/MedicineForm.Styled";
-// import { Modal } from "../DeleteMedicineModal/DeleteMedicineModal.Styled";
 
 export const ClientGoodsModal = ({ setModal, email, name, spent }) => {
   const dispatch = useDispatch();
@@ -99,16 +96,6 @@ export const ClientGoodsModal = ({ setModal, email, name, spent }) => {
             </GoodsItem>
           ))}
         </GoodsList>
-        {/* <DeleteMedicineForm
-          title={"Confirm deletion"}
-          titleButton={"Confirm"}
-          shopId={shopId}
-          productId={productId}
-          setModal={setModal}
-          photo={photo}
-          name={name}
-          suppliers={suppliers}
-        /> */}
       </Modal>
     </Overlay>
   );

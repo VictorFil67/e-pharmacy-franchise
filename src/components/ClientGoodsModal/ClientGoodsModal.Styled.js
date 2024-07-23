@@ -23,15 +23,12 @@ export const Modal = styled.div`
   width: 88.06%;
   position: relative;
   border: 1px solid rgba(104, 104, 104, 0.2);
-  /* padding: 59px 46px; */
   background-color: var(--white);
-  /* border-radius: 12px; */
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 10px;
-  /* background: #fff; */
   border-radius: 20px;
   gap: 20px;
   @media only screen and (min-width: 335px) {
@@ -100,16 +97,8 @@ export const MtdicineLink = styled(Link)`
 export const ImgWrap = styled.div`
   border: 1.15px solid #f1f1f1;
   border-radius: 15px;
-  /* padding: 14px 18px; */
   width: 80px;
   height: 80px;
-  /* border: ${(props) =>
-    props.$img ? "1.15px solid rgba(89, 177, 122, 0.6)" : "none"};
-  border-radius: 20px;
-  width: 130px;
-  height: 130px;
-  margin-top: 4px;
-  overflow: hidden; */
   @media only screen and (min-width: 768px) {
     /* width: 160px;
     height: 160px; */
