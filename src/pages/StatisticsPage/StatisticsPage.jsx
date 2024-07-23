@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { getStatisticsThunk } from "../../store/statistics/operations";
 import { toast } from "react-toastify";
 import { Customers } from "../../components/Customers/Customers";
+import { PageWrap, Title } from "./StatisticsPage.Styled";
+import { KeyIndicators } from "../../components/KeyIndicators/KeyIndicators";
+import { Budget } from "../../components/Budget/Budget";
 
 const StatisticsPage = () => {
   const dispatch = useDispatch();
@@ -15,9 +18,12 @@ const StatisticsPage = () => {
       .catch(() => toast.error(`Ooops... Something went wrong!`));
   }, [dispatch]);
   return (
-    <div>
+    <PageWrap>
+      <Title>Statistics</Title>
+      <KeyIndicators />
       <Customers />
-    </div>
+      <Budget />
+    </PageWrap>
   );
 };
 

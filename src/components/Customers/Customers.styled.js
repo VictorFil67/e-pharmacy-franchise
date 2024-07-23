@@ -7,7 +7,7 @@ export const TableContainer = styled.div`
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   border: 1px solid rgba(29, 30, 33, 0.1);
   overflow: auto;
-
+  margin-bottom: 40px;
   /* width: 80%;
   margin: auto; */
 `;
