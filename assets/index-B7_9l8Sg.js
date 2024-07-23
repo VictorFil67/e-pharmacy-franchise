@@ -1941,7 +1941,7 @@ See https://reactjs.org/docs/forms.html#controlled-components`),Z=L.initialPage?
   color: ${e=>e.$tab==="Reviews"?"var(--white)":"var(--green)"};
   background: ${e=>e.$tab==="Reviews"?"var(--green)":"rgba(89, 177, 122, 0.1)"};
 `,rA=()=>{const[e,t]=k.useState("Description");return f.jsxs($9,{children:[f.jsxs(eA,{children:[f.jsx(tA,{type:"button","aria-label":"Description button",onClick:()=>t("Description"),$tab:e,children:"Description"}),f.jsx(nA,{type:"button","aria-label":"Reviews button",onClick:()=>t("Reviews"),$tab:e,children:"Reviews"})]}),e==="Description"?f.jsx(G9,{}):f.jsx(_9,{})]})},iA=()=>f.jsxs(f.Fragment,{children:[f.jsx(Y9,{}),f.jsx(rA,{})]}),_a=ot("statistics/getStatistics",async(e,t)=>{try{const{data:n}=await Je("statistics");return n}catch(n){return t.rejectWithValue(n.response.data.message??n.message)}}),$a=ot("statistics/getClientGoods",async(e,t)=>{try{const{data:n}=await Je(`statistics/${e}/goods`);return n}catch(n){return t.rejectWithValue(n.response.data.message??n.message)}}),oA=j.div`
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 8px;
   /* padding: 14px; */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
@@ -2047,15 +2047,12 @@ See https://reactjs.org/docs/forms.html#controlled-components`),Z=L.initialPage?
   width: 88.06%;
   position: relative;
   border: 1px solid rgba(104, 104, 104, 0.2);
-  /* padding: 59px 46px; */
   background-color: var(--white);
-  /* border-radius: 12px; */
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 10px;
-  /* background: #fff; */
   border-radius: 20px;
   gap: 20px;
   @media only screen and (min-width: 335px) {
@@ -2113,15 +2110,8 @@ See https://reactjs.org/docs/forms.html#controlled-components`),Z=L.initialPage?
 `,xA=j.div`
   border: 1.15px solid #f1f1f1;
   border-radius: 15px;
-  /* padding: 14px 18px; */
   width: 80px;
   height: 80px;
-  /* border: ${e=>e.$img?"1.15px solid rgba(89, 177, 122, 0.6)":"none"};
-  border-radius: 20px;
-  width: 130px;
-  height: 130px;
-  margin-top: 4px;
-  overflow: hidden; */
   @media only screen and (min-width: 768px) {
     /* width: 160px;
     height: 160px; */
