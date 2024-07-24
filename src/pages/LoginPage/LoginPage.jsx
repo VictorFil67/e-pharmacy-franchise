@@ -8,16 +8,11 @@ import { useDispatch } from "react-redux";
 import { getShopIdThunk } from "../../store/shops/operations";
 
 const schema = yup.object({
-  // name: yup.string().required("The name is required"),
   email: yup
     .string()
     .email("Please write a valid email")
     .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Please write a valid email")
     .required("The email is required"),
-  // phone: yup
-  //   .string()
-  //   .min(12, "The phone number must contain a minimum of 12 characters")
-  //   .required("The phone number is required"),
   password: yup
     .string()
     .min(8, "The password must contain a minimum of 8 characters")
@@ -28,21 +23,12 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   const inputs = [
-    // {
-    //   placeholder: "User Name",
-    //   name: "name",
-    //   type: "text",
-    // },
     {
       placeholder: "Email address",
       name: "email",
       type: "text",
     },
-    // {
-    //   placeholder: "Phone number",
-    //   name: "phone",
-    //   type: "text",
-    // },
+
     {
       placeholder: "Password",
       name: "password",
@@ -71,10 +57,8 @@ const LoginPage = () => {
           })
           .catch(() => toast.error(`You don't have your own shop`));
       })
-      // .catch(() => toast.error("Ooops... Something went wrong!"));
+
       .catch((err) => toast.error(err));
-    // notify();
-    // console.log(name, email, phone, password);
   }
 
   return (

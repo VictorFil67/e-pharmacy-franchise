@@ -1,4 +1,3 @@
-// import "./MobileBurger.Styled.css";
 import ExitSVG from "../../../images/hederImg/ExitSVG";
 import {
   Backdrop,
@@ -58,8 +57,6 @@ const MobileBurger = ({ closeBurger, isOpen, handleLogout }) => {
             </BurgerLinkWraper>
             <BurgerButtonLogAut onClick={onLogout}>Log out</BurgerButtonLogAut>
           </BurgerMenu>
-          {/* </div> */}
-          {/* </> */}
         </BurgerContainer>
       </Backdrop>
     </>

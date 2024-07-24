@@ -6,15 +6,6 @@ import {
   signInThunk,
   signUpThunk,
 } from "../auth/operations";
-// import // addBookFromRecommendThunk,
-// // addBookThunk,
-// // deleteUserBook,
-// // getBookInfo,
-// // getUserBooksThunk,
-// // recommendedBooksThunk,
-// // saveFinishPage,
-// // saveStartPage,
-// "../books/operations";
 
 const loadingSlice = createSlice({
   name: "loading",
@@ -30,14 +21,6 @@ const loadingSlice = createSlice({
           currentThunk.pending,
           logoutThunk.pending,
           refreshTokensThunk.pending
-          // addBookFromRecommendThunk.pending,
-          // addBookThunk.pending,
-          // deleteUserBook.pending,
-          // getBookInfo.pending,
-          // getUserBooksThunk.pending,
-          // recommendedBooksThunk.pending,
-          // saveFinishPage.pending,
-          // saveStartPage.pending
         ),
         (state) => {
           state.loading = true;
@@ -50,14 +33,6 @@ const loadingSlice = createSlice({
           currentThunk.fulfilled,
           logoutThunk.fulfilled,
           refreshTokensThunk.fulfilled
-          // addBookFromRecommendThunk.fulfilled,
-          // addBookThunk.fulfilled,
-          // deleteUserBook.fulfilled,
-          // getBookInfo.fulfilled,
-          // getUserBooksThunk.fulfilled,
-          // recommendedBooksThunk.fulfilled,
-          // saveFinishPage.fulfilled,
-          // saveStartPage.fulfilled
         ),
         (state) => {
           state.loading = false;
@@ -70,14 +45,6 @@ const loadingSlice = createSlice({
           currentThunk.rejected,
           logoutThunk.rejected,
           refreshTokensThunk.rejected
-          // addBookFromRecommendThunk.rejected,
-          // addBookThunk.rejected,
-          // deleteUserBook.rejected,
-          // getBookInfo.rejected,
-          // getUserBooksThunk.rejected,
-          // recommendedBooksThunk.rejected,
-          // saveFinishPage.rejected,
-          // saveStartPage.rejected
         ),
         (state) => {
           state.loading = false;

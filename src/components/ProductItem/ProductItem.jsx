@@ -13,13 +13,9 @@ import {
   Medicine,
   MedicineBrand,
   ProductImg,
-  // MedicineName,
   TextWrap,
 } from "./ProductItem.Styled";
-import {
-  addCatalogProductThunk,
-  // deleteProductThunk,
-} from "../../store/products/operations";
+import { addCatalogProductThunk } from "../../store/products/operations";
 import { toast } from "react-toastify";
 import { getShopProductsThunk } from "../../store/shops/operations";
 import { createPortal } from "react-dom";
@@ -53,8 +49,6 @@ export const ProductItem = ({
     description,
     reviews,
   };
-
-  // console.log(shopId, productId, name, price);
 
   function addCatalogProduct({ shopId, productId }) {
     dispatch(addCatalogProductThunk({ shopId, productId }))
@@ -100,10 +94,7 @@ export const ProductItem = ({
         {active === "Drug store" ? (
           <ControlWrap>
             <EditButton onClick={() => setModal(true)}>Edit</EditButton>
-            <DeleteButton
-              onClick={() => setDeleteModal(true)}
-              // onClick={() => dispatch(deleteProduct({ shopId, productId }))}
-            >
+            <DeleteButton onClick={() => setDeleteModal(true)}>
               Delete
             </DeleteButton>
           </ControlWrap>
@@ -112,7 +103,6 @@ export const ProductItem = ({
             <AddToShopButton
               onClick={() => addCatalogProduct({ shopId, productId })}
             >
-              {/* {console.log(shopId, productId)} */}
               Add to shop
             </AddToShopButton>
             <DetailsLink

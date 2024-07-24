@@ -11,16 +11,11 @@ const schema = yup.object({
   shopName: yup.string(),
   shopOwnerName: yup.string(),
   shopEmail: yup.string(),
-  // .email("Please write a valid email")
-  // .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Please write a valid email"),
   shopPhone: yup.string(),
-  // .matches(/^[\\+]?[0-9]{12}$/, "Please write a valid phone number")
-  // .min(12, "The phone number must contain a minimum of 12 characters"),
   shopStreet: yup.string(),
   shopCity: yup.string(),
   shopZip: yup.string(),
   password: yup.string(),
-  // .min(8, "The password must contain a minimum of 8 characters"),
 });
 
 const EditShopPage = () => {

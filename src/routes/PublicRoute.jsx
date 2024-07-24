@@ -10,7 +10,6 @@ const PublicRoute = ({ children }) => {
     return children;
   }
   return <Navigate to={path ?? "/"} />;
-  // }
 };
 
 export default PublicRoute;

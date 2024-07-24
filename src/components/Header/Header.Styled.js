@@ -37,9 +37,7 @@ export const HeaderLinkWraper = styled.div`
     display: flex;
     flex-grow: 1;
     padding-left: 255px;
-    /* flex-direction: column; */
-    /* justify-content: center;
-  align-items: center; */
+
     gap: 4px;
     transition: transform 0.3s ease;
     &:hover {

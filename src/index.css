@@ -22,7 +22,7 @@ p {
 a {
   text-decoration: none;
   color: inherit;
-  /* cursor: pointer; */
+  cursor: pointer;
   transition: transform 0.3s ease;
 
   &:hover,

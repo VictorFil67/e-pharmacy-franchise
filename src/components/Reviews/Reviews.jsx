@@ -7,7 +7,7 @@ import {
   Testimonial,
 } from "./Reviews.Styled";
 import { selectProduct } from "../../store/products/selectors";
-// import ReactPaginate from "react-paginate";
+
 import { useState } from "react";
 import { Pagination } from "../Pagination/Pagination";
 

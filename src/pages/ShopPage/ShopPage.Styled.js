@@ -18,17 +18,13 @@ export const ShopWrap = styled.div`
     gap: 40px;
   }
   @media only screen and (min-width: 1440px) {
-    /* flex-direction: row; */
-    /* row-gap: 40px;
-    column-gap: 21px; */
   }
 `;
 export const TopWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* border-bottom: 1px solid rgba(29, 30, 33, 0.12); */
-  /* padding-bottom: 16px; */
+
   @media only screen and (min-width: 768px) {
     gap: 40px;
   }
@@ -297,7 +293,4 @@ export const Pagination = styled.div`
     font-size: 28px;
     font-weight: 500;
   }
-  /* @media only screen and (min-width: 768px) {
-    max-width: 446px;
-  } */
 `;

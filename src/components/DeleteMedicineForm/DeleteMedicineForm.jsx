@@ -77,7 +77,6 @@ export const DeleteMedicineForm = ({
           Cancel
         </CancelButton>
       </FormButtonsWrap>
-      {/* </Form> */}
     </>
   );
 };

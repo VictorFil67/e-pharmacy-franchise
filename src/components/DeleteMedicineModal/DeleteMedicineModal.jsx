@@ -11,8 +11,6 @@ export const DeleteMedicineModal = ({
   suppliers,
   name,
 }) => {
-  //   const dispatch = useDispatch();
-
   function handleClick(e) {
     if (e.target === e.currentTarget) {
       setModal(false);

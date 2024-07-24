@@ -33,10 +33,6 @@ export const ImgWrap = styled.div`
   }
   @media only screen and (min-width: 1440px) {
     height: 337px;
-    /* & > img {
-      max-width: 456px;
-      height: 100%;
-    } */
   }
 `;
 
@@ -71,13 +67,9 @@ export const DataWrap = styled.div`
   display: flex;
   justify-content: space-between;
   @media only screen and (min-width: 768px) {
-    /* width: 324px;
-    height: 284px; */
     flex-direction: column;
   }
   @media only screen and (min-width: 1440px) {
-    /* width: 100%;
-    padding: 20px; */
     flex-direction: row;
   }
 `;
@@ -120,7 +112,6 @@ export const EditButton = styled.button`
   color: #f7f8fa;
   background-color: var(--green);
   @media only screen and (min-width: 768px) {
-    /* align-self: flex-end; */
   }
 `;
 
@@ -174,15 +165,7 @@ export const DetailsLink = styled(Link)`
   text-decoration-skip-ink: none;
   text-underline-offset: 2px;
   @media only screen and (min-width: 768px) {
-    /* font-weight: 600;
-    font-size: 16px;
-    line-height: 1.25; */
   }
   @media only screen and (min-width: 1440px) {
-    /* flex-direction: row;
-    justify-content: space-between;
-    margin-top: 0; */
-    /* padding-right: 139px; */
-    /* flex-grow: 1; */
   }
 `;

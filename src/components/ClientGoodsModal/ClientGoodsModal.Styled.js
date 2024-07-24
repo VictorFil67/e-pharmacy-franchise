@@ -116,7 +116,7 @@ export const ClientDataText = styled.p`
 export const GoodsList = styled.ul`
   display: flex;
   flex-direction: column;
-  /* height: 320px; */
+
   overflow-y: auto;
   width: 100%;
   padding: 0 20px;
@@ -173,8 +173,6 @@ export const InfoWrap = styled.div`
   flex-direction: column;
   justify-content: space-between;
   @media only screen and (min-width: 768px) {
-    /* width: 160px;
-    height: 160px; */
   }
 `;
 
@@ -183,8 +181,6 @@ export const TextWrap = styled.div`
   flex-direction: column;
   gap: 4px;
   @media only screen and (min-width: 768px) {
-    /* width: 160px;
-    height: 160px; */
   }
 `;
 
@@ -199,7 +195,6 @@ export const MedicineName = styled.h3`
   }
 `;
 export const MedicineBrief = styled.p`
-  /* font-weight: 600; */
   font-size: 12px;
   line-height: 1.16667;
   color: #6a6a6f;
@@ -214,7 +209,5 @@ export const MedicinePrice = styled.span`
   line-height: 1.28571;
   color: var(--black);
   @media only screen and (min-width: 768px) {
-    /* font-size: 28px;
-    line-height: 1.14286; */
   }
 `;

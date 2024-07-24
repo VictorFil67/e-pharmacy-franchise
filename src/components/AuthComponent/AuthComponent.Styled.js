@@ -91,8 +91,7 @@ export const Input = styled.input`
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
   padding: 12px 18px;
-  /* width: 335px; */
-  /* height: 44px; */
+
   min-width: 100%;
   background: var(--white);
   outline: none;
@@ -109,9 +108,6 @@ export const Input = styled.input`
   }
   @media only screen and (min-width: 768px) {
     width: ${(props) => (props.$reg ? "280px" : "323px")};
-    /* flex-direction: ${(props) => props.$reg && "row"};
-    flex-wrap: ${(props) => props.$reg && "wrap"};
-    gap: 14px; */
   }
 `;
 
@@ -130,9 +126,6 @@ export const AuthButtonWrap = styled.div`
   @media only screen and (min-width: 768px) {
     margin-top: 0;
     max-width: ${(props) => (props.$reg ? "280px" : "323px")};
-    /* flex-direction: ${(props) => props.$reg && "row"};
-    flex-wrap: ${(props) => props.$reg && "wrap"};
-    gap: 14px; */
   }
 `;
 
@@ -146,7 +139,7 @@ export const AuthButton = styled.button`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
-  /* letter-spacing: 0.02em; */
+
   color: var(--white);
 
   &:hover,
@@ -154,26 +147,19 @@ export const AuthButton = styled.button`
     background-color: var(--active);
   }
   @media only screen and (min-width: 768px) {
-    /* padding: 16px 45px;
-    width: 166px;
-    font-size: 20px;
-    line-height: 1; */
   }
 `;
 export const LinkStyled = styled(Link)`
-  /* font-weight: 400; */
   font-size: 12px;
   line-height: 1.5;
   text-decoration: none;
-  /* text-decoration-skip-ink: none; */
+
   text-align: center;
   color: var(--placeholder);
   &:hover {
     color: var(--black);
   }
   @media only screen and (min-width: 768px) {
-    /* font-size: 14px;
-    line-height: 1.28571; */
   }
 `;
 export const Elements = styled(SvgElements)`

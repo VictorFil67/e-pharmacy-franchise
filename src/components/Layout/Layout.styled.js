@@ -33,7 +33,7 @@ export const Footer = styled.footer`
 
 export const FooterContainer = styled.div`
   width: 100%;
-  /* flex-grow: 1; */
+
   max-width: 375px;
   padding: 20px;
   margin: 0 auto;

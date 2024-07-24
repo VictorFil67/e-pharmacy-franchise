@@ -8,13 +8,10 @@
   z-index: 6;
   opacity: 0;
   transform: translateX(100%);
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Плавність змін */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .backdrop.open {
   opacity: 1;
   transform: translateX(0%);
 }
-
-/* backdrop-filter: grayscale(100%) blur(2px); */
-/* transition: backdrop-filter 0.3s ease-in-out; */

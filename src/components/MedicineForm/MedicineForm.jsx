@@ -1,13 +1,10 @@
 import { useState } from "react";
 import {
-  // AttachPhotoStyled,
   AttachPhotoWrap,
   CancelButton,
-  //   ContentWrap,
   ErrorSpan,
   Form,
   FormButtonsWrap,
-  // FormWrap,
   ImageInputText,
   Img,
   ImgWrap,
@@ -17,11 +14,7 @@ import {
   LabelName,
   MedicineButton,
   Photo,
-  // ShopButton,
   Textarea,
-  //   Span,
-  //   Text,
-  //   TextWrap,
   Title,
 } from "./MedicineForm.Styled";
 import AttachPhotoSVG from "../../images/modal/AttachPhotoSVG";

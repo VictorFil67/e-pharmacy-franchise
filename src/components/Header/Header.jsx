@@ -1,6 +1,5 @@
 import { useState } from "react";
 import LogoMobile from "../../images/hederImg/LogoMobile";
-// import "./Header.Styled.css";
 import MobileBurger from "../Modal/MobileBurger/MobileBurger";
 import BurgerMobileSVG from "../../images/hederImg/BurgerMobileSVG";
 import {

@@ -1,10 +1,6 @@
 import { useForm } from "react-hook-form";
 import CloseSVG from "../../images/modal/CloseSVG";
-// import { CloseButton, Modal, Overlay } from "./MedicineModal.Styled";
-import {
-  //   addProductThunk,
-  editProductThunk,
-} from "../../store/products/operations";
+import { editProductThunk } from "../../store/products/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { MedicineForm } from "../MedicineForm/MedicineForm";
@@ -53,7 +49,6 @@ export const EditMedicineModal = ({
     register,
     handleSubmit,
     formState: { errors },
-    // reset,
   } = useForm({
     mode: "onChange",
     defaultValues: {
@@ -77,7 +72,7 @@ export const EditMedicineModal = ({
       .unwrap()
       .then(() => {
         toast.success("Congratulations! The medicine is updated successfully!");
-        // reset();
+
         setModal(false);
         dispatch(getShopProductsThunk({ id: shopId }))
           .unwrap()

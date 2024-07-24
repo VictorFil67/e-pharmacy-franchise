@@ -18,27 +18,16 @@ const shopsSlice = createSlice({
     shopTotal: 0,
     page: 1,
     shopPage: 1,
-    // pageCount: 0,
-    // shopPageCount: 0,
-    // startPage: false,
-    // endPage: false,
-    // shopStartPage: false,
-    // shopEndPage: false,
+
     error: null,
   },
   reducers: {
     setPage(state, { payload }) {
       state.page = payload;
-      // state.startPage = payload === 1 ? true : false;
-      // state.endPage = payload === state.pageCount ? true : false;
     },
-    // setPageCount(state, { payload }) {
-    //   state.pageCount = payload;
-    // },
+
     setShopPage(state, { payload }) {
       state.shopPage = payload;
-      // state.shopStartPage = payload === 1 ? true : false;
-      // state.shopEndPage = payload === state.pageCount ? true : false;
     },
     setShopPageCount(state, { payload }) {
       state.shopPageCount = payload;

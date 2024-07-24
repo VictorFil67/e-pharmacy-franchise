@@ -1,7 +1,7 @@
 import InstagramSvg from "../../images/footerImg/InstagramSvg";
 import YoutubeSvg from "../../images/footerImg/YoutubeSvg";
 import FacebookSvg from "../../images/footerImg/FacebookSvg";
-// import FacebookSvg from "../../images/footer/FacebookSvg";
+
 import FooterLogo from "../../images/footerImg/FooterLogo";
 
 import {

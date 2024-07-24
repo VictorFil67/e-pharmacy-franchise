@@ -40,7 +40,7 @@ export const BurgerContainer = styled.div`
     props.$isOpen ? "translateX(0)" : "translateX(100%)"};
   opacity: ${(props) => (props.$isOpen ? "1" : "0")};
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* z-index: 3; */
+
   transition: transform 0.7s cubic-bezier(0.01, 0.01, 0.58, 1),
     opacity 0.7s ease;
   @media only screen and (min-width: 768px) {
@@ -89,7 +89,7 @@ export const LinkContainer = styled.div`
     content: "";
     position: absolute;
     top: -7px;
-    /* z-index: 10; */
+
     left: 49px;
     width: 15px;
     height: 8px;
@@ -99,7 +99,7 @@ export const LinkContainer = styled.div`
     content: "";
     position: absolute;
     top: 43px;
-    /* z-index: 10; */
+
     left: 49px;
     width: 15px;
     height: 8px;
@@ -134,42 +134,3 @@ export const BurgerButtonLogAut = styled.button`
   line-height: 1;
   color: #f1f1f1;
 `;
-
-// export const HeaderLink = styled(NavLink)`
-//   color: #686868;
-//   position: relative;
-//   cursor: pointer;
-//   transition: color 0.5s ease, transform 0.6s ease;
-
-//   &:hover {
-//     transform: scale(1.3);
-//     color: #fff;
-//   }
-
-//   &.active {
-//     color: #f9f9f9;
-//   }
-
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     bottom: -8px;
-//     left: 50%;
-//     transform: translateX(-50%);
-//     width: 0;
-//     height: 4px;
-//     background-color: #4f92f7;
-//     border-radius: 20px;
-//     transition: width 0.5s ease-in-out;
-//   }
-
-//   &.active::before {
-//     width: 100%;
-//     opacity: 1;
-//   }
-
-//   &.inactive::before {
-//     width: 0;
-//     opacity: 0;
-//   }
-// `;

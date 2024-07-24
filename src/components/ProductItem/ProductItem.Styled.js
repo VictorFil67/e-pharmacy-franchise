@@ -22,7 +22,6 @@ export const ImgWrap = styled.div`
   height: 300px;
   @media only screen and (min-width: 375px) {
     width: 335px;
-    /* border-radius: 27px; */
   }
   @media only screen and (min-width: 768px) {
     width: 100%;
@@ -129,15 +128,7 @@ export const DetailsLink = styled(Link)`
   text-decoration-skip-ink: none;
   text-underline-offset: 2px;
   @media only screen and (min-width: 768px) {
-    /* font-weight: 600;
-    font-size: 16px;
-    line-height: 1.25; */
   }
   @media only screen and (min-width: 1440px) {
-    /* flex-direction: row;
-    justify-content: space-between;
-    margin-top: 0; */
-    /* padding-right: 139px; */
-    /* flex-grow: 1; */
   }
 `;

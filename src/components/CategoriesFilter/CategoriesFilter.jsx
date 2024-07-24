@@ -87,7 +87,7 @@ const CategoriesFilter = ({ selectedOption, setSelectedOption }) => {
         }),
         menuList: (styles) => ({
           ...styles,
-          // borderRadius: "30px",
+
           color: "var(--white)",
           "::-webkit-scrollbar": {
             width: "20px",

@@ -1,20 +1,15 @@
 import {
   DeliveryBlock,
-  // AuthButton,
   DeliveryLabel,
   DeliveryName,
-  // AuthButtonWrap,
   ErrorSpan,
   Form,
   FormWrap,
-  // GenderLabel,
   Input,
   InputBlockWrap,
   InputWrap,
   LabelName,
   LogoInputText,
-  // LogoInputWrap,
-  // LinkStyled,
   Radio,
   RadioGroup,
   RadioSpan,
@@ -25,7 +20,6 @@ import {
   Title,
   TitleWrap,
   Warning,
-  // UploadLogo,
 } from "./Shop.Styled";
 import { useState } from "react";
 import RadioChecked from "../../images/shopImg/RadioChecked";
@@ -104,7 +98,6 @@ export const Shop = ({
                 <Radio
                   {...register("shopOwnDelivery")}
                   type="radio"
-                  // name="delivery"
                   value="Yes"
                   defaultChecked={value === "Yes"}
                   onChange={handleChange}
@@ -118,7 +111,6 @@ export const Shop = ({
                 <Radio
                   {...register("shopOwnDelivery")}
                   type="radio"
-                  // name="gender"
                   value="No"
                   defaultChecked={value === "No"}
                   onChange={handleChange}
@@ -126,21 +118,10 @@ export const Shop = ({
                 <RadioSpan>No</RadioSpan>
               </DeliveryLabel>
             </RadioGroup>
-            {/* <UploadLogo
-          type="file"
-          {...register("shopLogoURL")}
-          onChange={handleFileChange}
-        /> */}
-            {/* Upload Logo
-        </UploadLogo> */}
-            {/* <AuthButtonWrap
-        // $marg={marg} $reg={reg}
-        > */}
           </DeliveryBlock>
           <ShopButton name="submit" type="submit" aria-label={buttonName}>
             {buttonName}
           </ShopButton>
-          {/* </AuthButtonWrap> */}
         </Form>
       </FormWrap>
       <ShopLogoWrap>

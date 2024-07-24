@@ -4,15 +4,11 @@ export const ShopWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* position: relative; */
-  /* margin-bottom: 80px; */
-  /* padding-bottom: 80px; */
+
   @media only screen and (min-width: 768px) {
-    /* padding-bottom: 120px; */
   }
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
-    /* padding-bottom: 100px; */
   }
 `;
 
@@ -112,11 +108,6 @@ export const InputWrap = styled.label`
       left: 0;
       overflow: hidden;
       opacity: 0;
-      /* transition: transform 0.3s ease;
-      &:hover,
-      &:focus {
-        transform: scale(1.1);
-      } */
     }
     & > span {
       display: none;
@@ -157,12 +148,6 @@ export const Input = styled.input`
   line-height: 1.5;
   color: var(--black);
   &:last-child {
-    /* visibility: hidden; */
-    /* position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    opacity: 0; */
   }
   &::placeholder {
     color: rgba(29, 30, 33, 0.4);
@@ -173,9 +158,6 @@ export const Input = styled.input`
   }
   @media only screen and (min-width: 768px) {
     width: 200px;
-    /* flex-direction: ${(props) => props.$reg && "row"};
-    flex-wrap: ${(props) => props.$reg && "wrap"};
-    gap: 14px; */
   }
 `;
 
@@ -234,12 +216,12 @@ export const ShopButton = styled.button`
   border: none;
   background-color: var(--green);
   transition: all 0.3s;
-  /* min-width: 100%; */
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
   margin-top: 20px;
-  /* letter-spacing: 0.02em; */
+
   color: var(--white);
   max-width: 155px;
   &:hover,
@@ -256,7 +238,6 @@ export const ShopLogoWrap = styled.div`
   overflow: hidden;
   @media only screen and (min-width: 375px) {
     width: 335px;
-    /* border-radius: 27px; */
   }
   @media only screen and (min-width: 768px) {
     width: 704px;

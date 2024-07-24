@@ -67,18 +67,9 @@ const RegisterPage = () => {
       .then(() => {
         toast.success("Sign up done!");
         navigate("/login");
-        // dispatch(signInThunk({ email, password }))
-        //   .unwrap()
-        //   .then(() => {
-        //     toast.success(`Welcome`);
-        //     navigate("/recommended");
-        //   })
-        //   .catch((err) => toast.error(err));
       })
-      // .catch(() => toast.error("Ooops... Something went wrong!"));
+
       .catch((err) => toast.error(err));
-    // notify();
-    // console.log(name, email, phone, password);
   }
 
   return (

@@ -21,11 +21,9 @@ const authSlice = createSlice({
   },
   reducers: {
     setPath(state, { payload }) {
-      // state.prevPath === state.path;
       state.path = payload;
     },
     setAuthPath(state, { payload }) {
-      // state.prevPath === state.path;
       state.authPath = payload;
     },
   },
@@ -33,10 +31,7 @@ const authSlice = createSlice({
     builder
 
       .addCase(signUpThunk.fulfilled, (state) => {
-        // state.user = payload;
         state.error = null;
-        // state.token = payload.token;
-        // state.refreshToken = payload.refreshToken;
       })
       .addCase(signUpThunk.rejected, (state, { payload }) => {
         state.error = payload;

@@ -74,7 +74,7 @@ export const LinksBlock = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin-top: 0;
-    /* padding-right: 139px; */
+
     flex-grow: 1;
   }
 `;
@@ -99,11 +99,6 @@ export const FooterLink = styled(Link)`
     line-height: 1.25;
   }
   @media only screen and (min-width: 1440px) {
-    /* flex-direction: row;
-    justify-content: space-between;
-    margin-top: 0; */
-    /* padding-right: 139px; */
-    /* flex-grow: 1; */
   }
 `;
 
@@ -145,13 +140,6 @@ export const FooterBottom = styled.div`
     gap: 49px;
     & > :first-child::after,
     :nth-child(2)::after {
-      /* content: "";
-      width: 1px; */
-      /* height: 20px;
-      background: #f7f8fa;
-      opacity: 0.2;
-      position: absolute;
-      top: 0; */
       right: -24px;
     }
   }

@@ -42,10 +42,8 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  /* min-width: 280px; */
+
   @media only screen and (min-width: 375px) {
-    /* width: 335px; */
-    /* border-radius: 27px; */
   }
   @media only screen and (min-width: 768px) {
     max-width: 100%;
@@ -70,7 +68,7 @@ export const InputWrap = styled.label`
   gap: 8px;
   &:first-child {
     border: none;
-    /* background-color: var(--green); */
+
     transition: all 0.3s;
     min-width: 100%;
     gap: 0;
@@ -78,7 +76,6 @@ export const InputWrap = styled.label`
     transition: transform 0.3s ease;
     &:hover,
     &:active {
-      /* background-color: var(--active); */
       transform: scale(1.1);
     }
     & > input {
@@ -89,9 +86,7 @@ export const InputWrap = styled.label`
       overflow: hidden;
       opacity: 0;
     }
-    /* & > span {
-      display: none;
-    } */
+
     @media only screen and (min-width: 768px) {
       margin-bottom: 17px;
     }

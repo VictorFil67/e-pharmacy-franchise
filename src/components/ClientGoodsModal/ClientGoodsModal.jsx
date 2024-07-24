@@ -98,7 +98,6 @@ export const ClientGoodsModal = ({ setModal }) => {
                     price: item.price,
                     suppliers: item.suppliers,
                     productId: item._id,
-                    // productId: item.productId,
                     shopId,
                     description: item.description,
                     reviews: item.reviews,

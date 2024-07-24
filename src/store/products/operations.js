@@ -40,7 +40,6 @@ export const addCatalogProductThunk = createAsyncThunk(
 export const editProductThunk = createAsyncThunk(
   "product/edit",
   async ({ id, productId, formData }, thunkAPI) => {
-    // console.log(body);
     try {
       const { data } = await api.put(
         `shop/${id}/product/${productId}/edit`,
@@ -62,7 +61,6 @@ export const editProductThunk = createAsyncThunk(
 export const deleteProductThunk = createAsyncThunk(
   "product/delete",
   async ({ id, productId }, thunkAPI) => {
-    // console.log(body);
     try {
       const { data } = await api.patch(
         `shop/${id}/product/${productId}/delete`

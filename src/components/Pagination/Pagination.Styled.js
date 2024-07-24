@@ -42,20 +42,17 @@ export const Transit = styled.button`
 export const PaginationWrap = styled.ul`
   display: flex;
   justify-content: space-between;
-  /* gap: 4px; */
+
   width: 100%;
   margin-top: 40px;
   padding-bottom: 24px;
   & > .pagination {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+
     gap: 4px;
-    /* width: 100%; */
   }
   & .page,
-  /* .previous, */
-  /* .next, */
   .break {
     width: 35px;
     height: 35px;

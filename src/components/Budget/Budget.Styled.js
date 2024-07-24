@@ -11,7 +11,6 @@ export const BudgetWrap = styled.div`
   @media screen and (min-width: 1440px) {
     min-height: 100%;
     overflow: auto;
-    /* max-height: 630px; */
   }
 `;
 

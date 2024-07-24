@@ -10,7 +10,7 @@ export const createShopThunk = createAsyncThunk(
           "Content-Type": "multipart/form-data",
         },
       });
-      // delete data.password;
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -23,7 +23,6 @@ export const createShopThunk = createAsyncThunk(
 export const editShopThunk = createAsyncThunk(
   "shop/edit",
   async ({ id, formData }, thunkAPI) => {
-    // console.log(body);
     try {
       const { data } = await api.put(`shop/${id}/update`, formData, {
         headers: {

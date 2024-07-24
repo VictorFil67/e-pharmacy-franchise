@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectProduct } from "../../store/products/selectors";
 import {
   AddToShopButton,
-  // ControlWrap,
   DataWrap,
   ImgWrap,
   InfoWrap,
@@ -22,10 +21,9 @@ export const ProductOverview = () => {
     name,
     price,
     suppliers,
-    // active,
+
     productId,
     shopId,
-    // description,
   } = useSelector(selectProduct);
   const dispatch = useDispatch();
 
@@ -59,23 +57,11 @@ export const ProductOverview = () => {
           </TextWrap>
           <Medicine>&#8372;{price}</Medicine>
         </DataWrap>
-        {/* {active === "Drug store" ? (
-          <ControlWrap>
-            <EditButton onClick={() => setModal(true)}>Edit</EditButton>
-            <DeleteButton onClick={() => setDeleteModal(true)}>
-              Delete
-            </DeleteButton>
-          </ControlWrap>
-        ) : ( */}
-        {/* <ControlAllMedicineWrap> */}
         <AddToShopButton
           onClick={() => addCatalogProduct({ shopId, productId })}
         >
           Add to shop
         </AddToShopButton>
-        {/* <DetailsLink to="/medicine">Details</DetailsLink>
-        </ControlAllMedicineWrap> */}
-        {/* )} */}
       </InfoWrap>
     </ItemWrap>
   );

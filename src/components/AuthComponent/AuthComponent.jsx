@@ -19,9 +19,6 @@ import Pill from "../../images/authImg/Pill.png";
 import Pill2x from "../../images/authImg/Pill@2x.png";
 import TabPill from "../../images/authImg/TabPill.png";
 import TabPill2x from "../../images/authImg/TabPill@2x.png";
-// import SvgElementsTab from "../../images/authImg/SvgElementsTab";
-// import SvgElements from "../../images/authImg/SvgElements";
-// import SvgElementsTab from "../../images/authImg/SvgElementsTab";
 
 export const AuthComponent = ({
   inputs,
