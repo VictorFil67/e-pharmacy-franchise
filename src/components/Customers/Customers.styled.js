@@ -3,30 +3,39 @@ import styled from "styled-components";
 export const TableContainer = styled.div`
   background-color: var(--white);
   border-radius: 8px;
-  /* padding: 14px; */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   border: 1px solid rgba(29, 30, 33, 0.1);
   overflow: auto;
   margin-bottom: 40px;
-  /* width: 80%;
-  margin: auto; */
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const TitleWrap = styled.div`
   background-color: #e7f1ed;
   padding: 14px;
   width: 140%;
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+    width: 100%;
+  }
 `;
 export const Title = styled.h2`
   font-weight: 600;
   font-size: 16px;
   line-height: 1.4;
   color: var(--black);
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.3333;
+  }
 `;
 
 export const TableWrap = styled.div`
   padding: 0 14px;
-  /* border: none; */
+  @media screen and (min-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
 export const Table = styled.table`
@@ -44,10 +53,16 @@ export const Table = styled.table`
     padding: 14px;
     text-align: left;
     border: 1px solid rgba(29, 30, 33, 0.1);
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+    }
   }
   & td {
     border: 1px solid rgba(29, 30, 33, 0.1);
     padding: 30px 7px 30px 14px;
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
   }
   & td:first-child,
   th:first-child {
@@ -57,15 +72,10 @@ export const Table = styled.table`
   }
   & td:last-child,
   th:last-child {
-    /* border-left: none; */
     border-right: none;
-    /* padding-left: 0; */
   }
   & th {
     color: var(--placeholder);
-  }
-  & tr:nth-child(even) {
-    /* background-color: #f9f9f9; */
   }
   & tr:hover {
     background-color: #f1f1f1;
@@ -77,20 +87,20 @@ export const Table = styled.table`
     width: 74px;
     height: 34px;
     background-color: transparent;
-    /* border: none;
-    border-radius: 4px; */
     color: var(--green);
-    /* cursor: pointer; */
     font-weight: 500;
     font-size: 16px;
     line-height: 1.125;
-    /* padding: 8px 12px; */
     text-align: center;
     text-decoration: none;
-    /* display: inline-block; */
   }
   & button:hover {
     background-color: var(--green);
     color: var(--white);
+  }
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    max-width: 100%;
+    height: 512px;
   }
 `;

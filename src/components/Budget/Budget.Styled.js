@@ -13,17 +13,27 @@ export const TitleWrap = styled.div`
   background-color: #e7f1ed;
   padding: 14px;
   width: 100%;
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+  }
 `;
 export const Title = styled.h2`
   font-weight: 600;
   font-size: 16px;
   line-height: 1.4;
   color: var(--black);
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.3333;
+  }
 `;
 
 export const ContentWrap = styled.div`
   padding: 0 14px;
   width: 100%;
+  @media screen and (min-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
 export const Today = styled.p`
@@ -34,6 +44,9 @@ export const Today = styled.p`
   line-height: 1.28571;
   color: rgba(29, 30, 33, 0.4);
   border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+  @media screen and (min-width: 768px) {
+    padding: 20px 0;
+  }
 `;
 export const BudgetItem = styled.li`
   display: flex;
@@ -45,11 +58,15 @@ export const BudgetItem = styled.li`
   line-height: 1.28571;
   color: rgba(29, 30, 33, 0.4); */
   border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+  @media screen and (min-width: 768px) {
+    padding: 20px 0;
+  }
 `;
 export const ActionName = styled.p`
   border-radius: 40px;
   padding: 4px 17px;
-  width: 80px;
+  text-align: center;
+  min-width: 80px;
   height: 23px;
   letter-spacing: -0.05em;
   font-weight: 500;
@@ -66,10 +83,23 @@ export const ActionName = styled.p`
       : props.$type === "Income"
       ? "rgba(89, 177, 122, 0.1)"
       : "rgba(29, 30, 33, 0.1)"};
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 export const ActionDescription = styled.p`
-  max-width: 118px;
+  /* max-width: 118px; */
   color: var(--black);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  max-width: 100%;
+  padding: 0 20px 0 28px;
+  flex-grow: 1;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    padding-left: 40px;
+  }
 `;
 export const ActionSum = styled.p`
   /* padding: 14px 0;
@@ -86,4 +116,8 @@ export const ActionSum = styled.p`
       ? "var(--green)"
       : "var(--black)"};
   text-decoration: ${(props) => props.$type === "Error" && "line-through"};
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.125;
+  }
 `;
