@@ -39,7 +39,6 @@ export const Shop = ({
   const shop = useSelector(selectShop);
   const [value, setValue] = useState("Yes");
   const [fileValue, setFileValue] = useState("");
-  console.log(fileValue);
 
   const handleChange = (event) => {
     setValue(event.target.value);

@@ -16,7 +16,6 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthPath, setPath } from "./store/auth/authSlice";
 import {
-  selectAuthPath,
   selectExpireTime,
   selectPath,
   selectUser,
@@ -36,12 +35,11 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const path = useSelector(selectPath);
-  const authPath = useSelector(selectAuthPath);
+
   const expireTime = useSelector(selectExpireTime);
   const product = useSelector(selectProduct);
   const navigate = useNavigate();
-  console.log(path);
-  console.log(authPath);
+
   useEffect(() => {
     if (pathname !== "/register" && pathname !== "/login") {
       dispatch(setPath(pathname));

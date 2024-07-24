@@ -14,7 +14,6 @@ import {
 
 export const Budget = () => {
   const statisticsResult = useSelector(selectstatisticsResult);
-  console.log(statisticsResult?.income_expenses);
 
   const budget = statisticsResult?.income_expenses;
 

@@ -79,7 +79,6 @@ export const ClientGoodsModal = ({ setModal }) => {
           <div>
             <ClientDataTitle>Email</ClientDataTitle>
             <ClientDataText>{newEmail}</ClientDataText>
-            {console.log(newEmail)}
           </div>
           <div>
             <ClientDataTitle>Spent</ClientDataTitle>

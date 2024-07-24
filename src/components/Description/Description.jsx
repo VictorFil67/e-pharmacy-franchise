@@ -4,7 +4,7 @@ import { selectProduct } from "../../store/products/selectors";
 
 export const Description = () => {
   const { description } = useSelector(selectProduct);
-  console.log(description);
+
   return (
     <>
       {description ? (

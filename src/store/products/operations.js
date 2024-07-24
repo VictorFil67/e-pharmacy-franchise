@@ -4,7 +4,6 @@ import { api } from "../../api/api";
 export const addProductThunk = createAsyncThunk(
   "product/addProduct",
   async ({ id, formData }, thunkAPI) => {
-    console.log(formData);
     try {
       const { data } = await api.post(`/shop/${id}/product/add`, formData, {
         headers: {
@@ -27,7 +26,7 @@ export const addCatalogProductThunk = createAsyncThunk(
       const { data } = await api.put(
         `/shop/${shopId}/product/${productId}/add`
       );
-      console.log(data);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

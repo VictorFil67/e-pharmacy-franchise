@@ -23,7 +23,6 @@ export const EditMedicineModal = ({
 }) => {
   const dispatch = useDispatch();
   const { shopId } = useSelector(selectShop);
-  console.log(name, price, photo, productId);
 
   const inputs = [
     {

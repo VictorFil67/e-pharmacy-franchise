@@ -12,7 +12,6 @@ import SvgPeople from "../../images/statisticsImg/SvgPeople";
 
 export const KeyIndicators = () => {
   const keyIndicators = useSelector(selectstatisticsResult);
-  console.log(keyIndicators);
 
   return (
     <Indexes>
