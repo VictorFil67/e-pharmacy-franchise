@@ -25,10 +25,12 @@ import {
 } from "../../store/statistics/selectors";
 import { setProduct } from "../../store/products/productsSlise";
 import { useEffect, useState } from "react";
+import { selectShop } from "../../store/shops/selectors";
 
 export const ClientGoodsModal = ({ setModal }) => {
   const dispatch = useDispatch();
   const goods = useSelector(selectGoods);
+  const { shopId } = useSelector(selectShop);
   const { name, email, spent } = useSelector(selectClientInfo);
   const [laptop, setLaptop] = useState(window.innerWidth >= 768);
 
@@ -95,7 +97,9 @@ export const ClientGoodsModal = ({ setModal }) => {
                     name: item.name,
                     price: item.price,
                     suppliers: item.suppliers,
-                    _id: item._id,
+                    productId: item._id,
+                    // productId: item.productId,
+                    shopId,
                     description: item.description,
                     reviews: item.reviews,
                   })
