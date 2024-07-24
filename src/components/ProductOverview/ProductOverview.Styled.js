@@ -6,6 +6,16 @@ export const ItemWrap = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-bottom: 8px;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media only screen and (min-width: 1440px) {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 0;
+  }
 `;
 
 export const ImgWrap = styled.div`
@@ -16,18 +26,17 @@ export const ImgWrap = styled.div`
   height: 337px;
   @media only screen and (min-width: 375px) {
     width: 335px;
-    /* border-radius: 27px; */
   }
   @media only screen and (min-width: 768px) {
-    width: 704px;
+    width: 364px;
+    height: 284px;
   }
   @media only screen and (min-width: 1440px) {
-    width: 456px;
-    height: 624px;
-    & > img {
+    height: 337px;
+    /* & > img {
       max-width: 456px;
       height: 100%;
-    }
+    } */
   }
 `;
 
@@ -35,6 +44,7 @@ export const ProductImg = styled.img`
   width: 100%;
   height: 100%;
 `;
+
 export const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -42,11 +52,34 @@ export const InfoWrap = styled.div`
   border-radius: 20px;
   padding: 20px;
   background: var(--white);
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    width: 324px;
+    max-height: 284px;
+    padding: 32px;
+  }
+  @media only screen and (min-width: 1440px) {
+    width: 100%;
+    padding: 20px;
+    flex-direction: column;
+    max-height: fit-content;
+    gap: 20px;
+  }
 `;
 
 export const DataWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  @media only screen and (min-width: 768px) {
+    /* width: 324px;
+    height: 284px; */
+    flex-direction: column;
+  }
+  @media only screen and (min-width: 1440px) {
+    /* width: 100%;
+    padding: 20px; */
+    flex-direction: row;
+  }
 `;
 
 export const TextWrap = styled.div`
@@ -60,6 +93,9 @@ export const Medicine = styled.h2`
   font-size: 16px;
   line-height: 1.4;
   color: var(--black);
+  @media only screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const MedicineBrand = styled.span`
@@ -83,7 +119,11 @@ export const EditButton = styled.button`
   line-height: 1;
   color: #f7f8fa;
   background-color: var(--green);
+  @media only screen and (min-width: 768px) {
+    /* align-self: flex-end; */
+  }
 `;
+
 export const DeleteButton = styled.button`
   border-radius: 24px;
   padding: 10px 16px;
@@ -112,6 +152,16 @@ export const AddToShopButton = styled.button`
   line-height: 1;
   color: #f7f8fa;
   background-color: var(--green);
+  @media only screen and (min-width: 768px) {
+    align-self: flex-end;
+    width: 114px;
+    height: 34px;
+  }
+  @media only screen and (min-width: 1440px) {
+    align-self: flex-start;
+    width: 114px;
+    height: 34px;
+  }
 `;
 
 export const DetailsLink = styled(Link)`

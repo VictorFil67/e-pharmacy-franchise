@@ -7,6 +7,13 @@ export const InfoWrap = styled.div`
   border-radius: 27px;
   padding: 20px 20px 40px;
   background: var(--white);
+  @media only screen and (min-width: 768px) {
+    padding: 32px 32px 64px;
+    gap: 32px;
+  }
+  @media only screen and (min-width: 1440px) {
+    padding: 40px 40px 80px;
+  }
 `;
 export const TabButtonsWrap = styled.div`
   display: flex;

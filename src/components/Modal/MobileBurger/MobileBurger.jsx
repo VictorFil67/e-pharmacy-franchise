@@ -1,4 +1,4 @@
-import "./MobileBurger.Styled.css";
+// import "./MobileBurger.Styled.css";
 import ExitSVG from "../../../images/hederImg/ExitSVG";
 import {
   Backdrop,
