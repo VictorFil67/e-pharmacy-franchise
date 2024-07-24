@@ -12,3 +12,13 @@ export const Title = styled.h1`
   color: var(--black);
   padding-bottom: 40px;
 `;
+
+export const DetailsWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 20px;
+    height: 604px;
+  }
+`;

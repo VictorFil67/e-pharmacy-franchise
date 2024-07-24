@@ -11,7 +11,7 @@ export const HeaderWrap = styled.div`
   }
   @media only screen and (min-width: 1440px) {
     justify-content: flex-start;
-    padding-bottom: 65px;
+    padding-bottom: 100px;
   }
 `;
 export const HeaderLogo = styled(Link)`

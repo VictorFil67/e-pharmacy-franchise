@@ -9,6 +9,9 @@ export const TableContainer = styled.div`
   @media screen and (min-width: 768px) {
     margin-bottom: 20px;
   }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const TitleWrap = styled.div`
@@ -102,5 +105,8 @@ export const Table = styled.table`
     width: 704px;
     max-width: 100%;
     height: 512px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 576px;
   }
 `;

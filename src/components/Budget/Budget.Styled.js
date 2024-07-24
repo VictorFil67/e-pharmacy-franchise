@@ -4,6 +4,15 @@ export const BudgetWrap = styled.div`
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 8px;
   width: 100%;
+  @media screen and (min-width: 1440px) {
+    width: 588px;
+    height: 512px;
+  }
+  @media screen and (min-width: 1440px) {
+    min-height: 100%;
+    overflow: auto;
+    /* max-height: 630px; */
+  }
 `;
 
 export const TitleWrap = styled.div`
