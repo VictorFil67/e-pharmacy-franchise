@@ -10,6 +10,7 @@ export const Title = styled.h1`
   @media only screen and (min-width: 768px) {
     font-size: 28px;
     line-height: 1.14286;
+    margin-bottom: 6px;
   }
 `;
 
@@ -112,6 +113,7 @@ export const AttachPhotoWrap = styled.div`
   display: flex;
   gap: 8px;
   align-self: center;
+  margin-top: 6px;
 `;
 
 export const AttachPhotoStyled = styled(AttachPhotoSVG)``;

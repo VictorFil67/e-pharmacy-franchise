@@ -13,6 +13,7 @@ export const InfoWrap = styled.div`
   }
   @media only screen and (min-width: 1440px) {
     padding: 40px 40px 80px;
+    width: 800px;
   }
 `;
 export const TabButtonsWrap = styled.div`

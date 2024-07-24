@@ -20,7 +20,7 @@ export const Overlay = styled.div`
   }
 `;
 export const Modal = styled.div`
-  width: 88.06%;
+  width: 90%;
   position: relative;
   border: 1px solid rgba(104, 104, 104, 0.2);
   background-color: var(--white);

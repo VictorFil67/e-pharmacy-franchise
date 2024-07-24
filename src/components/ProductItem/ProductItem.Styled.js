@@ -8,6 +8,10 @@ export const ItemWrap = styled.li`
   @media only screen and (min-width: 768px) {
     width: 226px;
   }
+  @media only screen and (min-width: 1440px) {
+    width: 280px;
+    gap: 14px;
+  }
 `;
 
 export const ImgWrap = styled.div`
@@ -21,17 +25,11 @@ export const ImgWrap = styled.div`
     /* border-radius: 27px; */
   }
   @media only screen and (min-width: 768px) {
-    /* min-width: 226px; */
     width: 100%;
     height: 260px;
   }
   @media only screen and (min-width: 1440px) {
-    width: 456px;
-    height: 624px;
-    & > img {
-      max-width: 456px;
-      height: 100%;
-    }
+    height: 280px;
   }
 `;
 
@@ -64,6 +62,9 @@ export const Medicine = styled.h2`
   font-size: 16px;
   line-height: 1.4;
   color: var(--black);
+  @media only screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 export const MedicineBrand = styled.span`

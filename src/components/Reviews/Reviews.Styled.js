@@ -17,6 +17,9 @@ export const ItemWrap = styled.li`
   @media only screen and (min-width: 768px) {
     width: 640px;
   }
+  @media only screen and (min-width: 768px) {
+    width: 100%;
+  }
 `;
 export const Author = styled.h2`
   font-weight: 600;

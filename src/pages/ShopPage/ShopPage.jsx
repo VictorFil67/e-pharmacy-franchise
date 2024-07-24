@@ -28,6 +28,7 @@ import {
   Text,
   TextSpan,
   TextWrap,
+  TopWrap,
 } from "./ShopPage.Styled";
 import AdressSvg from "../../images/shopImg/AdressSvg";
 import PhoneSvg from "../../images/shopImg/PhoneSvg";
@@ -122,34 +123,36 @@ const ShopPage = () => {
   return (
     <ShopPageWrap>
       <ShopWrap>
-        <ShopName>{shop.shopName}</ShopName>
-        <InfoWrap>
-          <DataWrap>
-            <Text>
-              Owner: <TextSpan>{shop?.shopOwnerName}</TextSpan>
-            </Text>
-            <ContactsWrap>
-              <TextWrap>
-                <AdressSvg />
-                <Text>
-                  {shop?.shopCity} {shop?.shopStreet}
-                </Text>
-              </TextWrap>
-              <TextWrap>
-                <PhoneSvg />
-                <Text>{shop?.shopPhone}</Text>
-              </TextWrap>
-            </ContactsWrap>
-          </DataWrap>
-          <EditWrap>
-            <EditLink to="/edit-shop" aria-label="Edit shop">
-              Edit data
-            </EditLink>
-            <AddMedicine onClick={() => setModal(true)}>
-              Add medicine
-            </AddMedicine>
-          </EditWrap>
-        </InfoWrap>
+        <TopWrap>
+          <ShopName>{shop.shopName}</ShopName>
+          <InfoWrap>
+            <DataWrap>
+              <Text>
+                Owner: <TextSpan>{shop?.shopOwnerName}</TextSpan>
+              </Text>
+              <ContactsWrap>
+                <TextWrap>
+                  <AdressSvg />
+                  <Text>
+                    {shop?.shopCity} {shop?.shopStreet}
+                  </Text>
+                </TextWrap>
+                <TextWrap>
+                  <PhoneSvg />
+                  <Text>{shop?.shopPhone}</Text>
+                </TextWrap>
+              </ContactsWrap>
+            </DataWrap>
+            <EditWrap>
+              <EditLink to="/edit-shop" aria-label="Edit shop">
+                Edit data
+              </EditLink>
+              <AddMedicine onClick={() => setModal(true)}>
+                Add medicine
+              </AddMedicine>
+            </EditWrap>
+          </InfoWrap>
+        </TopWrap>
         <ProductsBtnWrap>
           <ProductsBtn
             onClick={() => setactive("Drug store")}

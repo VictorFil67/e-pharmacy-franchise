@@ -16,8 +16,6 @@ export const ProductName = styled.h2`
   margin-bottom: 4px;
   margin-top: 14px;
   @media only screen and (min-width: 768px) {
-    /* font-size: 28px;
-    line-height: 1.14286; */
   }
 `;
 
@@ -26,4 +24,7 @@ export const MedicineBrand = styled.span`
   line-height: 1.5;
   color: rgba(29, 30, 33, 0.6);
   margin-bottom: 30px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 50px;
+  }
 `;

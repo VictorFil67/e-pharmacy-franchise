@@ -17,6 +17,25 @@ export const ShopWrap = styled.div`
   @media only screen and (min-width: 768px) {
     gap: 40px;
   }
+  @media only screen and (min-width: 1440px) {
+    /* flex-direction: row; */
+    /* row-gap: 40px;
+    column-gap: 21px; */
+  }
+`;
+export const TopWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* border-bottom: 1px solid rgba(29, 30, 33, 0.12); */
+  /* padding-bottom: 16px; */
+  @media only screen and (min-width: 768px) {
+    gap: 40px;
+  }
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 export const ShopName = styled.h1`
@@ -30,9 +49,10 @@ export const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  /* @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1440px) {
     flex-direction: row;
-  } */
+    align-items: center;
+  }
 `;
 
 export const DataWrap = styled.div`
@@ -95,7 +115,6 @@ export const ProductsBtnWrap = styled.div`
   margin-top: 20px;
   @media only screen and (min-width: 768px) {
     margin-top: 0;
-    /* padding-left: 10px; */
   }
 `;
 
@@ -176,9 +195,6 @@ export const InputFilter = styled.input`
   }
   @media only screen and (min-width: 768px) {
     width: 224px;
-    /* flex-direction: ${(props) => props.$reg && "row"};
-    flex-wrap: ${(props) => props.$reg && "wrap"};
-    gap: 14px; */
   }
 `;
 
@@ -194,16 +210,13 @@ export const ButtonFilter = styled.button`
   justify-content: center;
   border-radius: 60px;
   align-items: center;
-  /* padding: 13px 28px; */
   padding: 13px;
   border: none;
   background-color: var(--green);
   transition: all 0.3s;
-  /* min-width: 100%; */
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
-  /* margin-top: 20px; */
   color: #f7f8fa;
   width: 116px;
   height: 44px;
@@ -227,6 +240,10 @@ export const ProductList = styled.ul`
     flex-direction: row;
     gap: 13px;
     flex-wrap: wrap;
+  }
+  @media only screen and (min-width: 1440px) {
+    row-gap: 40px;
+    column-gap: 21px;
   }
 `;
 

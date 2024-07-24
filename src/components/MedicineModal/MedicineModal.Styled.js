@@ -14,6 +14,7 @@ export const Overlay = styled.div`
   z-index: 1;
   overflow: auto;
   @media only screen and (min-width: 768px) {
+    /* padding: 50px; */
   }
   @media only screen and (min-width: 1280px) {
   }
@@ -39,10 +40,11 @@ export const Modal = styled.div`
   @media only screen and (min-width: 768px) {
     padding: 50px;
     max-width: 568px;
+    gap: 10px;
   }
   @media only screen and (min-width: 1440px) {
-    padding: 40px;
-    width: 708px;
+    /* padding: 40px; */
+    /* width: 708px; */
   }
 `;
 export const CloseButton = styled.button`
