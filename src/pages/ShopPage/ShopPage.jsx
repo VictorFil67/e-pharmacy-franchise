@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  // selectAllProducts,
-  selectShop,
-  // selectShopProducts,
-  selectShops,
-} from "../../store/shops/selectors";
+import { selectShop, selectShops } from "../../store/shops/selectors";
 import {
   getAllProductsThunk,
   getShopProductsThunk,
@@ -17,14 +12,12 @@ import {
   ButtonFilter,
   ContactsWrap,
   DataWrap,
-  // Edge,
   EditLink,
   EditWrap,
   FilterWrap,
   InfoWrap,
   InputFilter,
   InputWrap,
-  // Pagination,
   ProductList,
   ProductsBtn,
   ProductsBtnWrap,
@@ -41,7 +34,6 @@ import PhoneSvg from "../../images/shopImg/PhoneSvg";
 import { ProductItem } from "../../components/ProductItem/ProductItem";
 import { createPortal } from "react-dom";
 import { MedicineModal } from "../../components/MedicineModal/MedicineModal";
-// import { PaginatedItems } from "../../components/Pagination/PaginatedItems";
 import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
 import FilterSvg from "../../images/shopImg/FilterSvg";
 import { setPage, setShopPage } from "../../store/shops/shopSlise";

@@ -29,18 +29,20 @@ export const IndexItem = styled.li`
     width: 221px;
     height: 108px;
   }
+  @media screen and (min-width: 1440px) {
+    max-width: 240px;
+    width: 240px;
+  }
 `;
 export const IndexTitleWrap = styled.div`
   display: flex;
   gap: 8px;
-  /* padding: 14px; */
   width: 157px;
   height: 98px;
 
   border-radius: 8px;
 `;
 export const IndexTitle = styled.p`
-  /* font-weight: 600; */
   font-size: 12px;
   line-height: 1.16667;
   color: var(--placeholder);

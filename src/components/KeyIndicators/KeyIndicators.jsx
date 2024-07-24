@@ -11,13 +11,9 @@ import SvgMoney from "../../images/statisticsImg/SvgMoney";
 import SvgPeople from "../../images/statisticsImg/SvgPeople";
 
 export const KeyIndicators = () => {
-  //   const {
-  //     all_products: products,
-  //     all_customers: customers,
-  //     suppliers,
-  //   } = useSelector(selectKeyIndicators);
   const keyIndicators = useSelector(selectstatisticsResult);
   console.log(keyIndicators);
+
   return (
     <Indexes>
       <IndexItem>

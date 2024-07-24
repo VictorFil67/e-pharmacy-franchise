@@ -42,9 +42,7 @@ export const Customers = () => {
   }, [modal]);
 
   return (
-    <TableContainer
-    //    class="table-container"
-    >
+    <TableContainer>
       {" "}
       <TitleWrap>
         <Title>Recent Customers</Title>
