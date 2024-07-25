@@ -59,7 +59,9 @@ export const AuthComponent = ({
                   type={el.type}
                   {...register(el.name)}
                 ></Input>
-                <ErrorSpan>{errors[register(el.name).name]?.message}</ErrorSpan>
+                <ErrorSpan $reg>
+                  {errors[register(el.name).name]?.message}
+                </ErrorSpan>
               </InputWrap>
             ))}
           </InputBlockWrap>

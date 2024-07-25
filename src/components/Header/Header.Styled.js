@@ -32,6 +32,16 @@ export const HeaderLogoText = styled.span`
 `;
 export const HeaderLinkWraper = styled.div`
   display: none;
+  /* & > div:first-child > a {
+    background-color: ${(props) =>
+    (props.$path === "/create-shop" || props.$path === "/edit-shop") &&
+    "var(--green)"};
+    color: #93939a;
+  } */
+  /* & > div:first-child > a.active {
+    background: transparent;
+    color: #93939a;
+  } */
   @media only screen and (min-width: 1440px) {
     position: relative;
     display: flex;
@@ -90,7 +100,32 @@ export const HeaderLink = styled(NavLink)`
     color: #fff;
     background-color: #59b17a;
   }
+
+  background-color: ${(props) =>
+    (props.$path === "/create-shop" || props.$path === "/edit-shop") &&
+    "var(--green)"};
+  color: ${(props) =>
+    props.$path === "/shop" ||
+    props.$path === "/create-shop" ||
+    (props.$path === "/edit-shop" && "var(--white)")};
 `;
+export const HeaderLinkMed = styled(NavLink)`
+  background: transparent;
+  border-radius: 24px;
+  padding: 8px 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: #93939a;
+  &.active {
+    color: #fff;
+    background-color: #59b17a;
+  }
+  /* 
+  background-color: ${(props) => props.$path === "/shop" && "var(--green)"};
+  color: ${(props) => props.$path === "/shop" && "var(--white)"}; */
+`;
+
 export const BurgerButton = styled.button`
   display: block;
   @media only screen and (min-width: 1440px) {

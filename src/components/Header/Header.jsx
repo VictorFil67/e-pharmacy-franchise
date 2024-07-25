@@ -5,6 +5,7 @@ import BurgerMobileSVG from "../../images/hederImg/BurgerMobileSVG";
 import {
   BurgerButton,
   HeaderLink,
+  HeaderLinkMed,
   HeaderLinkWraper,
   HeaderLogAut,
   HeaderLogo,
@@ -13,7 +14,11 @@ import {
   LinkContainer,
 } from "./Header.Styled";
 import { useDispatch, useSelector } from "react-redux";
-import { selectToken, selectUser } from "../../store/auth/selectors";
+import {
+  selectPath,
+  selectToken,
+  selectUser,
+} from "../../store/auth/selectors";
 import { logoutThunk } from "../../store/auth/operations";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -23,6 +28,7 @@ const Header = () => {
   const user = useSelector(selectUser);
   const shop = useSelector(selectShop);
   const token = useSelector(selectToken);
+  const path = useSelector(selectPath);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [MobileBurgerMenu, setMobileBurgerMenu] = useState(false);
@@ -68,15 +74,20 @@ const Header = () => {
               <LinkContainer>
                 <HeaderLink
                   to={shop ? "/shop" : "/create-shop"}
+                  $path={path}
                   aria-label="Create shop"
                 >
                   Shop
                 </HeaderLink>
               </LinkContainer>
               <LinkContainer>
-                <HeaderLink to="/medicine" aria-label="Medicine">
+                <HeaderLinkMed
+                  to={shop ? "/medicine" : "/create-shop"}
+                  $path={path}
+                  aria-label="Medicine"
+                >
                   Medicine
-                </HeaderLink>
+                </HeaderLinkMed>
               </LinkContainer>
               <LinkContainer>
                 <HeaderLink to="/statistics" aria-label="Statistics">

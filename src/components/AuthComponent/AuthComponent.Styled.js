@@ -116,6 +116,9 @@ export const ErrorSpan = styled.span`
   font-size: 10px;
   font-weight: 500;
   line-height: 1.2;
+  @media only screen and (min-width: 768px) {
+    width: ${(props) => (props.$reg ? "280px" : "323px")};
+  }
 `;
 
 export const AuthButtonWrap = styled.div`

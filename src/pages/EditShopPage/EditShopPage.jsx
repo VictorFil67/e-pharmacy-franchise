@@ -20,7 +20,7 @@ const schema = yup.object({
 
 const EditShopPage = () => {
   const dispatch = useDispatch();
-  const { shopId } = useSelector(selectShop);
+  const shop = useSelector(selectShop);
 
   const inputs = [
     {
@@ -89,7 +89,7 @@ const EditShopPage = () => {
       }
     }
 
-    dispatch(editShopThunk({ id: shopId, formData }))
+    dispatch(editShopThunk({ id: shop.shopId, formData }))
       .unwrap()
       .then(() => {
         toast.success("The shop has been edited!");
