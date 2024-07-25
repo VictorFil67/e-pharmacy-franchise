@@ -6,6 +6,8 @@ import { Shop } from "../../components/Shop/Shop";
 import { editShopThunk } from "../../store/shops/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectShop } from "../../store/shops/selectors";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const schema = yup.object({
   shopName: yup.string(),
@@ -21,6 +23,13 @@ const schema = yup.object({
 const EditShopPage = () => {
   const dispatch = useDispatch();
   const shop = useSelector(selectShop);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!shop) {
+      navigate("/create-shop");
+    }
+  }, [shop, navigate]);
 
   const inputs = [
     {

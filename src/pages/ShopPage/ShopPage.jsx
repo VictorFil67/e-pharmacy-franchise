@@ -42,7 +42,7 @@ import { Pagination } from "../../components/Pagination/Pagination";
 
 const ShopPage = () => {
   const dispatch = useDispatch();
-  const { shopId } = useSelector(selectShop);
+  // const { shopId } = useSelector(selectShop);
   const shop = useSelector(selectShop);
   const { shopProducts, allProducts, total, shopTotal, page, shopPage } =
     useSelector(selectShops);
@@ -52,6 +52,7 @@ const ShopPage = () => {
   const [limit, setlimit] = useState(12);
   const [modal, setModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  // console.log(shopId);
 
   useEffect(() => {
     window.innerWidth <= 767 ? setlimit(8) : setlimit(12);
@@ -65,7 +66,7 @@ const ShopPage = () => {
   };
 
   useEffect(() => {
-    dispatch(getShopThunk(shopId))
+    dispatch(getShopThunk(shop?.shopId))
       .unwrap()
       .then(() => {
         toast.success(`Welcome to your own shop!`);
@@ -75,13 +76,13 @@ const ShopPage = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(getShopProductsThunk({ id: shopId, limit, page: shopPage }))
+    dispatch(getShopProductsThunk({ id: shop?.shopId, limit, page: shopPage }))
       .unwrap()
       .then(() => {
         toast.success(`The products of your shop are received`);
       })
       .catch(() => toast.error(`Ooops... Something went wrong!`));
-  }, [dispatch, shopId, limit, shopPage]);
+  }, [dispatch, shop, limit, shopPage]);
 
   useEffect(() => {
     const query = { ...queryFilter, limit, page };
@@ -124,7 +125,7 @@ const ShopPage = () => {
     <ShopPageWrap>
       <ShopWrap>
         <TopWrap>
-          <ShopName>{shop.shopName}</ShopName>
+          <ShopName>{shop?.shopName}</ShopName>
           <InfoWrap>
             <DataWrap>
               <Text>
@@ -201,7 +202,7 @@ const ShopPage = () => {
                 price={product.price}
                 suppliers={product.suppliers}
                 active={active}
-                shopId={shopId}
+                shopId={shop?.shopId}
                 productId={product._id}
                 description={product.description}
                 reviews={product.reviews}
@@ -215,7 +216,7 @@ const ShopPage = () => {
                 price={product.price}
                 suppliers={product.suppliers}
                 active={active}
-                shopId={shopId}
+                shopId={shop?.shopId}
                 productId={product._id}
                 description={product.description}
                 reviews={product.reviews}

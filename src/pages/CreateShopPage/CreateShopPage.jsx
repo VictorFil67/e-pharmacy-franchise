@@ -95,7 +95,7 @@ const CreateShopPage = () => {
       if (key === "shopLogoURL" && data[key][0]) {
         formData.append(key, data[key][0]); // Append the file object
       } else if (key === "shopLogoURL" && !data[key][0]) {
-        alert("No file selected");
+        alert("Choose a logo for your shop");
         return;
       } else {
         formData.append(key, data[key]);

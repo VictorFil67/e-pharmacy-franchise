@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import "./App.css";
 import { Loader } from "./components/Loader/Loader";
 import {
@@ -11,8 +11,17 @@ import {
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
 import Layout from "./components/Layout/Layout";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
+const CreateShopPage = lazy(() =>
+  import("./pages/CreateShopPage/CreateShopPage")
+);
+const ShopPage = lazy(() => import("./pages/ShopPage/ShopPage"));
+const EditShopPage = lazy(() => import("./pages/EditShopPage/EditShopPage"));
+const MedicinePage = lazy(() => import("./pages/MedicinePage/MedicinePage"));
+const StatisticsPage = lazy(() =>
+  import("./pages/StatisticsPage/StatisticsPage")
+);
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthPath, setPath } from "./store/auth/authSlice";
 import {
@@ -22,15 +31,15 @@ import {
 } from "./store/auth/selectors";
 import { currentThunk, refreshTokensThunk } from "./store/auth/operations";
 import { toast } from "react-toastify";
-import CreateShopPage from "./pages/CreateShopPage/CreateShopPage";
-import ShopPage from "./pages/ShopPage/ShopPage";
-import EditShopPage from "./pages/EditShopPage/EditShopPage";
-import MedicinePage from "./pages/MedicinePage/MedicinePage";
+// import CreateShopPage from "./pages/CreateShopPage/CreateShopPage";
+// import ShopPage from "./pages/ShopPage/ShopPage";
+// import EditShopPage from "./pages/EditShopPage/EditShopPage";
+// import MedicinePage from "./pages/MedicinePage/MedicinePage";
 import { selectProduct } from "./store/products/selectors";
-import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
+// import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 
 function App() {
-  const loading = useSelector((state) => state.loading.loading);
+  // const loading = useSelector((state) => state.loading.loading);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -73,7 +82,7 @@ function App() {
 
   return (
     <>
-      {loading && <Loader />}
+      {/* {loading && <Loader />} */}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>

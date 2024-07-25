@@ -11,7 +11,6 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/authSlice";
-import { loadingReducer } from "./loading/loadingSlice";
 import { shopsReducer } from "./shops/shopSlise";
 import { productsReducer } from "./products/productsSlise";
 import { statisticsReducer } from "./statistics/statisticsSlice";
@@ -20,34 +19,19 @@ const persistConfig = {
   key: "auth",
   version: 1,
   storage,
-  whitelist: ["token", "refreshToken", "expireTime"],
+  whitelist: ["token", "refreshToken", "expireTime", "path"],
 };
-const persistConfigShops = {
-  key: "shops",
-  version: 1,
-  storage,
-  whitelist: ["shop"],
-};
-const persistConfigProducts = {
-  key: "products",
-  version: 1,
-  storage,
-  whitelist: ["product"],
-};
+
 const persistedReducer = persistReducer(persistConfig, authReducer);
-const persistedReducerShops = persistReducer(persistConfigShops, shopsReducer);
-const persistedReducerProducts = persistReducer(
-  persistConfigProducts,
-  productsReducer
-);
 
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    shops: persistedReducerShops,
-    products: persistedReducerProducts,
+    shops: shopsReducer,
+
+    products: productsReducer,
+
     statistics: statisticsReducer,
-    loading: loadingReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

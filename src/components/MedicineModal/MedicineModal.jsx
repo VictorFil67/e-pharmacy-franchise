@@ -58,7 +58,7 @@ export const MedicineModal = ({ setModal }) => {
         toast.success("Congratulations! The medicine is added successfully!");
         reset();
         setModal(false);
-        dispatch(getShopProductsThunk(shopId))
+        dispatch(getShopProductsThunk({ id: shopId }))
           .unwrap()
           .then(() => {
             toast.success(`The products of your shop are received`);

@@ -101,30 +101,30 @@ export const HeaderLink = styled(NavLink)`
     background-color: #59b17a;
   }
 
-  background-color: ${(props) =>
+  /* background-color: ${(props) =>
     (props.$path === "/create-shop" || props.$path === "/edit-shop") &&
     "var(--green)"};
   color: ${(props) =>
     props.$path === "/shop" ||
     props.$path === "/create-shop" ||
-    (props.$path === "/edit-shop" && "var(--white)")};
+    (props.$path === "/edit-shop" && "var(--white)")}; */
 `;
-export const HeaderLinkMed = styled(NavLink)`
-  background: transparent;
-  border-radius: 24px;
-  padding: 8px 20px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 100%;
-  color: #93939a;
-  &.active {
-    color: #fff;
-    background-color: #59b17a;
-  }
-  /* 
+// export const HeaderLinkMed = styled(NavLink)`
+//   background: transparent;
+//   border-radius: 24px;
+//   padding: 8px 20px;
+//   font-weight: 400;
+//   font-size: 14px;
+//   line-height: 100%;
+//   color: #93939a;
+//   &.active {
+//     color: #fff;
+//     background-color: #59b17a;
+//   }
+/* 
   background-color: ${(props) => props.$path === "/shop" && "var(--green)"};
   color: ${(props) => props.$path === "/shop" && "var(--white)"}; */
-`;
+// `;
 
 export const BurgerButton = styled.button`
   display: block;

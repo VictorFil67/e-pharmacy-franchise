@@ -62,7 +62,9 @@ export const ProductItem = ({
           })
           .catch((err) => toast.error(err));
       })
-      .catch((err) => toast.error(err));
+      .catch((err) =>
+        toast.error(shopId ? err : "You need to create your own shop!")
+      );
   }
 
   useEffect(() => {

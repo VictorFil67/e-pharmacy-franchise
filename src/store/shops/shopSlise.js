@@ -13,6 +13,7 @@ const shopsSlice = createSlice({
   initialState: {
     shop: null,
     shopProducts: [],
+    prevShopProducts: [],
     allProducts: [],
     total: 0,
     shopTotal: 0,
@@ -76,6 +77,7 @@ const shopsSlice = createSlice({
         state.error = null;
       })
       .addCase(getShopProductsThunk.fulfilled, (state, { payload }) => {
+        state.prevShopProducts = [...state.shopProducts];
         state.shopProducts = payload.result;
         state.shopTotal = payload.total;
       })

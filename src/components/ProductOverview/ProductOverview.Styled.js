@@ -135,7 +135,7 @@ export const ControlAllMedicineWrap = styled.div`
 
 export const AddToShopButton = styled.button`
   border-radius: 24px;
-  padding: 10px 16px;
+  padding: 10px 8px;
   width: 146px;
   height: 44px;
   font-weight: 500;

@@ -5,7 +5,7 @@ import BurgerMobileSVG from "../../images/hederImg/BurgerMobileSVG";
 import {
   BurgerButton,
   HeaderLink,
-  HeaderLinkMed,
+  // HeaderLinkMed,
   HeaderLinkWraper,
   HeaderLogAut,
   HeaderLogo,
@@ -15,20 +15,20 @@ import {
 } from "./Header.Styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectPath,
+  // selectPath,
   selectToken,
   selectUser,
 } from "../../store/auth/selectors";
 import { logoutThunk } from "../../store/auth/operations";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { selectShop } from "../../store/shops/selectors";
+// import { selectShop } from "../../store/shops/selectors";
 
 const Header = () => {
   const user = useSelector(selectUser);
-  const shop = useSelector(selectShop);
+  // const shop = useSelector(selectShop);
   const token = useSelector(selectToken);
-  const path = useSelector(selectPath);
+  // const path = useSelector(selectPath);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [MobileBurgerMenu, setMobileBurgerMenu] = useState(false);
@@ -73,21 +73,18 @@ const Header = () => {
             <HeaderLinkWraper>
               <LinkContainer>
                 <HeaderLink
-                  to={shop ? "/shop" : "/create-shop"}
-                  $path={path}
+                  to="/shop"
+                  // to={shop ? "/shop" : "/create-shop"}
+                  // $path={path}
                   aria-label="Create shop"
                 >
                   Shop
                 </HeaderLink>
               </LinkContainer>
               <LinkContainer>
-                <HeaderLinkMed
-                  to={shop ? "/medicine" : "/create-shop"}
-                  $path={path}
-                  aria-label="Medicine"
-                >
+                <HeaderLink to="/medicine" aria-label="Medicine">
                   Medicine
-                </HeaderLinkMed>
+                </HeaderLink>
               </LinkContainer>
               <LinkContainer>
                 <HeaderLink to="/statistics" aria-label="Statistics">

@@ -7,11 +7,15 @@ const PublicRoute = ({ children }) => {
   const user = useSelector(selectUser);
   const path = useSelector(selectPath);
   const shop = useSelector(selectShop);
-
   if (!user) {
     return children;
   }
-  return <Navigate to={!shop ? "/create-shop" : path ?? "/"} />;
+  console.log(user, shop);
+  if (user && !shop) {
+    return <Navigate to={"/create-shop"} />;
+  } else if (user && shop) {
+    return <Navigate to={path ?? "/"} />;
+  }
 };
 
 export default PublicRoute;
