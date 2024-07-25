@@ -23,6 +23,7 @@ const CategoriesFilter = ({ selectedOption, setSelectedOption }) => {
       aria-label="Filter for the categories"
       placeholder="Product category"
       defaultValue={selectedOption}
+      classNamePrefix="category-select"
     />
   );
 };

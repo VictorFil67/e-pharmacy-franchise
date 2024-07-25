@@ -12,7 +12,7 @@ export const FilterSelect = styled(Select)`
     font-size: 14px;
     line-height: 1.128571;
   }
-  .css-13cymwt-control {
+  .category-select__control {
     background-color: var(--white);
     box-shadow: #3e3e3e;
     border-radius: 60px;
@@ -39,15 +39,23 @@ export const FilterSelect = styled(Select)`
     caret-color: transparent;
   }
 
-  .css-1dimb5e-singleValue {
+  .category-select__single-value {
     color: var(--black);
   }
+  .category-select__control.category-select__control--menu-is-open
+    ~ .category-select__indicator {
+    transform: rotate(180deg);
+  }
+  .category-select__indicator {
+    transition: transform 1s ease;
+    transform: rotate(0deg);
+  }
 
-  .css-1okebmr-indicatorSeparator {
+  .category-select__indicatorSeparator {
     display: none;
   }
 
-  .css-tlfecz-indicatorContainer {
+  .category-select-indicatorContainer {
     color: var(--black);
     padding-right: 17px;
 
@@ -60,14 +68,14 @@ export const FilterSelect = styled(Select)`
     }
   }
 
-  .css-1n7v3ny-option {
+  .category-select__option {
     color: var(--green);
     background-color: var(--white);
     cursor: pointer;
-    padding: 0 0 4px 0;
+    padding: 4px 15px 4px;
 
     &:last-child {
-      padding-bottom: 0px;
+      padding-bottom: 15px;
     }
 
     &:active {
@@ -79,10 +87,10 @@ export const FilterSelect = styled(Select)`
     }
   }
 
-  .css-1dimb5e-menu {
+  .category-select__menu {
     border-radius: 15px;
     background-color: var(--white);
-    padding: 18px;
+    padding: 10px;
   }
 
   .css-14el2xx-placeholder {
