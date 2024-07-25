@@ -39,16 +39,27 @@ export const FilterSelect = styled(Select)`
     caret-color: transparent;
   }
 
-  .category-select__single-value {
-    color: var(--black);
-  }
-  .category-select__control.category-select__control--menu-is-open
-    ~ .category-select__indicator {
+  .category-select__control--menu-is-open .category-select__indicator {
     transform: rotate(180deg);
   }
+
+  .category-select__single-value {
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
   .category-select__indicator {
-    transition: transform 1s ease;
     transform: rotate(0deg);
+    color: var(--black);
+    &:hover {
+      transform: rotate(180deg);
+    }
+
+    &:active {
+      transform: rotate(180deg);
+    }
   }
 
   .category-select__indicatorSeparator {
@@ -72,10 +83,13 @@ export const FilterSelect = styled(Select)`
     color: var(--green);
     background-color: var(--white);
     cursor: pointer;
-    padding: 4px 15px 4px;
+    padding: 1px 10px 1px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
 
     &:last-child {
-      padding-bottom: 15px;
+      padding-bottom: 5px;
     }
 
     &:active {
@@ -93,11 +107,14 @@ export const FilterSelect = styled(Select)`
     padding: 10px;
   }
 
-  .css-14el2xx-placeholder {
+  .category-select__placeholder {
     color: rgba(29, 30, 33, 0.4);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
   }
 
-  .css-1ljtfdb-MenuList {
+  .category-select__menuList {
     color: var(--white);
 
     ::-webkit-scrollbar {
