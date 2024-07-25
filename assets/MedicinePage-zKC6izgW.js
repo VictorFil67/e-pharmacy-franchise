@@ -1,4 +1,4 @@
-import{p as i,L as y,d as u,C as f,u as j,j as e,m as k,B as h,h as z,r as v}from"./index-BdF_sfFs.js";import{P}from"./Pagination-CJECtgOa.js";const D=i.div`
+import{p as i,L as y,d as u,C as f,u as j,j as e,m as k,B as h,h as z,r as v}from"./index-CL0YKYDY.js";import{P}from"./Pagination-DM1fe9UQ.js";const D=i.div`
   display: flex;
   flex-direction: column;
   gap: 8px;

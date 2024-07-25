@@ -1,4 +1,4 @@
-import{j as p,p as S,L as Tn,r as b,u as Pe,d as _e,e as Pt,f as Ar,B as F,h as Ie,i as $r,k as _r,l as He,m as Hr,n as zr,o as Nr,R as Yt,q as Br,t as Wr,v as Gt,w as Ur,x as Yr}from"./index-BdF_sfFs.js";import{u as Dn}from"./index.esm-DD6VahM_.js";import{C as It}from"./CloseSVG--Dz5_jJ_.js";import{P as qt}from"./Pagination-CJECtgOa.js";function Gr(t){var e=Object.create(null);return function(r){return e[r]===void 0&&(e[r]=t(r)),e[r]}}const qr=t=>p.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:16,height:16,fill:"none",...t,children:p.jsx("path",{stroke:"#1D1E21",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.5,d:"M7.333 12.667A5.333 5.333 0 1 0 7.333 2a5.333 5.333 0 0 0 0 10.667ZM14 14l-2.9-2.9"})}),Kr=S.div`
+import{j as p,p as S,L as Tn,r as b,u as Pe,d as _e,e as Pt,f as Ar,B as F,h as Ie,i as $r,k as _r,l as He,m as Hr,n as zr,o as Nr,R as Yt,q as Br,t as Wr,v as Gt,w as Ur,x as Yr}from"./index-CL0YKYDY.js";import{u as Dn}from"./index.esm-BmTzlNPA.js";import{C as It}from"./CloseSVG-DyvztKXd.js";import{P as qt}from"./Pagination-DM1fe9UQ.js";function Gr(t){var e=Object.create(null);return function(r){return e[r]===void 0&&(e[r]=t(r)),e[r]}}const qr=t=>p.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:16,height:16,fill:"none",...t,children:p.jsx("path",{stroke:"#1D1E21",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.5,d:"M7.333 12.667A5.333 5.333 0 1 0 7.333 2a5.333 5.333 0 0 0 0 10.667ZM14 14l-2.9-2.9"})}),Kr=S.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -720,16 +720,27 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     caret-color: transparent;
   }
 
-  .category-select__single-value {
-    color: var(--black);
-  }
-  .category-select__control.category-select__control--menu-is-open
-    ~ .category-select__indicator {
+  .category-select__control--menu-is-open .category-select__indicator {
     transform: rotate(180deg);
   }
+
+  .category-select__single-value {
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
   .category-select__indicator {
-    transition: transform 1s ease;
     transform: rotate(0deg);
+    color: var(--black);
+    &:hover {
+      transform: rotate(180deg);
+    }
+
+    &:active {
+      transform: rotate(180deg);
+    }
   }
 
   .category-select__indicatorSeparator {
@@ -753,10 +764,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     color: var(--green);
     background-color: var(--white);
     cursor: pointer;
-    padding: 4px 15px 4px;
+    padding: 1px 10px 1px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
 
     &:last-child {
-      padding-bottom: 15px;
+      padding-bottom: 5px;
     }
 
     &:active {
@@ -774,11 +788,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     padding: 10px;
   }
 
-  .css-14el2xx-placeholder {
+  .category-select__placeholder {
     color: rgba(29, 30, 33, 0.4);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
   }
 
-  .css-1ljtfdb-MenuList {
+  .category-select__menuList {
     color: var(--white);
 
     ::-webkit-scrollbar {
