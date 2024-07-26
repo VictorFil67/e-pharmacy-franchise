@@ -14,7 +14,7 @@ export const FilterSelect = styled(Select)`
   }
   .category-select__control {
     background-color: var(--white);
-    box-shadow: #3e3e3e;
+    box-shadow: 0 0 0 0 rgba(29, 30, 33, 0.1);
     border-radius: 60px;
     width: 100%;
     padding-left: 10px;
@@ -32,6 +32,10 @@ export const FilterSelect = styled(Select)`
     }
 
     &:active {
+      border-color: var(--green);
+      outline: none;
+    }
+    &:focus-within {
       border-color: var(--green);
       outline: none;
     }
@@ -123,17 +127,20 @@ export const FilterSelect = styled(Select)`
 
     ::-webkit-scrollbar-track {
       border-radius: 10px;
-      background: rgba(255, 255, 255, 0.05);
+      background: red;
+      /* background: rgba(255, 255, 255, 0.05); */
     }
 
     ::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      background: rgba(18, 20, 23, 0.05);
+      background: red;
+      /* background: rgba(18, 20, 23, 0.05); */
     }
 
     ::-webkit-scrollbar-thumb:hover {
       border-radius: 10px;
-      background: rgba(7, 8, 9, 0.05);
+      background: red;
+      /* background: rgba(7, 8, 9, 0.05); */
     }
   }
 `;
