@@ -1,4 +1,4 @@
-import{j as p,p as S,L as Tn,r as b,u as Pe,d as _e,e as Pt,f as Ar,B as F,h as Ie,i as $r,k as _r,l as He,m as Hr,n as zr,o as Nr,R as Yt,q as Br,t as Wr,v as Gt,w as Ur,x as Yr}from"./index-CL0YKYDY.js";import{u as Dn}from"./index.esm-BmTzlNPA.js";import{C as It}from"./CloseSVG-DyvztKXd.js";import{P as qt}from"./Pagination-DM1fe9UQ.js";function Gr(t){var e=Object.create(null);return function(r){return e[r]===void 0&&(e[r]=t(r)),e[r]}}const qr=t=>p.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:16,height:16,fill:"none",...t,children:p.jsx("path",{stroke:"#1D1E21",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.5,d:"M7.333 12.667A5.333 5.333 0 1 0 7.333 2a5.333 5.333 0 0 0 0 10.667ZM14 14l-2.9-2.9"})}),Kr=S.div`
+import{j as p,p as S,L as Tn,r as b,u as Pe,d as _e,e as Pt,f as Ar,B as F,h as Ie,i as $r,k as _r,l as He,m as Hr,n as zr,o as Nr,R as Yt,q as Br,t as Wr,v as Gt,w as Ur,x as Yr}from"./index-D6v6Krqq.js";import{u as Dn}from"./index.esm-DiWvHfaJ.js";import{C as It}from"./CloseSVG-BaIszodK.js";import{P as qt}from"./Pagination-CLAaXxr3.js";function Gr(t){var e=Object.create(null);return function(r){return e[r]===void 0&&(e[r]=t(r)),e[r]}}const qr=t=>p.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:16,height:16,fill:"none",...t,children:p.jsx("path",{stroke:"#1D1E21",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.5,d:"M7.333 12.667A5.333 5.333 0 1 0 7.333 2a5.333 5.333 0 0 0 0 10.667ZM14 14l-2.9-2.9"})}),Kr=S.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -695,7 +695,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
   .category-select__control {
     background-color: var(--white);
-    box-shadow: #3e3e3e;
+    box-shadow: 0 0 0 0 rgba(29, 30, 33, 0.1);
     border-radius: 60px;
     width: 100%;
     padding-left: 10px;
@@ -713,6 +713,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     &:active {
+      border-color: var(--green);
+      outline: none;
+    }
+    &:focus-within {
       border-color: var(--green);
       outline: none;
     }
@@ -804,17 +808,20 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 
     ::-webkit-scrollbar-track {
       border-radius: 10px;
-      background: rgba(255, 255, 255, 0.05);
+      background: red;
+      /* background: rgba(255, 255, 255, 0.05); */
     }
 
     ::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      background: rgba(18, 20, 23, 0.05);
+      background: red;
+      /* background: rgba(18, 20, 23, 0.05); */
     }
 
     ::-webkit-scrollbar-thumb:hover {
       border-radius: 10px;
-      background: rgba(7, 8, 9, 0.05);
+      background: red;
+      /* background: rgba(7, 8, 9, 0.05); */
     }
   }
 `,$l=[{value:"Medicine",label:"Medicine"},{value:"Head",label:"Head"},{value:"Dental Care",label:"Dental Care"},{value:"Leg",label:"Leg"},{value:"Heart",label:"Heart"},{value:"Hand",label:"Hand"},{value:"Skin Care",label:"Skin Care"},{value:null,label:"All Medicines"}],_l=({selectedOption:t,setSelectedOption:e})=>p.jsx(Al,{onChange:e,name:"filter",components:{IndicatorSeparator:()=>null},options:$l,"aria-label":"Filter for the categories",placeholder:"Product category",defaultValue:t,classNamePrefix:"category-select"}),Hl=t=>p.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:14,height:14,fill:"none",...t,children:p.jsx("path",{stroke:"#fff",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:1.5,d:"M12.83 1.75H1.165l4.667 5.518v3.815l2.333 1.167V7.268l4.667-5.518Z"})}),Ul=()=>{const t=Pe(),e=_e(Pt),{shopProducts:r,allProducts:i,total:n,shopTotal:o,page:s,shopPage:c}=_e(Br),[a,l]=b.useState("Drug store"),[u,d]=b.useState(null),[g,h]=b.useState(""),[x,m]=b.useState(12),[f,v]=b.useState(!1),[y,O]=b.useState(0);b.useEffect(()=>{window.innerWidth<=767?m(8):m(12)},[]);const k={category:u==null?void 0:u.value,q:g,limit:x,page:1};b.useEffect(()=>{t(Wr(e==null?void 0:e.shopId)).unwrap().then(()=>{F.success("Welcome to your own shop!")}).catch(()=>F.error("Ooops... Something went wrong!"))},[]),b.useEffect(()=>{t(Ie({id:e==null?void 0:e.shopId,limit:x,page:c})).unwrap().then(()=>{F.success("The products of your shop are received")}).catch(()=>F.error("Ooops... Something went wrong!"))},[t,e,x,c]),b.useEffect(()=>{const w={...k,limit:x,page:s};t(Gt(w)).unwrap().then(()=>{F.success("All the products are received")}).catch(()=>F.error("Ooops... Something went wrong!"))},[t,x,s]),b.useEffect(()=>{f?document.body.style.overflow="hidden":document.body.style.overflow="auto"},[f]);const V=w=>{h(w.target.value)},E=Math.ceil(a==="All medicine"?n/x:o/x),C=w=>{O(w.selected)};return b.useEffect(()=>{t(a==="All medicine"?Ur(y+1):Yr(y+1))},[t,y,a]),p.jsxs(Kr,{children:[p.jsxs(Xr,{children:[p.jsxs(Zr,{children:[p.jsx(Jr,{children:e==null?void 0:e.shopName}),p.jsxs(Qr,{children:[p.jsxs(ei,{children:[p.jsxs(ct,{children:["Owner: ",p.jsx(ti,{children:e==null?void 0:e.shopOwnerName})]}),p.jsxs(ni,{children:[p.jsxs(Kt,{children:[p.jsx(pi,{}),p.jsxs(ct,{children:[e==null?void 0:e.shopCity," ",e==null?void 0:e.shopStreet]})]}),p.jsxs(Kt,{children:[p.jsx(hi,{}),p.jsx(ct,{children:e==null?void 0:e.shopPhone})]})]})]}),p.jsxs(ri,{children:[p.jsx(ii,{to:"/edit-shop","aria-label":"Edit shop",children:"Edit data"}),p.jsx(ai,{onClick:()=>v(!0),children:"Add medicine"})]})]})]}),p.jsxs(oi,{children:[p.jsx(Xt,{onClick:()=>l("Drug store"),$act:a==="Drug store",children:"Drug store"}),p.jsx(Xt,{onClick:()=>l("All medicine"),$act:a==="All medicine",children:"All medicine"})]})]}),a==="All medicine"&&p.jsxs(si,{children:[p.jsx(_l,{selectedOption:u,setSelectedOption:d}),p.jsxs(li,{children:[p.jsx(ci,{type:"text",placeholder:"Search medicine",onChange:V}),p.jsx(ui,{})]}),p.jsxs(di,{type:"submit",onClick:()=>t(Gt(k)),children:[p.jsx(Hl,{}),p.jsx("span",{children:"Filter"})]})]}),p.jsx(fi,{children:a==="Drug store"?r.map(w=>p.jsx(nn,{photo:w.photo,name:w.name,price:w.price,suppliers:w.suppliers,active:a,shopId:e==null?void 0:e.shopId,productId:w._id,description:w.description,reviews:w.reviews},w._id)):i.map(w=>p.jsx(nn,{photo:w.photo,name:w.name,price:w.price,suppliers:w.suppliers,active:a,shopId:e==null?void 0:e.shopId,productId:w._id,description:w.description,reviews:w.reviews},w._id))}),a==="All medicine"&&n>x&&p.jsx(qt,{currentPage:y,setCurrentPage:O,pageCount:E,handlePageClick:C}),a==="Drug store"&&o>x&&p.jsx(qt,{currentPage:y,setCurrentPage:O,pageCount:E,handlePageClick:C}),f&&He.createPortal(p.jsx(Ni,{setModal:v}),document.body)]})};export{Ul as default};
