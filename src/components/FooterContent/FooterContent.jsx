@@ -40,9 +40,15 @@ const FooterContent = () => {
         </LogoBlock>
         <LinksBlock>
           <PagesLinks>
-            <FooterLink>Shop</FooterLink>
-            <FooterLink>Medicine</FooterLink>
-            <FooterLink>Statistics</FooterLink>
+            <FooterLink to="/shop" aria-label="Create shop">
+              Shop
+            </FooterLink>
+            <FooterLink to="/medicine" aria-label="Medicine">
+              Medicine
+            </FooterLink>
+            <FooterLink to="/statistics" aria-label="Statistics">
+              Statistics
+            </FooterLink>
           </PagesLinks>
           <MediaLinks>
             <FooterLink
